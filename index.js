@@ -58,8 +58,9 @@ const codes = {
 };
 
 Object.entries(codes).forEach(([message, code]) => {
-  module.exports[message] = (result) => ({
+  module.exports[message] = (result, headers = {}) => ({
     statusCode: code,
+    headers,
     body: result ? JSON.stringify(result) : null,
   });
 });
