@@ -13,6 +13,7 @@ describe('lambda-returns', () => {
     test('ok', () => {
       expect(module.ok({ status: 'success' })).toEqual({
         statusCode: 200,
+        headers: {},
         body: JSON.stringify({ status: 'success' }),
       });
     });
@@ -20,6 +21,7 @@ describe('lambda-returns', () => {
     test('noContent', () => {
       expect(module.noContent()).toEqual({
         statusCode: 204,
+        headers: {},
         body: null,
       });
     });
@@ -29,6 +31,7 @@ describe('lambda-returns', () => {
         module.badRequest({ error: 'argument foo was not provided' })
       ).toEqual({
         statusCode: 400,
+        headers: {},
         body: JSON.stringify({ error: 'argument foo was not provided' }),
       });
     });
