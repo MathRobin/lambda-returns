@@ -10,10 +10,5 @@ ignorePatterns:
 extends:
   - eslint:recommended
   - prettier
-  - plugin:security/recommended
 parserOptions:
   ecmaVersion: 2021
-rules:
-  security/detect-object-injection: 0
-  security/detect-non-literal-fs-filename: 0
-  security/detect-non-literal-require: 0
