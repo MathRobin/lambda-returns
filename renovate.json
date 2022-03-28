@@ -25,7 +25,8 @@
         "minor"
       ],
       "groupName": "all minor dependencies",
-      "groupSlug": "all-minor"
+      "groupSlug": "all-minor",
+      "automerge": true
     }
   ]
 }
