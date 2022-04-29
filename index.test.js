@@ -18,6 +18,16 @@ describe('lambda-returns', () => {
       });
     });
 
+    test('ok with headers', () => {
+      expect(module.ok({ status: 'success' }, { Content: 'json' })).toEqual({
+        statusCode: 200,
+        headers: {
+          Content: 'json',
+        },
+        body: JSON.stringify({ status: 'success' }),
+      });
+    });
+
     test('noContent', () => {
       expect(module.noContent()).toEqual({
         statusCode: 204,

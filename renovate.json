@@ -5,6 +5,7 @@
   "lockFileMaintenance": {
     "enabled": true
   },
+  "ignoreDeps": ["node-fetch"],
   "packageRules": [
     {
       "matchPackagePatterns": [
@@ -24,9 +25,21 @@
       "matchUpdateTypes": [
         "minor"
       ],
-      "groupName": "all minor dependencies",
+      "matchDepTypes": ["devDependencies"],
+      "groupName": "all minor devDependencies",
       "groupSlug": "all-minor",
       "automerge": true
+    },
+    {
+      "matchPackagePatterns": [
+        "*"
+      ],
+      "matchUpdateTypes": [
+        "minor"
+      ],
+      "matchDepTypes": ["dependencies"],
+      "groupName": "all minor non-dev dependencies",
+      "groupSlug": "all-minor"
     }
   ]
 }
