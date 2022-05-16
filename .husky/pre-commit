@@ -2,7 +2,5 @@
 . "$(dirname "$0")/_/husky.sh"
 
 yarn lint
-yarn build
 yarn test
-yarn add ./index.esm.js
-yarn add ./index.cjs
+git add index.esm.js index.cjs
