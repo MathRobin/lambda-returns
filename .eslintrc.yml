@@ -13,6 +13,7 @@ extends:
   - plugin:security/recommended
 parserOptions:
   ecmaVersion: 2021
+  sourceType: module
 rules:
   security/detect-object-injection: 0
   security/detect-non-literal-fs-filename: 0

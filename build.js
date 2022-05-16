@@ -1,5 +1,8 @@
+import fs from 'fs';
+
 const codes = {
-  continue: 100,
+  // can't be exported as it uses a reserved word
+  // "continue": 100,
   switchingProtocols: 101,
   processing: 102,
   ok: 200,
@@ -57,10 +60,26 @@ const codes = {
   networkAuthenticationRequired: 511,
 };
 
+const exportsEsm = [];
+const exportsCjs = [];
+
 Object.entries(codes).forEach(([message, code]) => {
-  module.exports[message] = (result, headers = {}) => ({
-    statusCode: code,
+  exportsEsm.push(`export const ${message} = (result, headers = {}) => ({
+    statusCode: ${code},
     headers,
     body: result ? JSON.stringify(result) : null,
-  });
+  });`);
+
+  exportsCjs.push(`module.exports.${message} = (result, headers = {}) => ({
+    statusCode: ${code},
+    headers,
+    body: result ? JSON.stringify(result) : null,
+  });`);
+});
+
+fs.writeFile('./index.esm.js', exportsEsm.join('\n\n'), () => {
+  console.log('Version ES Module generated');
+});
+fs.writeFile('./index.cjs', exportsCjs.join('\n\n'), () => {
+  console.log('Version CommonJs generated');
 });
