@@ -6,7 +6,7 @@ describe('lambda-returns', () => {
   });
 
   test('length check', () => {
-    expect(Object.keys(module).length).toBe(55);
+    expect(Object.keys(module).length).toBe(111);
   });
 
   describe('some methods', () => {
