@@ -1,8 +1,7 @@
 import fs from 'fs';
 
 const codes = {
-  // can't be exported as it uses a reserved word
-  // "continue": 100,
+  continue: 100,
   switchingProtocols: 101,
   processing: 102,
   ok: 200,
@@ -63,18 +62,41 @@ const codes = {
 const exportsEsm = [];
 const exportsCjs = [];
 
-Object.entries(codes).forEach(([message, code]) => {
-  exportsEsm.push(`export const ${message} = (result, headers = {}) => ({
-    statusCode: ${code},
-    headers,
-    body: result ? JSON.stringify(result) : null,
-  });`);
+function capitalizeFirstLetter(string) {
+  return string[0].toUpperCase() + string.slice(1);
+}
 
-  exportsCjs.push(`module.exports.${message} = (result, headers = {}) => ({
+Object.entries(codes)
+  .filter(([message]) => {
+    // can't be exported as it uses a reserved word
+    return message !== 'continue';
+  })
+  .forEach(([message, code]) => {
+    exportsEsm.push(`export const ${message} = (result, headers = {}) => ({
     statusCode: ${code},
     headers,
     body: result ? JSON.stringify(result) : null,
-  });`);
+});`);
+
+    exportsCjs.push(`module.exports.${message} = (result, headers = {}) => ({
+    statusCode: ${code},
+    headers,
+    body: result ? JSON.stringify(result) : null,
+});`);
+  });
+
+Object.entries(codes).forEach(([message, code]) => {
+  exportsEsm.push(`export const is${capitalizeFirstLetter(
+    message
+  )} = (response) => {
+    return response.statusCode === ${code};
+};`);
+
+  exportsCjs.push(`module.exports.is${capitalizeFirstLetter(
+    message
+  )} = (response) => {
+    return response.statusCode === ${code};
+};`);
 });
 
 fs.writeFile('./index.esm.js', exportsEsm.join('\n\n'), () => {

@@ -3,7 +3,7 @@
   "version": "2.0.3",
   "main": "index.cjs",
   "module": "index.esm.js",
-  "typings": "./index.d.ts",
+  "types": "./index.esm.d.ts",
   "repository": "git@github.com:MathRobin/lambda-returns.git",
   "author": "MathRobin <mthrobin@gmail.com>",
   "license": "MIT",
@@ -11,7 +11,7 @@
   "sideEffects": false,
   "type": "module",
   "scripts": {
-    "build": "node build.js",
+    "build": "node build.js; npx -p typescript tsc ./index.esm.js --declaration --allowJs --emitDeclarationOnly --outDir .",
     "lint": "eslint . && eslint -c .eslintrc.tests.yml",
     "testCjs": "jest --coverage -c jest.config.cjs --coverageDirectory coverage_cjs",
     "testEsm": "NODE_OPTIONS=--experimental-vm-modules npx jest --coverage -c jest.config.esm.js",
@@ -26,7 +26,8 @@
     "eslint-plugin-security": "1.5.0",
     "husky": "8.0.1",
     "jest": "28.1.0",
-    "prettier": "2.6.2"
+    "prettier": "2.6.2",
+    "typescript": "4.7.4"
   },
   "dependencies": {}
 }
