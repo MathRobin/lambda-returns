@@ -1,11 +1,10 @@
 {
   "extends": [
-    "config:base", ":dependencyDashboard"
+    "config:base"
   ],
   "lockFileMaintenance": {
     "enabled": true
   },
-  "ignoreDeps": ["node-fetch"],
   "packageRules": [
     {
       "matchPackagePatterns": [
