@@ -2,17 +2,38 @@
   "extends": [
     "config:base"
   ],
-  "lockFileMaintenance": {
-    "enabled": true
+  "encrypted": {
+    "npmToken": "wcFMA/xDdHCJBTolAQ//Vcd5aV+LPVV1uWSProb5/tPxNCb/P7dEmUzfX4X+22e4v6PJLdN2K9Ojbx4vf6Vp99Gsbs+MhpY635nK99CPukgNdLxotXodf0HOKZaGomqNPkAzc1q3JJwirw7OOVwG+smic7K5wutvwYCVARd2Z/zsVxP34/7dqaJp68mvyJy8qJh2JOXVB9mC6l2nU3Gelpea7Zr9HrQ3DUWBCymgfSjGTjuqMXbLDGD+zXI9a7UFlTgPVk1OzAkk7JKLzQ+vohBbrQj9TEaY9ap0NFRDQp49VNtly+o4VBoCOoguBU0ZO38yVcoGXueTHKcSBpWWrAJ12Lr2az96a8BQr2Kwc3NgKBSkUioctWgEzkXodD2SR+3PQ2kqghpezteEKG1X+s2nEnLAQMr8XLkTzuEc+XZsgY3sDEKgA/1pf3N8HswsKbScn3Pb1eke1phXPPt8JIOoZicbWO9ZYHNHpqPKWMjYRpFe4LM+IknBVn61GYRsczmWafWvx6TNt7kVSW5qX4TAXw8f9iA6WQxNsSI1xpd2HCpXHbFK8GcXuvgOi9ifnmNXunPQJ+bjIt5q//HETDadOz37o7sQKv3LZMgbxymXoQ2nxuJqFmWzHSZ3jnRRzZcnE5C4b1OayOZn5tJ7GZvbshbpCwO9wwsV5SPHldtqQOad/1Wb2TyWFcsc0TfSeQGGfevW815yZ6LW0ERM/XlPq4DGt4jEWXusv5YcPLcFUbW4JafQou58qF6nf3cLXOoXaeZrShyVCWU6aYkqqCNBU/yTakk1xekSe5Ai0KF68JRRmvwlJ1+S9RPEoL6H8fBySt9kxWOzzVNHs8AnyfqizCLlGCxdcko"
   },
+  "lockFileMaintenance": {
+    "enabled": true,
+    "automerge": true
+  },
+  "ignoreDeps": ["node-fetch", "serverless-offline"],
   "packageRules": [
+    {
+      "matchManagers": ["nvm"],
+      "enabled": false
+    },
+    {
+      "matchDatasources": [
+        "docker"
+      ],
+      "matchPackagePatterns": ["mysql", "node"],
+      "enabled": false
+    },
+    {
+      "matchDatasources": [
+        "docker"
+      ],
+      "matchPackagePatterns": ["mysql", "node"],
+      "enabled": false
+    },
     {
       "matchPackagePatterns": [
         "*"
       ],
-      "matchUpdateTypes": [
-        "patch"
-      ],
+      "matchUpdateTypes": ["patch"],
       "groupName": "all patch dependencies",
       "groupSlug": "all-patch",
       "automerge": true
@@ -28,17 +49,6 @@
       "groupName": "all minor devDependencies",
       "groupSlug": "all-minor",
       "automerge": true
-    },
-    {
-      "matchPackagePatterns": [
-        "*"
-      ],
-      "matchUpdateTypes": [
-        "minor"
-      ],
-      "matchDepTypes": ["dependencies"],
-      "groupName": "all minor non-dev dependencies",
-      "groupSlug": "all-minor"
     }
   ]
 }
