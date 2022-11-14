@@ -23,13 +23,6 @@
       "enabled": false
     },
     {
-      "matchDatasources": [
-        "docker"
-      ],
-      "matchPackagePatterns": ["mysql", "node"],
-      "enabled": false
-    },
-    {
       "matchPackagePatterns": [
         "*"
       ],
