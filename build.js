@@ -75,13 +75,13 @@ Object.entries(codes)
     exportsEsm.push(`export const ${message} = (result, headers = {}) => ({
     statusCode: ${code},
     headers,
-    body: result ? JSON.stringify(result) : null,
+    body: result ? typeof result === 'string' ? result : JSON.stringify(result) : null,
 });`);
 
     exportsCjs.push(`module.exports.${message} = (result, headers = {}) => ({
     statusCode: ${code},
     headers,
-    body: result ? JSON.stringify(result) : null,
+    body: result ? typeof result === 'string' ? result : JSON.stringify(result) : null,
 });`);
   });
 
