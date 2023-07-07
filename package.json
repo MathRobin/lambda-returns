@@ -7,8 +7,8 @@
   "repository": "git@github.com:MathRobin/lambda-returns.git",
   "author": "MathRobin <mthrobin@gmail.com>",
   "license": "MIT",
-  "private": false,
   "sideEffects": false,
+  "packageManager": "yarn@3.6.1",
   "type": "module",
   "scripts": {
     "build": "node build.js; npx -p typescript tsc ./index.esm.js --declaration --allowJs --emitDeclarationOnly --outDir .",
@@ -19,7 +19,6 @@
     "test": "yarn testCjs; yarn testEsm",
     "prepare": "husky install"
   },
-  "dependencies": {},
   "devDependencies": {
     "@types/node": "18.14.2",
     "eslint": "8.35.0",

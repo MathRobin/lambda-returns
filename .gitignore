@@ -1,5 +1,6 @@
 # Don't edit this part
 
+.yarn/cache/*.zip
 coverage_cjs
 
 # Created by https://www.toptal.com/developers/gitignore/api/node,intellij+all,yarn
