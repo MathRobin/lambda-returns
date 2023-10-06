@@ -3,4 +3,4 @@
 
 yarn lint
 yarn test
-git add index.esm.js index.cjs index.esm.d.ts
+git add index.js index.d.ts

@@ -3,12 +3,12 @@
  * https://jestjs.io/docs/configuration
  */
 
-module.exports = {
+export default {
+  bail: true,
+  transform: {},
   clearMocks: true,
   collectCoverage: true,
-  coverageDirectory: "coverage",
-  coverageProvider: "v8",
-  testMatch: [
-    "**/index.test.cjs"
-  ]
+  coverageDirectory: 'coverage',
+  coverageProvider: 'v8',
+  testMatch: ['**/index.test.js'],
 };
