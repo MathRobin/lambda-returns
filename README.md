@@ -82,12 +82,14 @@ You don't have to remember status code values. Just the name which is more "mena
 - insufficientStorage
 - partialContent
 - imATeapot
-  . You ? Me no. And don't want/need to.
+
+You ? Me no. And don't want/need to.
 
 ### Stop polluting your business logic
 
 Moreover, into vanilla AWS lambda way, you need to return a string as body. But just stringify your result is dangerous,
 if you have a dynamic result, maybe is null, maybe is undefined, maybe you already have a string.
+
 
 F*ck! I don't want to care of it in my business logic! `lambda-returns` manages it for you.
 
@@ -97,8 +99,7 @@ There is only one known pitfall. We can't technically export "continue" status d
 JavaScript.
 
 ```javascript
-export const continue
-= {}; // or whatever;
+export const continue = {}; // or whatever;
 ```
 
 This is just forbidden. If you knwon any way to go over this problem, tell me.
