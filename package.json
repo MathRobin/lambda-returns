@@ -1,33 +1,37 @@
 {
   "name": "lambda-returns",
-  "version": "2.2.1",
-  "main": "index.cjs",
-  "module": "index.esm.js",
-  "types": "./index.esm.d.ts",
+  "version": "3.0.4",
+  "main": "index.js",
+  "module": "index.js",
+  "types": "./index.d.ts",
   "repository": "git@github.com:MathRobin/lambda-returns.git",
   "author": "MathRobin <mthrobin@gmail.com>",
   "license": "MIT",
   "sideEffects": false,
-  "packageManager": "yarn@3.6.4",
+  "packageManager": "yarn@4.0.2",
   "type": "module",
+  "engines": {
+    "node": "18.18.2"
+  },
   "scripts": {
-    "build": "node build.js; npx -p typescript tsc ./index.esm.js --declaration --allowJs --emitDeclarationOnly --outDir .",
-    "lint": "eslint .",
-    "testCjs": "jest --coverage -c jest.config.cjs --coverageDirectory coverage_cjs",
-    "testEsm": "NODE_OPTIONS=--experimental-vm-modules npx jest --coverage -c jest.config.esm.js",
-    "pretest": "yarn build",
-    "publish": "yarn build && yarn npm publish && git add package.json yarn.lock",
-    "test": "yarn testCjs; yarn testEsm",
-    "prepare": "husky install"
+    "lint": "eslint . --ext .json,.js",
+    "postupgrade": "git add package.json yarn.lock",
+    "prepare": "husky install",
+    "prettier": "prettier --check ./",
+    "prettier:write": "prettier --write .yarnrc.yml package.json",
+    "publish": "yarn npm publish && git add package.json yarn.lock && git ci 'feat(version): bump' && git push && git st",
+    "test": "yarn node --experimental-vm-modules $(yarn bin jest) --runInBand"
   },
   "devDependencies": {
+    "@babel/eslint-parser": "7.23.3",
+    "@babel/plugin-syntax-import-assertions": "7.23.3",
     "@types/node": "18.14.2",
     "eslint": "8.35.0",
     "eslint-config-prettier": "9.0.0",
     "eslint-plugin-jest": "27.4.2",
+    "eslint-plugin-json": "3.1.0",
     "husky": "8.0.3",
     "jest": "29.7.0",
-    "prettier": "3.0.3",
-    "typescript": "5.2.2"
+    "prettier": "3.0.3"
   }
 }
