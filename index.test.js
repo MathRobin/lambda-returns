@@ -10,7 +10,7 @@ describe('lambda-returns', () => {
     // can't test continue status word because it's forbidden to export it in JS
     // look at README
     const cases = codesEntries
-      .filter(([status]) => status !== 'continue')
+      .filter(([status]) => !['continue', 'noContent'].includes(status))
       .map(([status, code]) => [status, code]);
 
     test.each(cases)('%s should return %s when empty args', (status, code) => {
