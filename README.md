@@ -14,22 +14,20 @@ ESM only since v3. Typings included.
 Deadly simple
 
 ```javascript
-import { ok, internalServerError } from "lambda-returns";
+import { ok, internalServerError } from 'lambda-returns';
 
 export default async () => {
   try {
-
     return ok({
-      status: "success"
+      status: 'success',
     });
   } catch (err) {
-
     return internalServerError({
-      status: "error",
-      error: err
+      status: 'error',
+      error: err,
     });
   }
-}
+};
 ```
 
 instead of that non-funny code:
@@ -37,24 +35,22 @@ instead of that non-funny code:
 ```javascript
 export default async () => {
   try {
-
     return {
       statusCode: 200,
       body: JSON.stringify({
-        status: "success"
+        status: 'success',
       }),
     };
   } catch (err) {
-
     return {
       statusCode: 500,
       body: JSON.stringify({
-        status: "error",
-        error: err
+        status: 'error',
+        error: err,
       }),
     };
   }
-}
+};
 ```
 
 ### Test helpers methods
@@ -63,7 +59,7 @@ Not enough for you? For me too. This package provides a simple way to test your 
 handler method.
 
 ```javascript
-import { isOk, isBadRequest } from "lambda-returns";
+import { isOk, isBadRequest } from 'lambda-returns';
 
 expect(isOk(result)).toBeTruthy();
 expect(isBadRequest(result)).toBeTruthy();
@@ -90,8 +86,7 @@ You ? Me no. And don't want/need to.
 Moreover, into vanilla AWS lambda way, you need to return a string as body. But just stringify your result is dangerous,
 if you have a dynamic result, maybe is null, maybe is undefined, maybe you already have a string.
 
-
-F*ck! I don't want to care of it in my business logic! `lambda-returns` manages it for you.
+F\*ck! I don't want to care of it in my business logic! `lambda-returns` manages it for you.
 
 ## Cons
 
@@ -104,4 +99,4 @@ export const continue = {}; // or whatever;
 
 This is just forbidden. If you knwon any way to go over this problem, tell me.
 
-Despite to this problem, test helper method `isContinue` is available. 
+Despite to this problem, test helper method `isContinue` is available.
