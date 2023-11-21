@@ -600,3 +600,10 @@ export function isBandwidthLimitExceeded(response: unknown): boolean;
 export function isNotExtended(response: unknown): boolean;
 
 export function isNetworkAuthenticationRequired(response: unknown): boolean;
+
+export class HEADERS {
+  corsBasic: {
+    'Access-Control-Allow-Origin': '*';
+    'Access-Control-Allow-Credentials': true;
+  };
+}
