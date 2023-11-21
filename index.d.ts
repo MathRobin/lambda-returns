@@ -1,5 +1,5 @@
 export function switchingProtocols<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 101;
@@ -8,7 +8,7 @@ export function switchingProtocols<T>(
 };
 
 export function processing<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 102;
@@ -17,7 +17,7 @@ export function processing<T>(
 };
 
 export function ok<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 200;
@@ -26,7 +26,7 @@ export function ok<T>(
 };
 
 export function created<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 201;
@@ -35,7 +35,7 @@ export function created<T>(
 };
 
 export function accepted<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 202;
@@ -44,7 +44,7 @@ export function accepted<T>(
 };
 
 export function nonAuthoritativeInformation<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 203;
@@ -58,7 +58,7 @@ export function noContent<T>(headers?: T): {
 };
 
 export function resetContent<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 205;
@@ -67,7 +67,7 @@ export function resetContent<T>(
 };
 
 export function partialContent<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 206;
@@ -76,7 +76,7 @@ export function partialContent<T>(
 };
 
 export function multiStatus<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 207;
@@ -85,7 +85,7 @@ export function multiStatus<T>(
 };
 
 export function multipleChoices<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 300;
@@ -94,7 +94,7 @@ export function multipleChoices<T>(
 };
 
 export function movedPermanently<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 301;
@@ -103,7 +103,7 @@ export function movedPermanently<T>(
 };
 
 export function movedTemporarily<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 302;
@@ -112,7 +112,7 @@ export function movedTemporarily<T>(
 };
 
 export function seeOther<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 303;
@@ -121,7 +121,7 @@ export function seeOther<T>(
 };
 
 export function notModified<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 304;
@@ -130,7 +130,7 @@ export function notModified<T>(
 };
 
 export function useProxy<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 305;
@@ -139,7 +139,7 @@ export function useProxy<T>(
 };
 
 export function temporaryRedirect<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 307;
@@ -148,7 +148,7 @@ export function temporaryRedirect<T>(
 };
 
 export function badRequest<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 400;
@@ -157,7 +157,7 @@ export function badRequest<T>(
 };
 
 export function unauthorized<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 401;
@@ -166,7 +166,7 @@ export function unauthorized<T>(
 };
 
 export function paymentRequired<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 402;
@@ -175,7 +175,7 @@ export function paymentRequired<T>(
 };
 
 export function forbidden<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 403;
@@ -184,7 +184,7 @@ export function forbidden<T>(
 };
 
 export function notFound<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 404;
@@ -193,7 +193,7 @@ export function notFound<T>(
 };
 
 export function methodNotAllowed<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 405;
@@ -202,7 +202,7 @@ export function methodNotAllowed<T>(
 };
 
 export function notAcceptable<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 406;
@@ -211,7 +211,7 @@ export function notAcceptable<T>(
 };
 
 export function proxyAuthenticationRequired<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 407;
@@ -220,7 +220,7 @@ export function proxyAuthenticationRequired<T>(
 };
 
 export function requestTimeOut<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 408;
@@ -229,7 +229,7 @@ export function requestTimeOut<T>(
 };
 
 export function conflict<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 409;
@@ -238,7 +238,7 @@ export function conflict<T>(
 };
 
 export function gone<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 410;
@@ -247,7 +247,7 @@ export function gone<T>(
 };
 
 export function lengthRequired<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 411;
@@ -256,7 +256,7 @@ export function lengthRequired<T>(
 };
 
 export function preconditionFailed<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 412;
@@ -265,7 +265,7 @@ export function preconditionFailed<T>(
 };
 
 export function requestEntityTooLarge<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 413;
@@ -274,7 +274,7 @@ export function requestEntityTooLarge<T>(
 };
 
 export function requestUriTooLarge<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 414;
@@ -283,7 +283,7 @@ export function requestUriTooLarge<T>(
 };
 
 export function unsupportedMediaType<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 415;
@@ -292,7 +292,7 @@ export function unsupportedMediaType<T>(
 };
 
 export function requestedRangeNotSatisfiable<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 416;
@@ -301,7 +301,7 @@ export function requestedRangeNotSatisfiable<T>(
 };
 
 export function expectationFailed<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 417;
@@ -310,7 +310,7 @@ export function expectationFailed<T>(
 };
 
 export function imATeapot<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 418;
@@ -319,7 +319,7 @@ export function imATeapot<T>(
 };
 
 export function unprocessableEntity<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 422;
@@ -328,7 +328,7 @@ export function unprocessableEntity<T>(
 };
 
 export function locked<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 423;
@@ -337,7 +337,7 @@ export function locked<T>(
 };
 
 export function failedDependency<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 424;
@@ -346,7 +346,7 @@ export function failedDependency<T>(
 };
 
 export function unorderedCollection<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 425;
@@ -355,7 +355,7 @@ export function unorderedCollection<T>(
 };
 
 export function upgradeRequired<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 426;
@@ -364,7 +364,7 @@ export function upgradeRequired<T>(
 };
 
 export function preconditionRequired<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 428;
@@ -373,7 +373,7 @@ export function preconditionRequired<T>(
 };
 
 export function tooManyRequests<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 429;
@@ -382,7 +382,7 @@ export function tooManyRequests<T>(
 };
 
 export function requestHeaderFieldsTooLarge<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 431;
@@ -391,7 +391,7 @@ export function requestHeaderFieldsTooLarge<T>(
 };
 
 export function internalServerError<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 500;
@@ -400,7 +400,7 @@ export function internalServerError<T>(
 };
 
 export function notImplemented<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 501;
@@ -409,7 +409,7 @@ export function notImplemented<T>(
 };
 
 export function badGateway<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 502;
@@ -418,7 +418,7 @@ export function badGateway<T>(
 };
 
 export function serviceUnavailable<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 503;
@@ -427,7 +427,7 @@ export function serviceUnavailable<T>(
 };
 
 export function gatewayTimeOut<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 504;
@@ -436,7 +436,7 @@ export function gatewayTimeOut<T>(
 };
 
 export function httpVersionNotSupported<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 505;
@@ -445,7 +445,7 @@ export function httpVersionNotSupported<T>(
 };
 
 export function variantAlsoNegotiates<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 506;
@@ -454,7 +454,7 @@ export function variantAlsoNegotiates<T>(
 };
 
 export function insufficientStorage<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 507;
@@ -463,7 +463,7 @@ export function insufficientStorage<T>(
 };
 
 export function bandwidthLimitExceeded<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 509;
@@ -472,7 +472,7 @@ export function bandwidthLimitExceeded<T>(
 };
 
 export function notExtended<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 510;
@@ -481,7 +481,7 @@ export function notExtended<T>(
 };
 
 export function networkAuthenticationRequired<T>(
-  result: unknown,
+  result?: unknown,
   headers?: T
 ): {
   statusCode: 511;

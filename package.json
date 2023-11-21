@@ -1,6 +1,6 @@
 {
   "name": "lambda-returns",
-  "version": "3.0.6",
+  "version": "3.0.7",
   "main": "index.js",
   "module": "index.js",
   "types": "./index.d.ts",
