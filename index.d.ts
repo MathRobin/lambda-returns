@@ -601,9 +601,9 @@ export function isNotExtended(response: unknown): boolean;
 
 export function isNetworkAuthenticationRequired(response: unknown): boolean;
 
-export class HEADERS {
-  corsBasic: {
-    'Access-Control-Allow-Origin': '*';
-    'Access-Control-Allow-Credentials': true;
+export namespace HEADERS {
+  const corsBasic: {
+    'Access-Control-Allow-Origin': string;
+    'Access-Control-Allow-Credentials': boolean;
   };
 }
