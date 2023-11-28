@@ -1,491 +1,497 @@
-export function switchingProtocols<T>(
+export class HttpHeaders {
+  'Access-Control-Allow-Origin'?: '*' | string;
+  'Access-Control-Allow-Credentials'?: boolean;
+  Accept?: 'application/json' | 'text/html' | 'image/*' | '*/*' | string;
+}
+
+export function switchingProtocols(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 101;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function processing<T>(
+export function processing(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 102;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function ok<T>(
+export function ok(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 200;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function created<T>(
+export function created(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 201;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function accepted<T>(
+export function accepted(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 202;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function nonAuthoritativeInformation<T>(
+export function nonAuthoritativeInformation(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 203;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function noContent<T>(headers?: T): {
+export function noContent(headers?: HttpHeaders): {
   statusCode: 204;
-  headers: T | {};
+  headers: HttpHeaders;
 };
 
-export function resetContent<T>(
+export function resetContent(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 205;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function partialContent<T>(
+export function partialContent(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 206;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function multiStatus<T>(
+export function multiStatus(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 207;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function multipleChoices<T>(
+export function multipleChoices(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 300;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function movedPermanently<T>(
+export function movedPermanently(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 301;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function movedTemporarily<T>(
+export function movedTemporarily(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 302;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function seeOther<T>(
+export function seeOther(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 303;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function notModified<T>(
+export function notModified(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 304;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function useProxy<T>(
+export function useProxy(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 305;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function temporaryRedirect<T>(
+export function temporaryRedirect(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 307;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function badRequest<T>(
+export function badRequest(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 400;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function unauthorized<T>(
+export function unauthorized(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 401;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function paymentRequired<T>(
+export function paymentRequired(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 402;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function forbidden<T>(
+export function forbidden(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 403;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function notFound<T>(
+export function notFound(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 404;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function methodNotAllowed<T>(
+export function methodNotAllowed(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 405;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function notAcceptable<T>(
+export function notAcceptable(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 406;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function proxyAuthenticationRequired<T>(
+export function proxyAuthenticationRequired(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 407;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function requestTimeOut<T>(
+export function requestTimeOut(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 408;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function conflict<T>(
+export function conflict(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 409;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function gone<T>(
+export function gone(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 410;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function lengthRequired<T>(
+export function lengthRequired(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 411;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function preconditionFailed<T>(
+export function preconditionFailed(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 412;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function requestEntityTooLarge<T>(
+export function requestEntityTooLarge(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 413;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function requestUriTooLarge<T>(
+export function requestUriTooLarge(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 414;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function unsupportedMediaType<T>(
+export function unsupportedMediaType(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 415;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function requestedRangeNotSatisfiable<T>(
+export function requestedRangeNotSatisfiable(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 416;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function expectationFailed<T>(
+export function expectationFailed(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 417;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function imATeapot<T>(
+export function imATeapot(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 418;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function unprocessableEntity<T>(
+export function unprocessableEntity(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 422;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function locked<T>(
+export function locked(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 423;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function failedDependency<T>(
+export function failedDependency(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 424;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function unorderedCollection<T>(
+export function unorderedCollection(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 425;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function upgradeRequired<T>(
+export function upgradeRequired(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 426;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function preconditionRequired<T>(
+export function preconditionRequired(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 428;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function tooManyRequests<T>(
+export function tooManyRequests(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 429;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function requestHeaderFieldsTooLarge<T>(
+export function requestHeaderFieldsTooLarge(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 431;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function internalServerError<T>(
+export function internalServerError(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 500;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function notImplemented<T>(
+export function notImplemented(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 501;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function badGateway<T>(
+export function badGateway(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 502;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function serviceUnavailable<T>(
+export function serviceUnavailable(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 503;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function gatewayTimeOut<T>(
+export function gatewayTimeOut(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 504;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function httpVersionNotSupported<T>(
+export function httpVersionNotSupported(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 505;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function variantAlsoNegotiates<T>(
+export function variantAlsoNegotiates(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 506;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function insufficientStorage<T>(
+export function insufficientStorage(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 507;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function bandwidthLimitExceeded<T>(
+export function bandwidthLimitExceeded(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 509;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function notExtended<T>(
+export function notExtended(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 510;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
-export function networkAuthenticationRequired<T>(
+export function networkAuthenticationRequired(
   result?: unknown,
-  headers?: T
+  headers?: HttpHeaders
 ): {
   statusCode: 511;
-  headers: T | {};
+  headers: HttpHeaders;
   body: string;
 };
 
@@ -600,10 +606,3 @@ export function isBandwidthLimitExceeded(response: unknown): boolean;
 export function isNotExtended(response: unknown): boolean;
 
 export function isNetworkAuthenticationRequired(response: unknown): boolean;
-
-export namespace HEADERS {
-  const corsBasic: {
-    'Access-Control-Allow-Origin': string;
-    'Access-Control-Allow-Credentials': boolean;
-  };
-}

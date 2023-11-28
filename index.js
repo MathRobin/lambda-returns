@@ -767,10 +767,3 @@ export const isNotExtended = (response) => {
 export const isNetworkAuthenticationRequired = (response) => {
   return response.statusCode === 511;
 };
-
-export const HEADERS = {
-  corsBasic: {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Credentials': true,
-  },
-};
