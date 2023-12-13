@@ -86,7 +86,7 @@ You ? Me no. And don't want/need to.
 Moreover, into vanilla AWS lambda way, you need to return a string as body. But just stringify your result is dangerous,
 if you have a dynamic result, maybe is null, maybe is undefined, maybe you already have a string.
 
-F\*ck! I don't want to care of it in my business logic! `lambda-returns` manages it for you.
+> F\*ck! I don't want to care of it in my business logic! `lambda-returns` manages it for you.
 
 ## Cons
 
