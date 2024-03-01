@@ -2,7 +2,11 @@ export class HttpHeaders {
   'Access-Control-Allow-Origin'?: '*' | string;
   'Access-Control-Allow-Credentials'?: boolean;
   Accept?: 'application/json' | 'text/html' | 'image/*' | '*/*' | string;
-  'Content-Type'?: 'text/html' | 'text/html; charset=utf-8' | 'multipart/form-data' | string;
+  'Content-Type'?:
+    | 'text/html'
+    | 'text/html; charset=utf-8'
+    | 'multipart/form-data'
+    | string;
   Connection?: 'open' | 'close';
   Date?: string;
   ETag?: string;
