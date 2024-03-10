@@ -8,7 +8,7 @@
   "author": "MathRobin <mthrobin@gmail.com>",
   "license": "MIT",
   "sideEffects": false,
-  "packageManager": "yarn@4.1.0",
+  "packageManager": "yarn@4.1.1",
   "type": "module",
   "engines": {
     "node": "18.18.2"
@@ -25,7 +25,7 @@
   "devDependencies": {
     "@babel/eslint-parser": "7.23.10",
     "@babel/plugin-syntax-import-assertions": "7.23.3",
-    "@types/node": "20.11.24",
+    "@types/node": "20.11.25",
     "eslint": "8.57.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-jest": "27.9.0",
