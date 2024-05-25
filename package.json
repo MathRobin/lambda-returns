@@ -23,8 +23,8 @@
     "test": "yarn node --experimental-vm-modules $(yarn bin jest) --runInBand --config jest.config.js"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "7.24.5",
-    "@babel/plugin-syntax-import-assertions": "7.24.1",
+    "@babel/eslint-parser": "7.24.6",
+    "@babel/plugin-syntax-import-assertions": "7.24.6",
     "@types/node": "20.12.12",
     "eslint": "9.3.0",
     "eslint-config-prettier": "9.1.0",
