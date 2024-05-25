@@ -55,9 +55,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/eslint-parser@npm:7.24.5":
-  version: 7.24.5
-  resolution: "@babel/eslint-parser@npm:7.24.5"
+"@babel/eslint-parser@npm:7.24.6":
+  version: 7.24.6
+  resolution: "@babel/eslint-parser@npm:7.24.6"
   dependencies:
     "@nicolo-ribaudo/eslint-scope-5-internals": "npm:5.1.1-v1"
     eslint-visitor-keys: "npm:^2.1.0"
@@ -65,7 +65,7 @@ __metadata:
   peerDependencies:
     "@babel/core": ^7.11.0
     eslint: ^7.5.0 || ^8.0.0 || ^9.0.0
-  checksum: 10/7235dc475ece11d39d6753b649299f0734a903932cf359eda60081e6a63c1f8a160f6b99faac12aa6b24d93d596240aa349be211d7d1bf0d32a95f857c633cff
+  checksum: 10/90fa462eb2fdfe9028f0285a3b6a645452890244d515121ac40ea26897f128d4308da357785cc017577904aa5ccd9c1173db1b38c307db3fcd1e9e97c99c6ed8
   languageName: node
   linkType: hard
 
@@ -148,6 +148,13 @@ __metadata:
   version: 7.24.5
   resolution: "@babel/helper-plugin-utils@npm:7.24.5"
   checksum: 10/6e11ca5da73e6bd366848236568c311ac10e433fc2034a6fe6243af28419b07c93b4386f87bbc940aa058b7c83f370ef58f3b0fd598106be040d21a3d1c14276
+  languageName: node
+  linkType: hard
+
+"@babel/helper-plugin-utils@npm:^7.24.6":
+  version: 7.24.6
+  resolution: "@babel/helper-plugin-utils@npm:7.24.6"
+  checksum: 10/0ac0a7a19959fb2f880ea87650475a4960232e98825d9a50f4aa56e5750a70fc799b48cf570af63a06b810d0128e758e801865762b51a8348067e37751a38478
   languageName: node
   linkType: hard
 
@@ -255,14 +262,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-syntax-import-assertions@npm:7.24.1":
-  version: 7.24.1
-  resolution: "@babel/plugin-syntax-import-assertions@npm:7.24.1"
+"@babel/plugin-syntax-import-assertions@npm:7.24.6":
+  version: 7.24.6
+  resolution: "@babel/plugin-syntax-import-assertions@npm:7.24.6"
   dependencies:
-    "@babel/helper-plugin-utils": "npm:^7.24.0"
+    "@babel/helper-plugin-utils": "npm:^7.24.6"
   peerDependencies:
     "@babel/core": ^7.0.0-0
-  checksum: 10/2a463928a63b62052e9fb8f8b0018aa11a926e94f32c168260ae012afe864875c6176c6eb361e13f300542c31316dad791b08a5b8ed92436a3095c7a0e4fce65
+  checksum: 10/ea73a9aed80e786eee859b6f1f389e29993a6c9ce35d1fde904c04ef2f9c48c7156356995d688a6f49121a9aa335f539f119e1f301e17c757b921f75c13452a3
   languageName: node
   linkType: hard
 
@@ -3088,8 +3095,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "lambda-returns@workspace:."
   dependencies:
-    "@babel/eslint-parser": "npm:7.24.5"
-    "@babel/plugin-syntax-import-assertions": "npm:7.24.1"
+    "@babel/eslint-parser": "npm:7.24.6"
+    "@babel/plugin-syntax-import-assertions": "npm:7.24.6"
     "@types/node": "npm:20.12.12"
     eslint: "npm:9.3.0"
     eslint-config-prettier: "npm:9.1.0"
