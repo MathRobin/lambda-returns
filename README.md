@@ -1,55 +1,78 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![Static Badge](https://img.shields.io/badge/coverage-100-brightgreen)
-![Static Badge](https://img.shields.io/badge/release-3.0.1-blue)
+![Static Badge](https://img.shields.io/badge/release-4.0.0-blue)
 [![test](https://github.com/mathrobin/lambda-returns/actions/workflows/test.yml/badge.svg)](https://github.com/mathrobin/lambda-returns/actions/workflows/test.yml)
 
 # lambda-returns
 
 Provides shorthand to manage AWS lambda result. And provides test helper methods too!
 
-ESM only since v3. Typings included.
+Native TS. Typings included.
 
 ## Usage
 
 Deadly simple
 
-```javascript
-import { ok, internalServerError } from 'lambda-returns';
+```typescript
+import {
+  ok,
+  internalServerError,
+  OkLambdaResponse,
+  InternalServerErrorLambdaResponse,
+} from 'lambda-returns';
 
-export default async () => {
+export default async ():
+  | OkLambdaResponse
+  | InternalServerErrorLambdaResponse => {
   try {
     return ok({
-      status: 'success',
+      // your business result
     });
   } catch (err) {
-    return internalServerError({
-      status: 'error',
-      error: err,
-    });
+    return internalServerError();
   }
 };
 ```
 
-instead of that non-funny code:
+instead of that non-funny & non-typed code:
 
-```javascript
+```typescript
 export default async () => {
   try {
     return {
       statusCode: 200,
       body: JSON.stringify({
-        status: 'success',
+        // your business result
       }),
     };
   } catch (err) {
     return {
       statusCode: 500,
-      body: JSON.stringify({
-        status: 'error',
-        error: err,
-      }),
     };
   }
+};
+```
+
+Or this incorrect but possible code:
+
+```typescript
+export default async () => {
+  return {
+    statusCode: 201, // no content code
+    body: JSON.stringify({
+      hello: "i'm anomaly",
+    }), // yes you can do this with lambda
+  };
+};
+```
+
+Can be managed with:
+
+```typescript
+import { noContent, NoContentLambdaResponse } from 'lambda-returns';
+
+export default async (): NoContentLambdaResponse => {
+  return noContent();
 };
 ```
 
@@ -58,7 +81,7 @@ export default async () => {
 Not enough for you? For me too. This package provides a simple way to test your return result from your AWS lambda
 handler method.
 
-```javascript
+```typescript
 import { isOk, isBadRequest } from 'lambda-returns';
 
 expect(isOk(result)).toBeTruthy();
@@ -69,7 +92,7 @@ expect(isBadRequest(result)).toBeTruthy();
 
 - No prod dependency
 - Typings provided
-- lower than 45kB unpacked
+- nearly 15kB unpacked, less than 2kB gzipped
 
 ### Stop remember codes
 
@@ -77,6 +100,7 @@ You don't have to remember status code values. Just the name which is more "mena
 
 - insufficientStorage
 - partialContent
+- seeOther
 - imATeapot
 
 You ? Me no. And don't want/need to.
@@ -91,12 +115,21 @@ if you have a dynamic result, maybe is null, maybe is undefined, maybe you alrea
 ## Cons
 
 There is only one known pitfall. We can't technically export "continue" status due to it's a reserved word in
-JavaScript.
+JavaScript/TypeScript.
 
-```javascript
-export const continue = {}; // or whatever;
+```typescript
+export const continue = {};
 ```
 
-This is just forbidden. If you knwon any way to go over this problem, tell me.
+This is just forbidden. So you've to use this method:
 
-Despite to this problem, test helper method `isContinue` is available.
+```typescript
+import { httpContinue, ContinueLambdaResponse } from 'lambda-returns';
+
+export default async (): ContinueLambdaResponse => {
+  return httpContinue();
+};
+```
+
+Despite to this problem, test helper method `isContinue` is available and type `ContinueLambdaResponse` is consistent
+too with the other types.

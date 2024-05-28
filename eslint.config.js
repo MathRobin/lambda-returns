@@ -1,13 +1,14 @@
 import babelParser from '@babel/eslint-parser';
 import js from '@eslint/js';
 import eslintPrettier from 'eslint-config-prettier';
-import jest from 'eslint-plugin-jest';
-// import json from 'eslint-plugin-json';
+import globals from 'globals';
+import tseslint from 'typescript-eslint';
 
 export default [
-  { ignores: ['.idea/*', '.yarn/*', 'node_modules/*', 'coverage/*'] },
+  { ignores: ['.idea/*', '.yarn/*', 'node_modules/*', 'coverage/*', 'dist/*'] },
   js.configs.recommended,
   eslintPrettier,
+  ...tseslint.configs.recommended,
   {
     files: ['**/*.js'],
     linterOptions: {
@@ -18,35 +19,13 @@ export default [
       ecmaVersion: 2023,
       sourceType: 'module',
       globals: {
-        console: 'readonly',
-        structuredClone: 'readonly',
-        fetch: 'readonly',
-        process: 'readonly',
-        setTimeout: 'readonly',
-        setInterval: 'readonly',
-        clearInterval: 'readonly',
-        clearTimeout: 'readonly',
+        ...globals.node,
       },
       parserOptions: {
         requireConfigFile: false,
         babelOptions: {
           plugins: ['@babel/plugin-syntax-import-assertions'],
         },
-      },
-    },
-  },
-  {
-    files: ['**/*.test.js'],
-    plugins: { jest },
-    languageOptions: {
-      globals: {
-        describe: 'readonly',
-        test: 'readonly',
-        expect: 'readonly',
-        beforeAll: 'readonly',
-        beforeEach: 'readonly',
-        afterAll: 'readonly',
-        afterEach: 'readonly',
       },
     },
   },
