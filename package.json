@@ -1,14 +1,15 @@
 {
   "name": "lambda-returns",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
   "exports": {
-    ".": {
-      "import": "./dist/index.js"
+    "import": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
     }
   },
   "repository": "git@github.com:MathRobin/lambda-returns.git",
@@ -21,7 +22,7 @@
     "node": "18.18.2"
   },
   "scripts": {
-    "build": "tsx ./generate.ts && tsx ./generate_test.ts && yarn prettier:write && vite build && mv ./dist/src/* ./dist/ && rm -rf ./dist/vit* ./dist/index.test* ./dist/generate* ./dist/eslint* ./dist/codes* ./dist/src ./dist/random_integer",
+    "build": "pkgroll",
     "lint": "eslint -c eslint.config.js",
     "prepare": "husky",
     "prettier": "prettier --check ./",
@@ -58,12 +59,11 @@
     "husky": "9.0.11",
     "lint-staged": "15.2.5",
     "lodash-es": "4.17.21",
+    "pkgroll": "2.1.1",
     "prettier": "3.2.5",
     "tsx": "4.11.0",
+    "typescript": "5.4.5",
     "typescript-eslint": "7.11.0",
-    "vite": "5.2.11",
-    "vite-plugin-dts": "3.9.1",
-    "vite-tsconfig-paths": "4.3.2",
     "vitest": "1.6.0"
   }
 }
