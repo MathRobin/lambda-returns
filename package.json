@@ -12,6 +12,9 @@
       "default": "./dist/index.js"
     }
   },
+  "imports": {
+    "@": "./"
+  },
   "repository": "git@github.com:MathRobin/lambda-returns.git",
   "author": "MathRobin <mthrobin@gmail.com>",
   "license": "MIT",
