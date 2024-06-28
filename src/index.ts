@@ -1,8 +1,17 @@
 import { OutgoingHttpHeaders } from 'node:http';
 
+let autoSerialize = true;
+export function setAutoSerialize(flag: boolean) {
+  autoSerialize = flag;
+}
+
+export function serializeBody(body?: object): string | object | null {
+  return autoSerialize ? JSON.stringify(body ?? {}) : body ?? null;
+}
+
 // continue can't be used as it, it's JS reserved word
 export type ContinueLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 100;
 };
@@ -17,7 +26,7 @@ export function httpContinue(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -30,7 +39,7 @@ export function isContinue(response?: {
 }
 
 export type SwitchingProtocolsLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 101;
 };
@@ -45,7 +54,7 @@ export function switchingProtocols(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -58,7 +67,7 @@ export function isSwitchingProtocols(response?: {
 }
 
 export type ProcessingLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 102;
 };
@@ -73,7 +82,7 @@ export function processing(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -86,7 +95,7 @@ export function isProcessing(response?: {
 }
 
 export type OkLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 200;
 };
@@ -101,7 +110,7 @@ export function ok(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -114,7 +123,7 @@ export function isOk(response?: {
 }
 
 export type CreatedLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 201;
 };
@@ -129,7 +138,7 @@ export function created(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -142,7 +151,7 @@ export function isCreated(response?: {
 }
 
 export type AcceptedLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 202;
 };
@@ -157,7 +166,7 @@ export function accepted(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -170,7 +179,7 @@ export function isAccepted(response?: {
 }
 
 export type NonAuthoritativeInformationLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 203;
 };
@@ -185,7 +194,7 @@ export function nonAuthoritativeInformation(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -219,7 +228,7 @@ export function isNoContent(response?: {
 }
 
 export type ResetContentLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 205;
 };
@@ -234,7 +243,7 @@ export function resetContent(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -247,7 +256,7 @@ export function isResetContent(response?: {
 }
 
 export type PartialContentLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 206;
 };
@@ -262,7 +271,7 @@ export function partialContent(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -275,7 +284,7 @@ export function isPartialContent(response?: {
 }
 
 export type MultiStatusLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 207;
 };
@@ -290,7 +299,7 @@ export function multiStatus(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -303,7 +312,7 @@ export function isMultiStatus(response?: {
 }
 
 export type MultipleChoicesLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 300;
 };
@@ -318,7 +327,7 @@ export function multipleChoices(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -331,7 +340,7 @@ export function isMultipleChoices(response?: {
 }
 
 export type MovedPermanentlyLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 301;
 };
@@ -346,7 +355,7 @@ export function movedPermanently(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -359,7 +368,7 @@ export function isMovedPermanently(response?: {
 }
 
 export type MovedTemporarilyLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 302;
 };
@@ -374,7 +383,7 @@ export function movedTemporarily(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -387,7 +396,7 @@ export function isMovedTemporarily(response?: {
 }
 
 export type SeeOtherLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 303;
 };
@@ -402,7 +411,7 @@ export function seeOther(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -415,7 +424,7 @@ export function isSeeOther(response?: {
 }
 
 export type NotModifiedLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 304;
 };
@@ -430,7 +439,7 @@ export function notModified(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -443,7 +452,7 @@ export function isNotModified(response?: {
 }
 
 export type UseProxyLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 305;
 };
@@ -458,7 +467,7 @@ export function useProxy(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -471,7 +480,7 @@ export function isUseProxy(response?: {
 }
 
 export type TemporaryRedirectLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 307;
 };
@@ -486,7 +495,7 @@ export function temporaryRedirect(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -499,7 +508,7 @@ export function isTemporaryRedirect(response?: {
 }
 
 export type BadRequestLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 400;
 };
@@ -514,7 +523,7 @@ export function badRequest(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -527,7 +536,7 @@ export function isBadRequest(response?: {
 }
 
 export type UnauthorizedLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 401;
 };
@@ -542,7 +551,7 @@ export function unauthorized(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -555,7 +564,7 @@ export function isUnauthorized(response?: {
 }
 
 export type PaymentRequiredLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 402;
 };
@@ -570,7 +579,7 @@ export function paymentRequired(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -583,7 +592,7 @@ export function isPaymentRequired(response?: {
 }
 
 export type ForbiddenLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 403;
 };
@@ -598,7 +607,7 @@ export function forbidden(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -611,7 +620,7 @@ export function isForbidden(response?: {
 }
 
 export type NotFoundLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 404;
 };
@@ -626,7 +635,7 @@ export function notFound(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -639,7 +648,7 @@ export function isNotFound(response?: {
 }
 
 export type MethodNotAllowedLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 405;
 };
@@ -654,7 +663,7 @@ export function methodNotAllowed(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -667,7 +676,7 @@ export function isMethodNotAllowed(response?: {
 }
 
 export type NotAcceptableLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 406;
 };
@@ -682,7 +691,7 @@ export function notAcceptable(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -695,7 +704,7 @@ export function isNotAcceptable(response?: {
 }
 
 export type ProxyAuthenticationRequiredLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 407;
 };
@@ -710,7 +719,7 @@ export function proxyAuthenticationRequired(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -723,7 +732,7 @@ export function isProxyAuthenticationRequired(response?: {
 }
 
 export type RequestTimeOutLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 408;
 };
@@ -738,7 +747,7 @@ export function requestTimeOut(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -751,7 +760,7 @@ export function isRequestTimeOut(response?: {
 }
 
 export type ConflictLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 409;
 };
@@ -766,7 +775,7 @@ export function conflict(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -779,7 +788,7 @@ export function isConflict(response?: {
 }
 
 export type GoneLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 410;
 };
@@ -794,7 +803,7 @@ export function gone(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -807,7 +816,7 @@ export function isGone(response?: {
 }
 
 export type LengthRequiredLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 411;
 };
@@ -822,7 +831,7 @@ export function lengthRequired(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -835,7 +844,7 @@ export function isLengthRequired(response?: {
 }
 
 export type PreconditionFailedLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 412;
 };
@@ -850,7 +859,7 @@ export function preconditionFailed(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -863,7 +872,7 @@ export function isPreconditionFailed(response?: {
 }
 
 export type RequestEntityTooLargeLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 413;
 };
@@ -878,7 +887,7 @@ export function requestEntityTooLarge(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -891,7 +900,7 @@ export function isRequestEntityTooLarge(response?: {
 }
 
 export type RequestUriTooLargeLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 414;
 };
@@ -906,7 +915,7 @@ export function requestUriTooLarge(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -919,7 +928,7 @@ export function isRequestUriTooLarge(response?: {
 }
 
 export type UnsupportedMediaTypeLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 415;
 };
@@ -934,7 +943,7 @@ export function unsupportedMediaType(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -947,7 +956,7 @@ export function isUnsupportedMediaType(response?: {
 }
 
 export type RequestedRangeNotSatisfiableLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 416;
 };
@@ -962,7 +971,7 @@ export function requestedRangeNotSatisfiable(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -975,7 +984,7 @@ export function isRequestedRangeNotSatisfiable(response?: {
 }
 
 export type ExpectationFailedLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 417;
 };
@@ -990,7 +999,7 @@ export function expectationFailed(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -1003,7 +1012,7 @@ export function isExpectationFailed(response?: {
 }
 
 export type ImATeapotLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 418;
 };
@@ -1018,7 +1027,7 @@ export function imATeapot(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -1031,7 +1040,7 @@ export function isImATeapot(response?: {
 }
 
 export type UnprocessableEntityLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 422;
 };
@@ -1046,7 +1055,7 @@ export function unprocessableEntity(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -1059,7 +1068,7 @@ export function isUnprocessableEntity(response?: {
 }
 
 export type LockedLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 423;
 };
@@ -1074,7 +1083,7 @@ export function locked(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -1087,7 +1096,7 @@ export function isLocked(response?: {
 }
 
 export type FailedDependencyLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 424;
 };
@@ -1102,7 +1111,7 @@ export function failedDependency(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -1115,7 +1124,7 @@ export function isFailedDependency(response?: {
 }
 
 export type UnorderedCollectionLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 425;
 };
@@ -1130,7 +1139,7 @@ export function unorderedCollection(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -1143,7 +1152,7 @@ export function isUnorderedCollection(response?: {
 }
 
 export type UpgradeRequiredLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 426;
 };
@@ -1158,7 +1167,7 @@ export function upgradeRequired(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -1171,7 +1180,7 @@ export function isUpgradeRequired(response?: {
 }
 
 export type PreconditionRequiredLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 428;
 };
@@ -1186,7 +1195,7 @@ export function preconditionRequired(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -1199,7 +1208,7 @@ export function isPreconditionRequired(response?: {
 }
 
 export type TooManyRequestsLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 429;
 };
@@ -1214,7 +1223,7 @@ export function tooManyRequests(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -1227,7 +1236,7 @@ export function isTooManyRequests(response?: {
 }
 
 export type RequestHeaderFieldsTooLargeLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 431;
 };
@@ -1242,7 +1251,7 @@ export function requestHeaderFieldsTooLarge(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -1255,7 +1264,7 @@ export function isRequestHeaderFieldsTooLarge(response?: {
 }
 
 export type InternalServerErrorLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 500;
 };
@@ -1270,7 +1279,7 @@ export function internalServerError(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -1283,7 +1292,7 @@ export function isInternalServerError(response?: {
 }
 
 export type NotImplementedLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 501;
 };
@@ -1298,7 +1307,7 @@ export function notImplemented(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -1311,7 +1320,7 @@ export function isNotImplemented(response?: {
 }
 
 export type BadGatewayLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 502;
 };
@@ -1326,7 +1335,7 @@ export function badGateway(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -1339,7 +1348,7 @@ export function isBadGateway(response?: {
 }
 
 export type ServiceUnavailableLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 503;
 };
@@ -1354,7 +1363,7 @@ export function serviceUnavailable(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -1367,7 +1376,7 @@ export function isServiceUnavailable(response?: {
 }
 
 export type GatewayTimeOutLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 504;
 };
@@ -1382,7 +1391,7 @@ export function gatewayTimeOut(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -1395,7 +1404,7 @@ export function isGatewayTimeOut(response?: {
 }
 
 export type HttpVersionNotSupportedLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 505;
 };
@@ -1410,7 +1419,7 @@ export function httpVersionNotSupported(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -1423,7 +1432,7 @@ export function isHttpVersionNotSupported(response?: {
 }
 
 export type VariantAlsoNegotiatesLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 506;
 };
@@ -1438,7 +1447,7 @@ export function variantAlsoNegotiates(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -1451,7 +1460,7 @@ export function isVariantAlsoNegotiates(response?: {
 }
 
 export type InsufficientStorageLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 507;
 };
@@ -1466,7 +1475,7 @@ export function insufficientStorage(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -1479,7 +1488,7 @@ export function isInsufficientStorage(response?: {
 }
 
 export type BandwidthLimitExceededLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 509;
 };
@@ -1494,7 +1503,7 @@ export function bandwidthLimitExceeded(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -1507,7 +1516,7 @@ export function isBandwidthLimitExceeded(response?: {
 }
 
 export type NotExtendedLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 510;
 };
@@ -1522,7 +1531,7 @@ export function notExtended(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }
@@ -1535,7 +1544,7 @@ export function isNotExtended(response?: {
 }
 
 export type NetworkAuthenticationRequiredLambdaResponse = {
-  body: string | null;
+  body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 511;
 };
@@ -1550,7 +1559,7 @@ export function networkAuthenticationRequired(
     body: result
       ? typeof result === 'string'
         ? result
-        : JSON.stringify(result)
+        : serializeBody(result)
       : null,
   };
 }

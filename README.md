@@ -1,5 +1,5 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-![Static Badge](https://img.shields.io/badge/coverage-100-brightgreen)
+![Static Badge](https://img.shields.io/badge/coverage-99.4-brightgreen)
 ![Static Badge](https://img.shields.io/badge/release-4.1.0-blue)
 [![test](https://github.com/mathrobin/lambda-returns/actions/workflows/test.yml/badge.svg)](https://github.com/mathrobin/lambda-returns/actions/workflows/test.yml)
 
