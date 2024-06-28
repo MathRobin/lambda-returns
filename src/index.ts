@@ -1,6 +1,7 @@
 import { OutgoingHttpHeaders } from 'node:http';
 
 let autoSerialize = true;
+
 export function setAutoSerialize(flag: boolean) {
   autoSerialize = flag;
 }
@@ -11,6 +12,7 @@ export function serializeBody(body?: object): string | object | null {
 
 // continue can't be used as it, it's JS reserved word
 export type ContinueLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 100;
@@ -18,9 +20,11 @@ export type ContinueLambdaResponse = {
 
 export function httpContinue(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): ContinueLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 100,
     headers,
     body: result
@@ -39,6 +43,7 @@ export function isContinue(response?: {
 }
 
 export type SwitchingProtocolsLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 101;
@@ -46,9 +51,11 @@ export type SwitchingProtocolsLambdaResponse = {
 
 export function switchingProtocols(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): SwitchingProtocolsLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 101,
     headers,
     body: result
@@ -67,6 +74,7 @@ export function isSwitchingProtocols(response?: {
 }
 
 export type ProcessingLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 102;
@@ -74,9 +82,11 @@ export type ProcessingLambdaResponse = {
 
 export function processing(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): ProcessingLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 102,
     headers,
     body: result
@@ -95,6 +105,7 @@ export function isProcessing(response?: {
 }
 
 export type OkLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 200;
@@ -102,9 +113,11 @@ export type OkLambdaResponse = {
 
 export function ok(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): OkLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 200,
     headers,
     body: result
@@ -123,6 +136,7 @@ export function isOk(response?: {
 }
 
 export type CreatedLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 201;
@@ -130,9 +144,11 @@ export type CreatedLambdaResponse = {
 
 export function created(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): CreatedLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 201,
     headers,
     body: result
@@ -151,6 +167,7 @@ export function isCreated(response?: {
 }
 
 export type AcceptedLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 202;
@@ -158,9 +175,11 @@ export type AcceptedLambdaResponse = {
 
 export function accepted(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): AcceptedLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 202,
     headers,
     body: result
@@ -179,6 +198,7 @@ export function isAccepted(response?: {
 }
 
 export type NonAuthoritativeInformationLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 203;
@@ -186,9 +206,11 @@ export type NonAuthoritativeInformationLambdaResponse = {
 
 export function nonAuthoritativeInformation(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): NonAuthoritativeInformationLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 203,
     headers,
     body: result
@@ -207,14 +229,17 @@ export function isNonAuthoritativeInformation(response?: {
 }
 
 export type NoContentLambdaResponse = {
+  isBase64Encoded: boolean;
   headers?: OutgoingHttpHeaders;
   statusCode: 204;
 };
 
 export function noContent(
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): NoContentLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 204,
     headers,
   };
@@ -228,6 +253,7 @@ export function isNoContent(response?: {
 }
 
 export type ResetContentLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 205;
@@ -235,9 +261,11 @@ export type ResetContentLambdaResponse = {
 
 export function resetContent(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): ResetContentLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 205,
     headers,
     body: result
@@ -256,6 +284,7 @@ export function isResetContent(response?: {
 }
 
 export type PartialContentLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 206;
@@ -263,9 +292,11 @@ export type PartialContentLambdaResponse = {
 
 export function partialContent(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): PartialContentLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 206,
     headers,
     body: result
@@ -284,6 +315,7 @@ export function isPartialContent(response?: {
 }
 
 export type MultiStatusLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 207;
@@ -291,9 +323,11 @@ export type MultiStatusLambdaResponse = {
 
 export function multiStatus(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): MultiStatusLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 207,
     headers,
     body: result
@@ -312,6 +346,7 @@ export function isMultiStatus(response?: {
 }
 
 export type MultipleChoicesLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 300;
@@ -319,9 +354,11 @@ export type MultipleChoicesLambdaResponse = {
 
 export function multipleChoices(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): MultipleChoicesLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 300,
     headers,
     body: result
@@ -340,6 +377,7 @@ export function isMultipleChoices(response?: {
 }
 
 export type MovedPermanentlyLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 301;
@@ -347,9 +385,11 @@ export type MovedPermanentlyLambdaResponse = {
 
 export function movedPermanently(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): MovedPermanentlyLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 301,
     headers,
     body: result
@@ -368,6 +408,7 @@ export function isMovedPermanently(response?: {
 }
 
 export type MovedTemporarilyLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 302;
@@ -375,9 +416,11 @@ export type MovedTemporarilyLambdaResponse = {
 
 export function movedTemporarily(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): MovedTemporarilyLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 302,
     headers,
     body: result
@@ -396,6 +439,7 @@ export function isMovedTemporarily(response?: {
 }
 
 export type SeeOtherLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 303;
@@ -403,9 +447,11 @@ export type SeeOtherLambdaResponse = {
 
 export function seeOther(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): SeeOtherLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 303,
     headers,
     body: result
@@ -424,6 +470,7 @@ export function isSeeOther(response?: {
 }
 
 export type NotModifiedLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 304;
@@ -431,9 +478,11 @@ export type NotModifiedLambdaResponse = {
 
 export function notModified(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): NotModifiedLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 304,
     headers,
     body: result
@@ -452,6 +501,7 @@ export function isNotModified(response?: {
 }
 
 export type UseProxyLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 305;
@@ -459,9 +509,11 @@ export type UseProxyLambdaResponse = {
 
 export function useProxy(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): UseProxyLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 305,
     headers,
     body: result
@@ -480,6 +532,7 @@ export function isUseProxy(response?: {
 }
 
 export type TemporaryRedirectLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 307;
@@ -487,9 +540,11 @@ export type TemporaryRedirectLambdaResponse = {
 
 export function temporaryRedirect(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): TemporaryRedirectLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 307,
     headers,
     body: result
@@ -508,6 +563,7 @@ export function isTemporaryRedirect(response?: {
 }
 
 export type BadRequestLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 400;
@@ -515,9 +571,11 @@ export type BadRequestLambdaResponse = {
 
 export function badRequest(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): BadRequestLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 400,
     headers,
     body: result
@@ -536,6 +594,7 @@ export function isBadRequest(response?: {
 }
 
 export type UnauthorizedLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 401;
@@ -543,9 +602,11 @@ export type UnauthorizedLambdaResponse = {
 
 export function unauthorized(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): UnauthorizedLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 401,
     headers,
     body: result
@@ -564,6 +625,7 @@ export function isUnauthorized(response?: {
 }
 
 export type PaymentRequiredLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 402;
@@ -571,9 +633,11 @@ export type PaymentRequiredLambdaResponse = {
 
 export function paymentRequired(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): PaymentRequiredLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 402,
     headers,
     body: result
@@ -592,6 +656,7 @@ export function isPaymentRequired(response?: {
 }
 
 export type ForbiddenLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 403;
@@ -599,9 +664,11 @@ export type ForbiddenLambdaResponse = {
 
 export function forbidden(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): ForbiddenLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 403,
     headers,
     body: result
@@ -620,6 +687,7 @@ export function isForbidden(response?: {
 }
 
 export type NotFoundLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 404;
@@ -627,9 +695,11 @@ export type NotFoundLambdaResponse = {
 
 export function notFound(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): NotFoundLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 404,
     headers,
     body: result
@@ -648,6 +718,7 @@ export function isNotFound(response?: {
 }
 
 export type MethodNotAllowedLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 405;
@@ -655,9 +726,11 @@ export type MethodNotAllowedLambdaResponse = {
 
 export function methodNotAllowed(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): MethodNotAllowedLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 405,
     headers,
     body: result
@@ -676,6 +749,7 @@ export function isMethodNotAllowed(response?: {
 }
 
 export type NotAcceptableLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 406;
@@ -683,9 +757,11 @@ export type NotAcceptableLambdaResponse = {
 
 export function notAcceptable(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): NotAcceptableLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 406,
     headers,
     body: result
@@ -704,6 +780,7 @@ export function isNotAcceptable(response?: {
 }
 
 export type ProxyAuthenticationRequiredLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 407;
@@ -711,9 +788,11 @@ export type ProxyAuthenticationRequiredLambdaResponse = {
 
 export function proxyAuthenticationRequired(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): ProxyAuthenticationRequiredLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 407,
     headers,
     body: result
@@ -732,6 +811,7 @@ export function isProxyAuthenticationRequired(response?: {
 }
 
 export type RequestTimeOutLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 408;
@@ -739,9 +819,11 @@ export type RequestTimeOutLambdaResponse = {
 
 export function requestTimeOut(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): RequestTimeOutLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 408,
     headers,
     body: result
@@ -760,6 +842,7 @@ export function isRequestTimeOut(response?: {
 }
 
 export type ConflictLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 409;
@@ -767,9 +850,11 @@ export type ConflictLambdaResponse = {
 
 export function conflict(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): ConflictLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 409,
     headers,
     body: result
@@ -788,6 +873,7 @@ export function isConflict(response?: {
 }
 
 export type GoneLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 410;
@@ -795,9 +881,11 @@ export type GoneLambdaResponse = {
 
 export function gone(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): GoneLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 410,
     headers,
     body: result
@@ -816,6 +904,7 @@ export function isGone(response?: {
 }
 
 export type LengthRequiredLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 411;
@@ -823,9 +912,11 @@ export type LengthRequiredLambdaResponse = {
 
 export function lengthRequired(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): LengthRequiredLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 411,
     headers,
     body: result
@@ -844,6 +935,7 @@ export function isLengthRequired(response?: {
 }
 
 export type PreconditionFailedLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 412;
@@ -851,9 +943,11 @@ export type PreconditionFailedLambdaResponse = {
 
 export function preconditionFailed(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): PreconditionFailedLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 412,
     headers,
     body: result
@@ -872,6 +966,7 @@ export function isPreconditionFailed(response?: {
 }
 
 export type RequestEntityTooLargeLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 413;
@@ -879,9 +974,11 @@ export type RequestEntityTooLargeLambdaResponse = {
 
 export function requestEntityTooLarge(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): RequestEntityTooLargeLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 413,
     headers,
     body: result
@@ -900,6 +997,7 @@ export function isRequestEntityTooLarge(response?: {
 }
 
 export type RequestUriTooLargeLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 414;
@@ -907,9 +1005,11 @@ export type RequestUriTooLargeLambdaResponse = {
 
 export function requestUriTooLarge(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): RequestUriTooLargeLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 414,
     headers,
     body: result
@@ -928,6 +1028,7 @@ export function isRequestUriTooLarge(response?: {
 }
 
 export type UnsupportedMediaTypeLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 415;
@@ -935,9 +1036,11 @@ export type UnsupportedMediaTypeLambdaResponse = {
 
 export function unsupportedMediaType(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): UnsupportedMediaTypeLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 415,
     headers,
     body: result
@@ -956,6 +1059,7 @@ export function isUnsupportedMediaType(response?: {
 }
 
 export type RequestedRangeNotSatisfiableLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 416;
@@ -963,9 +1067,11 @@ export type RequestedRangeNotSatisfiableLambdaResponse = {
 
 export function requestedRangeNotSatisfiable(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): RequestedRangeNotSatisfiableLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 416,
     headers,
     body: result
@@ -984,6 +1090,7 @@ export function isRequestedRangeNotSatisfiable(response?: {
 }
 
 export type ExpectationFailedLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 417;
@@ -991,9 +1098,11 @@ export type ExpectationFailedLambdaResponse = {
 
 export function expectationFailed(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): ExpectationFailedLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 417,
     headers,
     body: result
@@ -1012,6 +1121,7 @@ export function isExpectationFailed(response?: {
 }
 
 export type ImATeapotLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 418;
@@ -1019,9 +1129,11 @@ export type ImATeapotLambdaResponse = {
 
 export function imATeapot(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): ImATeapotLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 418,
     headers,
     body: result
@@ -1040,6 +1152,7 @@ export function isImATeapot(response?: {
 }
 
 export type UnprocessableEntityLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 422;
@@ -1047,9 +1160,11 @@ export type UnprocessableEntityLambdaResponse = {
 
 export function unprocessableEntity(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): UnprocessableEntityLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 422,
     headers,
     body: result
@@ -1068,6 +1183,7 @@ export function isUnprocessableEntity(response?: {
 }
 
 export type LockedLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 423;
@@ -1075,9 +1191,11 @@ export type LockedLambdaResponse = {
 
 export function locked(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): LockedLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 423,
     headers,
     body: result
@@ -1096,6 +1214,7 @@ export function isLocked(response?: {
 }
 
 export type FailedDependencyLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 424;
@@ -1103,9 +1222,11 @@ export type FailedDependencyLambdaResponse = {
 
 export function failedDependency(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): FailedDependencyLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 424,
     headers,
     body: result
@@ -1124,6 +1245,7 @@ export function isFailedDependency(response?: {
 }
 
 export type UnorderedCollectionLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 425;
@@ -1131,9 +1253,11 @@ export type UnorderedCollectionLambdaResponse = {
 
 export function unorderedCollection(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): UnorderedCollectionLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 425,
     headers,
     body: result
@@ -1152,6 +1276,7 @@ export function isUnorderedCollection(response?: {
 }
 
 export type UpgradeRequiredLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 426;
@@ -1159,9 +1284,11 @@ export type UpgradeRequiredLambdaResponse = {
 
 export function upgradeRequired(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): UpgradeRequiredLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 426,
     headers,
     body: result
@@ -1180,6 +1307,7 @@ export function isUpgradeRequired(response?: {
 }
 
 export type PreconditionRequiredLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 428;
@@ -1187,9 +1315,11 @@ export type PreconditionRequiredLambdaResponse = {
 
 export function preconditionRequired(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): PreconditionRequiredLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 428,
     headers,
     body: result
@@ -1208,6 +1338,7 @@ export function isPreconditionRequired(response?: {
 }
 
 export type TooManyRequestsLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 429;
@@ -1215,9 +1346,11 @@ export type TooManyRequestsLambdaResponse = {
 
 export function tooManyRequests(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): TooManyRequestsLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 429,
     headers,
     body: result
@@ -1236,6 +1369,7 @@ export function isTooManyRequests(response?: {
 }
 
 export type RequestHeaderFieldsTooLargeLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 431;
@@ -1243,9 +1377,11 @@ export type RequestHeaderFieldsTooLargeLambdaResponse = {
 
 export function requestHeaderFieldsTooLarge(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): RequestHeaderFieldsTooLargeLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 431,
     headers,
     body: result
@@ -1264,6 +1400,7 @@ export function isRequestHeaderFieldsTooLarge(response?: {
 }
 
 export type InternalServerErrorLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 500;
@@ -1271,9 +1408,11 @@ export type InternalServerErrorLambdaResponse = {
 
 export function internalServerError(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): InternalServerErrorLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 500,
     headers,
     body: result
@@ -1292,6 +1431,7 @@ export function isInternalServerError(response?: {
 }
 
 export type NotImplementedLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 501;
@@ -1299,9 +1439,11 @@ export type NotImplementedLambdaResponse = {
 
 export function notImplemented(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): NotImplementedLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 501,
     headers,
     body: result
@@ -1320,6 +1462,7 @@ export function isNotImplemented(response?: {
 }
 
 export type BadGatewayLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 502;
@@ -1327,9 +1470,11 @@ export type BadGatewayLambdaResponse = {
 
 export function badGateway(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): BadGatewayLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 502,
     headers,
     body: result
@@ -1348,6 +1493,7 @@ export function isBadGateway(response?: {
 }
 
 export type ServiceUnavailableLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 503;
@@ -1355,9 +1501,11 @@ export type ServiceUnavailableLambdaResponse = {
 
 export function serviceUnavailable(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): ServiceUnavailableLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 503,
     headers,
     body: result
@@ -1376,6 +1524,7 @@ export function isServiceUnavailable(response?: {
 }
 
 export type GatewayTimeOutLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 504;
@@ -1383,9 +1532,11 @@ export type GatewayTimeOutLambdaResponse = {
 
 export function gatewayTimeOut(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): GatewayTimeOutLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 504,
     headers,
     body: result
@@ -1404,6 +1555,7 @@ export function isGatewayTimeOut(response?: {
 }
 
 export type HttpVersionNotSupportedLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 505;
@@ -1411,9 +1563,11 @@ export type HttpVersionNotSupportedLambdaResponse = {
 
 export function httpVersionNotSupported(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): HttpVersionNotSupportedLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 505,
     headers,
     body: result
@@ -1432,6 +1586,7 @@ export function isHttpVersionNotSupported(response?: {
 }
 
 export type VariantAlsoNegotiatesLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 506;
@@ -1439,9 +1594,11 @@ export type VariantAlsoNegotiatesLambdaResponse = {
 
 export function variantAlsoNegotiates(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): VariantAlsoNegotiatesLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 506,
     headers,
     body: result
@@ -1460,6 +1617,7 @@ export function isVariantAlsoNegotiates(response?: {
 }
 
 export type InsufficientStorageLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 507;
@@ -1467,9 +1625,11 @@ export type InsufficientStorageLambdaResponse = {
 
 export function insufficientStorage(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): InsufficientStorageLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 507,
     headers,
     body: result
@@ -1488,6 +1648,7 @@ export function isInsufficientStorage(response?: {
 }
 
 export type BandwidthLimitExceededLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 509;
@@ -1495,9 +1656,11 @@ export type BandwidthLimitExceededLambdaResponse = {
 
 export function bandwidthLimitExceeded(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): BandwidthLimitExceededLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 509,
     headers,
     body: result
@@ -1516,6 +1679,7 @@ export function isBandwidthLimitExceeded(response?: {
 }
 
 export type NotExtendedLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 510;
@@ -1523,9 +1687,11 @@ export type NotExtendedLambdaResponse = {
 
 export function notExtended(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): NotExtendedLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 510,
     headers,
     body: result
@@ -1544,6 +1710,7 @@ export function isNotExtended(response?: {
 }
 
 export type NetworkAuthenticationRequiredLambdaResponse = {
+  isBase64Encoded: boolean;
   body: string | object | null;
   headers?: OutgoingHttpHeaders;
   statusCode: 511;
@@ -1551,9 +1718,11 @@ export type NetworkAuthenticationRequiredLambdaResponse = {
 
 export function networkAuthenticationRequired(
   result?: string | object,
-  headers: OutgoingHttpHeaders = {}
+  headers: OutgoingHttpHeaders = {},
+  isAlreadyBase64: boolean = false
 ): NetworkAuthenticationRequiredLambdaResponse {
   return {
+    isBase64Encoded: isAlreadyBase64,
     statusCode: 511,
     headers,
     body: result

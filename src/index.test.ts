@@ -125,6 +125,7 @@ describe('lambda-returns', () => {
     test('should return 100 when empty args', () => {
       expect(httpContinue()).toEqual({
         statusCode: 100,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -135,6 +136,7 @@ describe('lambda-returns', () => {
         httpContinue(undefined, { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 100,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -143,6 +145,7 @@ describe('lambda-returns', () => {
     test('should return 100 when has obect body, no headers', () => {
       expect(httpContinue({ status: 'success' })).toEqual({
         statusCode: 100,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -152,6 +155,7 @@ describe('lambda-returns', () => {
       setAutoSerialize(false);
       expect(httpContinue({ status: 'success' })).toEqual({
         statusCode: 100,
+        isBase64Encoded: false,
         headers: {},
         body: { status: 'success' },
       });
@@ -160,6 +164,7 @@ describe('lambda-returns', () => {
     test('should return 100 when has string body, no headers', () => {
       expect(httpContinue('{"status":"success"}')).toEqual({
         statusCode: 100,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -176,6 +181,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 100,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -191,6 +197,7 @@ describe('lambda-returns', () => {
         })
       ).toEqual({
         statusCode: 100,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -202,6 +209,7 @@ describe('lambda-returns', () => {
       expect(
         isContinue({
           statusCode: 100,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -210,6 +218,7 @@ describe('lambda-returns', () => {
       expect(
         isContinue({
           statusCode: 100,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -219,6 +228,7 @@ describe('lambda-returns', () => {
       expect(
         isContinue({
           statusCode: 100,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -228,6 +238,7 @@ describe('lambda-returns', () => {
       expect(
         isContinue({
           statusCode: 100,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -279,6 +290,7 @@ describe('lambda-returns', () => {
     test('should return 101 when empty args', () => {
       expect(switchingProtocols()).toEqual({
         statusCode: 101,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -289,6 +301,7 @@ describe('lambda-returns', () => {
         switchingProtocols(undefined, { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 101,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -297,6 +310,7 @@ describe('lambda-returns', () => {
     test('should return 101 when has obect body, no headers', () => {
       expect(switchingProtocols({ status: 'success' })).toEqual({
         statusCode: 101,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -305,6 +319,7 @@ describe('lambda-returns', () => {
     test('should return 101 when has string body, no headers', () => {
       expect(switchingProtocols('{"status":"success"}')).toEqual({
         statusCode: 101,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -321,6 +336,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 101,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -341,6 +357,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 101,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -356,6 +373,7 @@ describe('lambda-returns', () => {
         })
       ).toEqual({
         statusCode: 101,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -367,6 +385,7 @@ describe('lambda-returns', () => {
       expect(
         isSwitchingProtocols({
           statusCode: 101,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -375,6 +394,7 @@ describe('lambda-returns', () => {
       expect(
         isSwitchingProtocols({
           statusCode: 101,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -384,6 +404,7 @@ describe('lambda-returns', () => {
       expect(
         isSwitchingProtocols({
           statusCode: 101,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -393,6 +414,7 @@ describe('lambda-returns', () => {
       expect(
         isSwitchingProtocols({
           statusCode: 101,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -444,6 +466,7 @@ describe('lambda-returns', () => {
     test('should return 102 when empty args', () => {
       expect(processing()).toEqual({
         statusCode: 102,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -454,6 +477,7 @@ describe('lambda-returns', () => {
         processing(undefined, { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 102,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -462,6 +486,7 @@ describe('lambda-returns', () => {
     test('should return 102 when has obect body, no headers', () => {
       expect(processing({ status: 'success' })).toEqual({
         statusCode: 102,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -470,6 +495,7 @@ describe('lambda-returns', () => {
     test('should return 102 when has string body, no headers', () => {
       expect(processing('{"status":"success"}')).toEqual({
         statusCode: 102,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -486,6 +512,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 102,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -499,6 +526,7 @@ describe('lambda-returns', () => {
         processing('{"status":"success"}', { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 102,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -510,6 +538,7 @@ describe('lambda-returns', () => {
       expect(
         isProcessing({
           statusCode: 102,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -518,6 +547,7 @@ describe('lambda-returns', () => {
       expect(
         isProcessing({
           statusCode: 102,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -527,6 +557,7 @@ describe('lambda-returns', () => {
       expect(
         isProcessing({
           statusCode: 102,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -536,6 +567,7 @@ describe('lambda-returns', () => {
       expect(
         isProcessing({
           statusCode: 102,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -587,6 +619,7 @@ describe('lambda-returns', () => {
     test('should return 200 when empty args', () => {
       expect(ok()).toEqual({
         statusCode: 200,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -595,6 +628,7 @@ describe('lambda-returns', () => {
     test('should return 200 when empty body but headers filled', () => {
       expect(ok(undefined, { ContentType: 'application/json' })).toEqual({
         statusCode: 200,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -603,6 +637,7 @@ describe('lambda-returns', () => {
     test('should return 200 when has obect body, no headers', () => {
       expect(ok({ status: 'success' })).toEqual({
         statusCode: 200,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -611,6 +646,7 @@ describe('lambda-returns', () => {
     test('should return 200 when has string body, no headers', () => {
       expect(ok('{"status":"success"}')).toEqual({
         statusCode: 200,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -627,6 +663,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 200,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -640,6 +677,75 @@ describe('lambda-returns', () => {
         ok('{"status":"success"}', { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 200,
+        isBase64Encoded: false,
+        headers: { ContentType: 'application/json' },
+        body: '{"status":"success"}',
+      });
+    });
+
+    test('should return 200 when empty args + isAlreadyBase64', () => {
+      expect(ok(undefined, undefined, true)).toEqual({
+        statusCode: 200,
+        isBase64Encoded: true,
+        headers: {},
+        body: null,
+      });
+    });
+
+    test('should return 200 when empty body but headers filled + isAlreadyBase64', () => {
+      expect(ok(undefined, { ContentType: 'application/json' }, true)).toEqual({
+        statusCode: 200,
+        isBase64Encoded: true,
+        headers: { ContentType: 'application/json' },
+        body: null,
+      });
+    });
+
+    test('should return 200 when has obect body, no headers + isAlreadyBase64', () => {
+      expect(ok({ status: 'success' }, undefined, true)).toEqual({
+        statusCode: 200,
+        isBase64Encoded: true,
+        headers: {},
+        body: '{"status":"success"}',
+      });
+    });
+
+    test('should return 200 when has string body, no headers + isAlreadyBase64', () => {
+      expect(ok('{"status":"success"}', undefined, true)).toEqual({
+        statusCode: 200,
+        isBase64Encoded: true,
+        headers: {},
+        body: '{"status":"success"}',
+      });
+    });
+
+    test('should return 200 when has obect body & headers + isAlreadyBase64', () => {
+      expect(
+        ok(
+          { status: 'success' },
+          {
+            ContentType: 'application/json',
+            'Accept-Encoding': 'gzip, deflate, br',
+          },
+          true
+        )
+      ).toEqual({
+        statusCode: 200,
+        isBase64Encoded: true,
+        headers: {
+          ContentType: 'application/json',
+          'Accept-Encoding': 'gzip, deflate, br',
+        },
+        body: '{"status":"success"}',
+      });
+    });
+
+    test('should return 200 when has string body & headers + isAlreadyBase64', () => {
+      expect(
+        ok('{"status":"success"}', { ContentType: 'application/json' }, true)
+      ).toEqual({
+        statusCode: 200,
+        isBase64Encoded: true,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -651,6 +757,7 @@ describe('lambda-returns', () => {
       expect(
         isOk({
           statusCode: 200,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -659,6 +766,7 @@ describe('lambda-returns', () => {
       expect(
         isOk({
           statusCode: 200,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -668,6 +776,7 @@ describe('lambda-returns', () => {
       expect(
         isOk({
           statusCode: 200,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -677,6 +786,7 @@ describe('lambda-returns', () => {
       expect(
         isOk({
           statusCode: 200,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -728,6 +838,7 @@ describe('lambda-returns', () => {
     test('should return 201 when empty args', () => {
       expect(created()).toEqual({
         statusCode: 201,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -736,6 +847,7 @@ describe('lambda-returns', () => {
     test('should return 201 when empty body but headers filled', () => {
       expect(created(undefined, { ContentType: 'application/json' })).toEqual({
         statusCode: 201,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -744,6 +856,7 @@ describe('lambda-returns', () => {
     test('should return 201 when has obect body, no headers', () => {
       expect(created({ status: 'success' })).toEqual({
         statusCode: 201,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -752,6 +865,7 @@ describe('lambda-returns', () => {
     test('should return 201 when has string body, no headers', () => {
       expect(created('{"status":"success"}')).toEqual({
         statusCode: 201,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -768,6 +882,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 201,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -781,6 +896,7 @@ describe('lambda-returns', () => {
         created('{"status":"success"}', { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 201,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -792,6 +908,7 @@ describe('lambda-returns', () => {
       expect(
         isCreated({
           statusCode: 201,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -800,6 +917,7 @@ describe('lambda-returns', () => {
       expect(
         isCreated({
           statusCode: 201,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -809,6 +927,7 @@ describe('lambda-returns', () => {
       expect(
         isCreated({
           statusCode: 201,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -818,6 +937,7 @@ describe('lambda-returns', () => {
       expect(
         isCreated({
           statusCode: 201,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -869,6 +989,7 @@ describe('lambda-returns', () => {
     test('should return 202 when empty args', () => {
       expect(accepted()).toEqual({
         statusCode: 202,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -877,6 +998,7 @@ describe('lambda-returns', () => {
     test('should return 202 when empty body but headers filled', () => {
       expect(accepted(undefined, { ContentType: 'application/json' })).toEqual({
         statusCode: 202,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -885,6 +1007,7 @@ describe('lambda-returns', () => {
     test('should return 202 when has obect body, no headers', () => {
       expect(accepted({ status: 'success' })).toEqual({
         statusCode: 202,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -893,6 +1016,7 @@ describe('lambda-returns', () => {
     test('should return 202 when has string body, no headers', () => {
       expect(accepted('{"status":"success"}')).toEqual({
         statusCode: 202,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -909,6 +1033,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 202,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -922,6 +1047,7 @@ describe('lambda-returns', () => {
         accepted('{"status":"success"}', { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 202,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -933,6 +1059,7 @@ describe('lambda-returns', () => {
       expect(
         isAccepted({
           statusCode: 202,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -941,6 +1068,7 @@ describe('lambda-returns', () => {
       expect(
         isAccepted({
           statusCode: 202,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -950,6 +1078,7 @@ describe('lambda-returns', () => {
       expect(
         isAccepted({
           statusCode: 202,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -959,6 +1088,7 @@ describe('lambda-returns', () => {
       expect(
         isAccepted({
           statusCode: 202,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -1010,6 +1140,7 @@ describe('lambda-returns', () => {
     test('should return 203 when empty args', () => {
       expect(nonAuthoritativeInformation()).toEqual({
         statusCode: 203,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -1022,6 +1153,7 @@ describe('lambda-returns', () => {
         })
       ).toEqual({
         statusCode: 203,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -1030,6 +1162,7 @@ describe('lambda-returns', () => {
     test('should return 203 when has obect body, no headers', () => {
       expect(nonAuthoritativeInformation({ status: 'success' })).toEqual({
         statusCode: 203,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -1038,6 +1171,7 @@ describe('lambda-returns', () => {
     test('should return 203 when has string body, no headers', () => {
       expect(nonAuthoritativeInformation('{"status":"success"}')).toEqual({
         statusCode: 203,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -1054,6 +1188,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 203,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -1069,6 +1204,7 @@ describe('lambda-returns', () => {
         })
       ).toEqual({
         statusCode: 203,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -1080,6 +1216,7 @@ describe('lambda-returns', () => {
       expect(
         isNonAuthoritativeInformation({
           statusCode: 203,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -1088,6 +1225,7 @@ describe('lambda-returns', () => {
       expect(
         isNonAuthoritativeInformation({
           statusCode: 203,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -1097,6 +1235,7 @@ describe('lambda-returns', () => {
       expect(
         isNonAuthoritativeInformation({
           statusCode: 203,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -1106,6 +1245,7 @@ describe('lambda-returns', () => {
       expect(
         isNonAuthoritativeInformation({
           statusCode: 203,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -1157,6 +1297,7 @@ describe('lambda-returns', () => {
     test('should return 205 when empty args', () => {
       expect(resetContent()).toEqual({
         statusCode: 205,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -1167,6 +1308,7 @@ describe('lambda-returns', () => {
         resetContent(undefined, { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 205,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -1175,6 +1317,7 @@ describe('lambda-returns', () => {
     test('should return 205 when has obect body, no headers', () => {
       expect(resetContent({ status: 'success' })).toEqual({
         statusCode: 205,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -1183,6 +1326,7 @@ describe('lambda-returns', () => {
     test('should return 205 when has string body, no headers', () => {
       expect(resetContent('{"status":"success"}')).toEqual({
         statusCode: 205,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -1199,6 +1343,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 205,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -1214,6 +1359,7 @@ describe('lambda-returns', () => {
         })
       ).toEqual({
         statusCode: 205,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -1225,6 +1371,7 @@ describe('lambda-returns', () => {
       expect(
         isResetContent({
           statusCode: 205,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -1233,6 +1380,7 @@ describe('lambda-returns', () => {
       expect(
         isResetContent({
           statusCode: 205,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -1242,6 +1390,7 @@ describe('lambda-returns', () => {
       expect(
         isResetContent({
           statusCode: 205,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -1251,6 +1400,7 @@ describe('lambda-returns', () => {
       expect(
         isResetContent({
           statusCode: 205,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -1302,6 +1452,7 @@ describe('lambda-returns', () => {
     test('should return 206 when empty args', () => {
       expect(partialContent()).toEqual({
         statusCode: 206,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -1312,6 +1463,7 @@ describe('lambda-returns', () => {
         partialContent(undefined, { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 206,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -1320,6 +1472,7 @@ describe('lambda-returns', () => {
     test('should return 206 when has obect body, no headers', () => {
       expect(partialContent({ status: 'success' })).toEqual({
         statusCode: 206,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -1328,6 +1481,7 @@ describe('lambda-returns', () => {
     test('should return 206 when has string body, no headers', () => {
       expect(partialContent('{"status":"success"}')).toEqual({
         statusCode: 206,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -1344,6 +1498,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 206,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -1359,6 +1514,7 @@ describe('lambda-returns', () => {
         })
       ).toEqual({
         statusCode: 206,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -1370,6 +1526,7 @@ describe('lambda-returns', () => {
       expect(
         isPartialContent({
           statusCode: 206,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -1378,6 +1535,7 @@ describe('lambda-returns', () => {
       expect(
         isPartialContent({
           statusCode: 206,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -1387,6 +1545,7 @@ describe('lambda-returns', () => {
       expect(
         isPartialContent({
           statusCode: 206,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -1396,6 +1555,7 @@ describe('lambda-returns', () => {
       expect(
         isPartialContent({
           statusCode: 206,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -1447,6 +1607,7 @@ describe('lambda-returns', () => {
     test('should return 207 when empty args', () => {
       expect(multiStatus()).toEqual({
         statusCode: 207,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -1457,6 +1618,7 @@ describe('lambda-returns', () => {
         multiStatus(undefined, { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 207,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -1465,6 +1627,7 @@ describe('lambda-returns', () => {
     test('should return 207 when has obect body, no headers', () => {
       expect(multiStatus({ status: 'success' })).toEqual({
         statusCode: 207,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -1473,6 +1636,7 @@ describe('lambda-returns', () => {
     test('should return 207 when has string body, no headers', () => {
       expect(multiStatus('{"status":"success"}')).toEqual({
         statusCode: 207,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -1489,6 +1653,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 207,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -1502,6 +1667,7 @@ describe('lambda-returns', () => {
         multiStatus('{"status":"success"}', { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 207,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -1513,6 +1679,7 @@ describe('lambda-returns', () => {
       expect(
         isMultiStatus({
           statusCode: 207,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -1521,6 +1688,7 @@ describe('lambda-returns', () => {
       expect(
         isMultiStatus({
           statusCode: 207,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -1530,6 +1698,7 @@ describe('lambda-returns', () => {
       expect(
         isMultiStatus({
           statusCode: 207,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -1539,6 +1708,7 @@ describe('lambda-returns', () => {
       expect(
         isMultiStatus({
           statusCode: 207,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -1590,6 +1760,7 @@ describe('lambda-returns', () => {
     test('should return 300 when empty args', () => {
       expect(multipleChoices()).toEqual({
         statusCode: 300,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -1600,6 +1771,7 @@ describe('lambda-returns', () => {
         multipleChoices(undefined, { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 300,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -1608,6 +1780,7 @@ describe('lambda-returns', () => {
     test('should return 300 when has obect body, no headers', () => {
       expect(multipleChoices({ status: 'success' })).toEqual({
         statusCode: 300,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -1616,6 +1789,7 @@ describe('lambda-returns', () => {
     test('should return 300 when has string body, no headers', () => {
       expect(multipleChoices('{"status":"success"}')).toEqual({
         statusCode: 300,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -1632,6 +1806,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 300,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -1647,6 +1822,7 @@ describe('lambda-returns', () => {
         })
       ).toEqual({
         statusCode: 300,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -1658,6 +1834,7 @@ describe('lambda-returns', () => {
       expect(
         isMultipleChoices({
           statusCode: 300,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -1666,6 +1843,7 @@ describe('lambda-returns', () => {
       expect(
         isMultipleChoices({
           statusCode: 300,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -1675,6 +1853,7 @@ describe('lambda-returns', () => {
       expect(
         isMultipleChoices({
           statusCode: 300,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -1684,6 +1863,7 @@ describe('lambda-returns', () => {
       expect(
         isMultipleChoices({
           statusCode: 300,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -1735,6 +1915,7 @@ describe('lambda-returns', () => {
     test('should return 301 when empty args', () => {
       expect(movedPermanently()).toEqual({
         statusCode: 301,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -1745,6 +1926,7 @@ describe('lambda-returns', () => {
         movedPermanently(undefined, { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 301,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -1753,6 +1935,7 @@ describe('lambda-returns', () => {
     test('should return 301 when has obect body, no headers', () => {
       expect(movedPermanently({ status: 'success' })).toEqual({
         statusCode: 301,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -1761,6 +1944,7 @@ describe('lambda-returns', () => {
     test('should return 301 when has string body, no headers', () => {
       expect(movedPermanently('{"status":"success"}')).toEqual({
         statusCode: 301,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -1777,6 +1961,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 301,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -1792,6 +1977,7 @@ describe('lambda-returns', () => {
         })
       ).toEqual({
         statusCode: 301,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -1803,6 +1989,7 @@ describe('lambda-returns', () => {
       expect(
         isMovedPermanently({
           statusCode: 301,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -1811,6 +1998,7 @@ describe('lambda-returns', () => {
       expect(
         isMovedPermanently({
           statusCode: 301,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -1820,6 +2008,7 @@ describe('lambda-returns', () => {
       expect(
         isMovedPermanently({
           statusCode: 301,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -1829,6 +2018,7 @@ describe('lambda-returns', () => {
       expect(
         isMovedPermanently({
           statusCode: 301,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -1880,6 +2070,7 @@ describe('lambda-returns', () => {
     test('should return 302 when empty args', () => {
       expect(movedTemporarily()).toEqual({
         statusCode: 302,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -1890,6 +2081,7 @@ describe('lambda-returns', () => {
         movedTemporarily(undefined, { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 302,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -1898,6 +2090,7 @@ describe('lambda-returns', () => {
     test('should return 302 when has obect body, no headers', () => {
       expect(movedTemporarily({ status: 'success' })).toEqual({
         statusCode: 302,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -1906,6 +2099,7 @@ describe('lambda-returns', () => {
     test('should return 302 when has string body, no headers', () => {
       expect(movedTemporarily('{"status":"success"}')).toEqual({
         statusCode: 302,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -1922,6 +2116,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 302,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -1937,6 +2132,7 @@ describe('lambda-returns', () => {
         })
       ).toEqual({
         statusCode: 302,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -1948,6 +2144,7 @@ describe('lambda-returns', () => {
       expect(
         isMovedTemporarily({
           statusCode: 302,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -1956,6 +2153,7 @@ describe('lambda-returns', () => {
       expect(
         isMovedTemporarily({
           statusCode: 302,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -1965,6 +2163,7 @@ describe('lambda-returns', () => {
       expect(
         isMovedTemporarily({
           statusCode: 302,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -1974,6 +2173,7 @@ describe('lambda-returns', () => {
       expect(
         isMovedTemporarily({
           statusCode: 302,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -2025,6 +2225,7 @@ describe('lambda-returns', () => {
     test('should return 303 when empty args', () => {
       expect(seeOther()).toEqual({
         statusCode: 303,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -2033,6 +2234,7 @@ describe('lambda-returns', () => {
     test('should return 303 when empty body but headers filled', () => {
       expect(seeOther(undefined, { ContentType: 'application/json' })).toEqual({
         statusCode: 303,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -2041,6 +2243,7 @@ describe('lambda-returns', () => {
     test('should return 303 when has obect body, no headers', () => {
       expect(seeOther({ status: 'success' })).toEqual({
         statusCode: 303,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -2049,6 +2252,7 @@ describe('lambda-returns', () => {
     test('should return 303 when has string body, no headers', () => {
       expect(seeOther('{"status":"success"}')).toEqual({
         statusCode: 303,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -2065,6 +2269,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 303,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -2078,6 +2283,7 @@ describe('lambda-returns', () => {
         seeOther('{"status":"success"}', { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 303,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -2089,6 +2295,7 @@ describe('lambda-returns', () => {
       expect(
         isSeeOther({
           statusCode: 303,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -2097,6 +2304,7 @@ describe('lambda-returns', () => {
       expect(
         isSeeOther({
           statusCode: 303,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -2106,6 +2314,7 @@ describe('lambda-returns', () => {
       expect(
         isSeeOther({
           statusCode: 303,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -2115,6 +2324,7 @@ describe('lambda-returns', () => {
       expect(
         isSeeOther({
           statusCode: 303,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -2166,6 +2376,7 @@ describe('lambda-returns', () => {
     test('should return 204 when empty args', () => {
       expect(noContent()).toEqual({
         statusCode: 204,
+        isBase64Encoded: false,
         headers: {},
       });
     });
@@ -2175,6 +2386,7 @@ describe('lambda-returns', () => {
         noContent({ ContentType: 'application/json', 'accept-charset': 'utf8' })
       ).toEqual({
         statusCode: 204,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json', 'accept-charset': 'utf8' },
       });
     });
@@ -2185,6 +2397,7 @@ describe('lambda-returns', () => {
       expect(
         isNoContent({
           statusCode: 204,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -2193,6 +2406,7 @@ describe('lambda-returns', () => {
       expect(
         isNoContent({
           statusCode: 204,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -2224,6 +2438,7 @@ describe('lambda-returns', () => {
     test('should return 304 when empty args', () => {
       expect(notModified()).toEqual({
         statusCode: 304,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -2234,6 +2449,7 @@ describe('lambda-returns', () => {
         notModified(undefined, { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 304,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -2242,6 +2458,7 @@ describe('lambda-returns', () => {
     test('should return 304 when has obect body, no headers', () => {
       expect(notModified({ status: 'success' })).toEqual({
         statusCode: 304,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -2250,6 +2467,7 @@ describe('lambda-returns', () => {
     test('should return 304 when has string body, no headers', () => {
       expect(notModified('{"status":"success"}')).toEqual({
         statusCode: 304,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -2266,6 +2484,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 304,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -2279,6 +2498,7 @@ describe('lambda-returns', () => {
         notModified('{"status":"success"}', { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 304,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -2290,6 +2510,7 @@ describe('lambda-returns', () => {
       expect(
         isNotModified({
           statusCode: 304,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -2298,6 +2519,7 @@ describe('lambda-returns', () => {
       expect(
         isNotModified({
           statusCode: 304,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -2307,6 +2529,7 @@ describe('lambda-returns', () => {
       expect(
         isNotModified({
           statusCode: 304,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -2316,6 +2539,7 @@ describe('lambda-returns', () => {
       expect(
         isNotModified({
           statusCode: 304,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -2367,6 +2591,7 @@ describe('lambda-returns', () => {
     test('should return 305 when empty args', () => {
       expect(useProxy()).toEqual({
         statusCode: 305,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -2375,6 +2600,7 @@ describe('lambda-returns', () => {
     test('should return 305 when empty body but headers filled', () => {
       expect(useProxy(undefined, { ContentType: 'application/json' })).toEqual({
         statusCode: 305,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -2383,6 +2609,7 @@ describe('lambda-returns', () => {
     test('should return 305 when has obect body, no headers', () => {
       expect(useProxy({ status: 'success' })).toEqual({
         statusCode: 305,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -2391,6 +2618,7 @@ describe('lambda-returns', () => {
     test('should return 305 when has string body, no headers', () => {
       expect(useProxy('{"status":"success"}')).toEqual({
         statusCode: 305,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -2407,6 +2635,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 305,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -2420,6 +2649,7 @@ describe('lambda-returns', () => {
         useProxy('{"status":"success"}', { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 305,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -2431,6 +2661,7 @@ describe('lambda-returns', () => {
       expect(
         isUseProxy({
           statusCode: 305,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -2439,6 +2670,7 @@ describe('lambda-returns', () => {
       expect(
         isUseProxy({
           statusCode: 305,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -2448,6 +2680,7 @@ describe('lambda-returns', () => {
       expect(
         isUseProxy({
           statusCode: 305,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -2457,6 +2690,7 @@ describe('lambda-returns', () => {
       expect(
         isUseProxy({
           statusCode: 305,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -2508,6 +2742,7 @@ describe('lambda-returns', () => {
     test('should return 307 when empty args', () => {
       expect(temporaryRedirect()).toEqual({
         statusCode: 307,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -2518,6 +2753,7 @@ describe('lambda-returns', () => {
         temporaryRedirect(undefined, { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 307,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -2526,6 +2762,7 @@ describe('lambda-returns', () => {
     test('should return 307 when has obect body, no headers', () => {
       expect(temporaryRedirect({ status: 'success' })).toEqual({
         statusCode: 307,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -2534,6 +2771,7 @@ describe('lambda-returns', () => {
     test('should return 307 when has string body, no headers', () => {
       expect(temporaryRedirect('{"status":"success"}')).toEqual({
         statusCode: 307,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -2550,6 +2788,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 307,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -2565,6 +2804,7 @@ describe('lambda-returns', () => {
         })
       ).toEqual({
         statusCode: 307,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -2576,6 +2816,7 @@ describe('lambda-returns', () => {
       expect(
         isTemporaryRedirect({
           statusCode: 307,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -2584,6 +2825,7 @@ describe('lambda-returns', () => {
       expect(
         isTemporaryRedirect({
           statusCode: 307,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -2593,6 +2835,7 @@ describe('lambda-returns', () => {
       expect(
         isTemporaryRedirect({
           statusCode: 307,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -2602,6 +2845,7 @@ describe('lambda-returns', () => {
       expect(
         isTemporaryRedirect({
           statusCode: 307,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -2653,6 +2897,7 @@ describe('lambda-returns', () => {
     test('should return 400 when empty args', () => {
       expect(badRequest()).toEqual({
         statusCode: 400,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -2663,6 +2908,7 @@ describe('lambda-returns', () => {
         badRequest(undefined, { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 400,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -2671,6 +2917,7 @@ describe('lambda-returns', () => {
     test('should return 400 when has obect body, no headers', () => {
       expect(badRequest({ status: 'success' })).toEqual({
         statusCode: 400,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -2679,6 +2926,7 @@ describe('lambda-returns', () => {
     test('should return 400 when has string body, no headers', () => {
       expect(badRequest('{"status":"success"}')).toEqual({
         statusCode: 400,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -2695,6 +2943,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 400,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -2708,6 +2957,7 @@ describe('lambda-returns', () => {
         badRequest('{"status":"success"}', { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 400,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -2719,6 +2969,7 @@ describe('lambda-returns', () => {
       expect(
         isBadRequest({
           statusCode: 400,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -2727,6 +2978,7 @@ describe('lambda-returns', () => {
       expect(
         isBadRequest({
           statusCode: 400,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -2736,6 +2988,7 @@ describe('lambda-returns', () => {
       expect(
         isBadRequest({
           statusCode: 400,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -2745,6 +2998,7 @@ describe('lambda-returns', () => {
       expect(
         isBadRequest({
           statusCode: 400,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -2796,6 +3050,7 @@ describe('lambda-returns', () => {
     test('should return 401 when empty args', () => {
       expect(unauthorized()).toEqual({
         statusCode: 401,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -2806,6 +3061,7 @@ describe('lambda-returns', () => {
         unauthorized(undefined, { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 401,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -2814,6 +3070,7 @@ describe('lambda-returns', () => {
     test('should return 401 when has obect body, no headers', () => {
       expect(unauthorized({ status: 'success' })).toEqual({
         statusCode: 401,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -2822,6 +3079,7 @@ describe('lambda-returns', () => {
     test('should return 401 when has string body, no headers', () => {
       expect(unauthorized('{"status":"success"}')).toEqual({
         statusCode: 401,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -2838,6 +3096,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 401,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -2853,6 +3112,7 @@ describe('lambda-returns', () => {
         })
       ).toEqual({
         statusCode: 401,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -2864,6 +3124,7 @@ describe('lambda-returns', () => {
       expect(
         isUnauthorized({
           statusCode: 401,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -2872,6 +3133,7 @@ describe('lambda-returns', () => {
       expect(
         isUnauthorized({
           statusCode: 401,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -2881,6 +3143,7 @@ describe('lambda-returns', () => {
       expect(
         isUnauthorized({
           statusCode: 401,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -2890,6 +3153,7 @@ describe('lambda-returns', () => {
       expect(
         isUnauthorized({
           statusCode: 401,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -2941,6 +3205,7 @@ describe('lambda-returns', () => {
     test('should return 402 when empty args', () => {
       expect(paymentRequired()).toEqual({
         statusCode: 402,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -2951,6 +3216,7 @@ describe('lambda-returns', () => {
         paymentRequired(undefined, { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 402,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -2959,6 +3225,7 @@ describe('lambda-returns', () => {
     test('should return 402 when has obect body, no headers', () => {
       expect(paymentRequired({ status: 'success' })).toEqual({
         statusCode: 402,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -2967,6 +3234,7 @@ describe('lambda-returns', () => {
     test('should return 402 when has string body, no headers', () => {
       expect(paymentRequired('{"status":"success"}')).toEqual({
         statusCode: 402,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -2983,6 +3251,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 402,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -2998,6 +3267,7 @@ describe('lambda-returns', () => {
         })
       ).toEqual({
         statusCode: 402,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -3009,6 +3279,7 @@ describe('lambda-returns', () => {
       expect(
         isPaymentRequired({
           statusCode: 402,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -3017,6 +3288,7 @@ describe('lambda-returns', () => {
       expect(
         isPaymentRequired({
           statusCode: 402,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -3026,6 +3298,7 @@ describe('lambda-returns', () => {
       expect(
         isPaymentRequired({
           statusCode: 402,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -3035,6 +3308,7 @@ describe('lambda-returns', () => {
       expect(
         isPaymentRequired({
           statusCode: 402,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -3086,6 +3360,7 @@ describe('lambda-returns', () => {
     test('should return 403 when empty args', () => {
       expect(forbidden()).toEqual({
         statusCode: 403,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -3095,6 +3370,7 @@ describe('lambda-returns', () => {
       expect(forbidden(undefined, { ContentType: 'application/json' })).toEqual(
         {
           statusCode: 403,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
           body: null,
         }
@@ -3104,6 +3380,7 @@ describe('lambda-returns', () => {
     test('should return 403 when has obect body, no headers', () => {
       expect(forbidden({ status: 'success' })).toEqual({
         statusCode: 403,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -3112,6 +3389,7 @@ describe('lambda-returns', () => {
     test('should return 403 when has string body, no headers', () => {
       expect(forbidden('{"status":"success"}')).toEqual({
         statusCode: 403,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -3128,6 +3406,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 403,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -3141,6 +3420,7 @@ describe('lambda-returns', () => {
         forbidden('{"status":"success"}', { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 403,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -3152,6 +3432,7 @@ describe('lambda-returns', () => {
       expect(
         isForbidden({
           statusCode: 403,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -3160,6 +3441,7 @@ describe('lambda-returns', () => {
       expect(
         isForbidden({
           statusCode: 403,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -3169,6 +3451,7 @@ describe('lambda-returns', () => {
       expect(
         isForbidden({
           statusCode: 403,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -3178,6 +3461,7 @@ describe('lambda-returns', () => {
       expect(
         isForbidden({
           statusCode: 403,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -3229,6 +3513,7 @@ describe('lambda-returns', () => {
     test('should return 404 when empty args', () => {
       expect(notFound()).toEqual({
         statusCode: 404,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -3237,6 +3522,7 @@ describe('lambda-returns', () => {
     test('should return 404 when empty body but headers filled', () => {
       expect(notFound(undefined, { ContentType: 'application/json' })).toEqual({
         statusCode: 404,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -3245,6 +3531,7 @@ describe('lambda-returns', () => {
     test('should return 404 when has obect body, no headers', () => {
       expect(notFound({ status: 'success' })).toEqual({
         statusCode: 404,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -3253,6 +3540,7 @@ describe('lambda-returns', () => {
     test('should return 404 when has string body, no headers', () => {
       expect(notFound('{"status":"success"}')).toEqual({
         statusCode: 404,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -3269,6 +3557,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 404,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -3282,6 +3571,7 @@ describe('lambda-returns', () => {
         notFound('{"status":"success"}', { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 404,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -3293,6 +3583,7 @@ describe('lambda-returns', () => {
       expect(
         isNotFound({
           statusCode: 404,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -3301,6 +3592,7 @@ describe('lambda-returns', () => {
       expect(
         isNotFound({
           statusCode: 404,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -3310,6 +3602,7 @@ describe('lambda-returns', () => {
       expect(
         isNotFound({
           statusCode: 404,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -3319,6 +3612,7 @@ describe('lambda-returns', () => {
       expect(
         isNotFound({
           statusCode: 404,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -3370,6 +3664,7 @@ describe('lambda-returns', () => {
     test('should return 405 when empty args', () => {
       expect(methodNotAllowed()).toEqual({
         statusCode: 405,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -3380,6 +3675,7 @@ describe('lambda-returns', () => {
         methodNotAllowed(undefined, { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 405,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -3388,6 +3684,7 @@ describe('lambda-returns', () => {
     test('should return 405 when has obect body, no headers', () => {
       expect(methodNotAllowed({ status: 'success' })).toEqual({
         statusCode: 405,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -3396,6 +3693,7 @@ describe('lambda-returns', () => {
     test('should return 405 when has string body, no headers', () => {
       expect(methodNotAllowed('{"status":"success"}')).toEqual({
         statusCode: 405,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -3412,6 +3710,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 405,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -3427,6 +3726,7 @@ describe('lambda-returns', () => {
         })
       ).toEqual({
         statusCode: 405,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -3438,6 +3738,7 @@ describe('lambda-returns', () => {
       expect(
         isMethodNotAllowed({
           statusCode: 405,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -3446,6 +3747,7 @@ describe('lambda-returns', () => {
       expect(
         isMethodNotAllowed({
           statusCode: 405,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -3455,6 +3757,7 @@ describe('lambda-returns', () => {
       expect(
         isMethodNotAllowed({
           statusCode: 405,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -3464,6 +3767,7 @@ describe('lambda-returns', () => {
       expect(
         isMethodNotAllowed({
           statusCode: 405,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -3515,6 +3819,7 @@ describe('lambda-returns', () => {
     test('should return 406 when empty args', () => {
       expect(notAcceptable()).toEqual({
         statusCode: 406,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -3525,6 +3830,7 @@ describe('lambda-returns', () => {
         notAcceptable(undefined, { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 406,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -3533,6 +3839,7 @@ describe('lambda-returns', () => {
     test('should return 406 when has obect body, no headers', () => {
       expect(notAcceptable({ status: 'success' })).toEqual({
         statusCode: 406,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -3541,6 +3848,7 @@ describe('lambda-returns', () => {
     test('should return 406 when has string body, no headers', () => {
       expect(notAcceptable('{"status":"success"}')).toEqual({
         statusCode: 406,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -3557,6 +3865,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 406,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -3572,6 +3881,7 @@ describe('lambda-returns', () => {
         })
       ).toEqual({
         statusCode: 406,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -3583,6 +3893,7 @@ describe('lambda-returns', () => {
       expect(
         isNotAcceptable({
           statusCode: 406,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -3591,6 +3902,7 @@ describe('lambda-returns', () => {
       expect(
         isNotAcceptable({
           statusCode: 406,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -3600,6 +3912,7 @@ describe('lambda-returns', () => {
       expect(
         isNotAcceptable({
           statusCode: 406,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -3609,6 +3922,7 @@ describe('lambda-returns', () => {
       expect(
         isNotAcceptable({
           statusCode: 406,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -3660,6 +3974,7 @@ describe('lambda-returns', () => {
     test('should return 407 when empty args', () => {
       expect(proxyAuthenticationRequired()).toEqual({
         statusCode: 407,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -3672,6 +3987,7 @@ describe('lambda-returns', () => {
         })
       ).toEqual({
         statusCode: 407,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -3680,6 +3996,7 @@ describe('lambda-returns', () => {
     test('should return 407 when has obect body, no headers', () => {
       expect(proxyAuthenticationRequired({ status: 'success' })).toEqual({
         statusCode: 407,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -3688,6 +4005,7 @@ describe('lambda-returns', () => {
     test('should return 407 when has string body, no headers', () => {
       expect(proxyAuthenticationRequired('{"status":"success"}')).toEqual({
         statusCode: 407,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -3704,6 +4022,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 407,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -3719,6 +4038,7 @@ describe('lambda-returns', () => {
         })
       ).toEqual({
         statusCode: 407,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -3730,6 +4050,7 @@ describe('lambda-returns', () => {
       expect(
         isProxyAuthenticationRequired({
           statusCode: 407,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -3738,6 +4059,7 @@ describe('lambda-returns', () => {
       expect(
         isProxyAuthenticationRequired({
           statusCode: 407,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -3747,6 +4069,7 @@ describe('lambda-returns', () => {
       expect(
         isProxyAuthenticationRequired({
           statusCode: 407,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -3756,6 +4079,7 @@ describe('lambda-returns', () => {
       expect(
         isProxyAuthenticationRequired({
           statusCode: 407,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -3807,6 +4131,7 @@ describe('lambda-returns', () => {
     test('should return 408 when empty args', () => {
       expect(requestTimeOut()).toEqual({
         statusCode: 408,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -3817,6 +4142,7 @@ describe('lambda-returns', () => {
         requestTimeOut(undefined, { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 408,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -3825,6 +4151,7 @@ describe('lambda-returns', () => {
     test('should return 408 when has obect body, no headers', () => {
       expect(requestTimeOut({ status: 'success' })).toEqual({
         statusCode: 408,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -3833,6 +4160,7 @@ describe('lambda-returns', () => {
     test('should return 408 when has string body, no headers', () => {
       expect(requestTimeOut('{"status":"success"}')).toEqual({
         statusCode: 408,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -3849,6 +4177,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 408,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -3864,6 +4193,7 @@ describe('lambda-returns', () => {
         })
       ).toEqual({
         statusCode: 408,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -3875,6 +4205,7 @@ describe('lambda-returns', () => {
       expect(
         isRequestTimeOut({
           statusCode: 408,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -3883,6 +4214,7 @@ describe('lambda-returns', () => {
       expect(
         isRequestTimeOut({
           statusCode: 408,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -3892,6 +4224,7 @@ describe('lambda-returns', () => {
       expect(
         isRequestTimeOut({
           statusCode: 408,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -3901,6 +4234,7 @@ describe('lambda-returns', () => {
       expect(
         isRequestTimeOut({
           statusCode: 408,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -3952,6 +4286,7 @@ describe('lambda-returns', () => {
     test('should return 409 when empty args', () => {
       expect(conflict()).toEqual({
         statusCode: 409,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -3960,6 +4295,7 @@ describe('lambda-returns', () => {
     test('should return 409 when empty body but headers filled', () => {
       expect(conflict(undefined, { ContentType: 'application/json' })).toEqual({
         statusCode: 409,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -3968,6 +4304,7 @@ describe('lambda-returns', () => {
     test('should return 409 when has obect body, no headers', () => {
       expect(conflict({ status: 'success' })).toEqual({
         statusCode: 409,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -3976,6 +4313,7 @@ describe('lambda-returns', () => {
     test('should return 409 when has string body, no headers', () => {
       expect(conflict('{"status":"success"}')).toEqual({
         statusCode: 409,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -3992,6 +4330,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 409,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -4005,6 +4344,7 @@ describe('lambda-returns', () => {
         conflict('{"status":"success"}', { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 409,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -4016,6 +4356,7 @@ describe('lambda-returns', () => {
       expect(
         isConflict({
           statusCode: 409,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -4024,6 +4365,7 @@ describe('lambda-returns', () => {
       expect(
         isConflict({
           statusCode: 409,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -4033,6 +4375,7 @@ describe('lambda-returns', () => {
       expect(
         isConflict({
           statusCode: 409,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -4042,6 +4385,7 @@ describe('lambda-returns', () => {
       expect(
         isConflict({
           statusCode: 409,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -4093,6 +4437,7 @@ describe('lambda-returns', () => {
     test('should return 410 when empty args', () => {
       expect(gone()).toEqual({
         statusCode: 410,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -4101,6 +4446,7 @@ describe('lambda-returns', () => {
     test('should return 410 when empty body but headers filled', () => {
       expect(gone(undefined, { ContentType: 'application/json' })).toEqual({
         statusCode: 410,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -4109,6 +4455,7 @@ describe('lambda-returns', () => {
     test('should return 410 when has obect body, no headers', () => {
       expect(gone({ status: 'success' })).toEqual({
         statusCode: 410,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -4117,6 +4464,7 @@ describe('lambda-returns', () => {
     test('should return 410 when has string body, no headers', () => {
       expect(gone('{"status":"success"}')).toEqual({
         statusCode: 410,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -4133,6 +4481,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 410,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -4146,6 +4495,7 @@ describe('lambda-returns', () => {
         gone('{"status":"success"}', { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 410,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -4157,6 +4507,7 @@ describe('lambda-returns', () => {
       expect(
         isGone({
           statusCode: 410,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -4165,6 +4516,7 @@ describe('lambda-returns', () => {
       expect(
         isGone({
           statusCode: 410,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -4174,6 +4526,7 @@ describe('lambda-returns', () => {
       expect(
         isGone({
           statusCode: 410,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -4183,6 +4536,7 @@ describe('lambda-returns', () => {
       expect(
         isGone({
           statusCode: 410,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -4234,6 +4588,7 @@ describe('lambda-returns', () => {
     test('should return 411 when empty args', () => {
       expect(lengthRequired()).toEqual({
         statusCode: 411,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -4244,6 +4599,7 @@ describe('lambda-returns', () => {
         lengthRequired(undefined, { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 411,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -4252,6 +4608,7 @@ describe('lambda-returns', () => {
     test('should return 411 when has obect body, no headers', () => {
       expect(lengthRequired({ status: 'success' })).toEqual({
         statusCode: 411,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -4260,6 +4617,7 @@ describe('lambda-returns', () => {
     test('should return 411 when has string body, no headers', () => {
       expect(lengthRequired('{"status":"success"}')).toEqual({
         statusCode: 411,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -4276,6 +4634,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 411,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -4291,6 +4650,7 @@ describe('lambda-returns', () => {
         })
       ).toEqual({
         statusCode: 411,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -4302,6 +4662,7 @@ describe('lambda-returns', () => {
       expect(
         isLengthRequired({
           statusCode: 411,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -4310,6 +4671,7 @@ describe('lambda-returns', () => {
       expect(
         isLengthRequired({
           statusCode: 411,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -4319,6 +4681,7 @@ describe('lambda-returns', () => {
       expect(
         isLengthRequired({
           statusCode: 411,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -4328,6 +4691,7 @@ describe('lambda-returns', () => {
       expect(
         isLengthRequired({
           statusCode: 411,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -4379,6 +4743,7 @@ describe('lambda-returns', () => {
     test('should return 412 when empty args', () => {
       expect(preconditionFailed()).toEqual({
         statusCode: 412,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -4389,6 +4754,7 @@ describe('lambda-returns', () => {
         preconditionFailed(undefined, { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 412,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -4397,6 +4763,7 @@ describe('lambda-returns', () => {
     test('should return 412 when has obect body, no headers', () => {
       expect(preconditionFailed({ status: 'success' })).toEqual({
         statusCode: 412,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -4405,6 +4772,7 @@ describe('lambda-returns', () => {
     test('should return 412 when has string body, no headers', () => {
       expect(preconditionFailed('{"status":"success"}')).toEqual({
         statusCode: 412,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -4421,6 +4789,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 412,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -4436,6 +4805,7 @@ describe('lambda-returns', () => {
         })
       ).toEqual({
         statusCode: 412,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -4447,6 +4817,7 @@ describe('lambda-returns', () => {
       expect(
         isPreconditionFailed({
           statusCode: 412,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -4455,6 +4826,7 @@ describe('lambda-returns', () => {
       expect(
         isPreconditionFailed({
           statusCode: 412,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -4464,6 +4836,7 @@ describe('lambda-returns', () => {
       expect(
         isPreconditionFailed({
           statusCode: 412,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -4473,6 +4846,7 @@ describe('lambda-returns', () => {
       expect(
         isPreconditionFailed({
           statusCode: 412,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -4524,6 +4898,7 @@ describe('lambda-returns', () => {
     test('should return 413 when empty args', () => {
       expect(requestEntityTooLarge()).toEqual({
         statusCode: 413,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -4534,6 +4909,7 @@ describe('lambda-returns', () => {
         requestEntityTooLarge(undefined, { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 413,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -4542,6 +4918,7 @@ describe('lambda-returns', () => {
     test('should return 413 when has obect body, no headers', () => {
       expect(requestEntityTooLarge({ status: 'success' })).toEqual({
         statusCode: 413,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -4550,6 +4927,7 @@ describe('lambda-returns', () => {
     test('should return 413 when has string body, no headers', () => {
       expect(requestEntityTooLarge('{"status":"success"}')).toEqual({
         statusCode: 413,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -4566,6 +4944,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 413,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -4581,6 +4960,7 @@ describe('lambda-returns', () => {
         })
       ).toEqual({
         statusCode: 413,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -4592,6 +4972,7 @@ describe('lambda-returns', () => {
       expect(
         isRequestEntityTooLarge({
           statusCode: 413,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -4600,6 +4981,7 @@ describe('lambda-returns', () => {
       expect(
         isRequestEntityTooLarge({
           statusCode: 413,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -4609,6 +4991,7 @@ describe('lambda-returns', () => {
       expect(
         isRequestEntityTooLarge({
           statusCode: 413,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -4618,6 +5001,7 @@ describe('lambda-returns', () => {
       expect(
         isRequestEntityTooLarge({
           statusCode: 413,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -4669,6 +5053,7 @@ describe('lambda-returns', () => {
     test('should return 414 when empty args', () => {
       expect(requestUriTooLarge()).toEqual({
         statusCode: 414,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -4679,6 +5064,7 @@ describe('lambda-returns', () => {
         requestUriTooLarge(undefined, { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 414,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -4687,6 +5073,7 @@ describe('lambda-returns', () => {
     test('should return 414 when has obect body, no headers', () => {
       expect(requestUriTooLarge({ status: 'success' })).toEqual({
         statusCode: 414,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -4695,6 +5082,7 @@ describe('lambda-returns', () => {
     test('should return 414 when has string body, no headers', () => {
       expect(requestUriTooLarge('{"status":"success"}')).toEqual({
         statusCode: 414,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -4711,6 +5099,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 414,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -4726,6 +5115,7 @@ describe('lambda-returns', () => {
         })
       ).toEqual({
         statusCode: 414,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -4737,6 +5127,7 @@ describe('lambda-returns', () => {
       expect(
         isRequestUriTooLarge({
           statusCode: 414,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -4745,6 +5136,7 @@ describe('lambda-returns', () => {
       expect(
         isRequestUriTooLarge({
           statusCode: 414,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -4754,6 +5146,7 @@ describe('lambda-returns', () => {
       expect(
         isRequestUriTooLarge({
           statusCode: 414,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -4763,6 +5156,7 @@ describe('lambda-returns', () => {
       expect(
         isRequestUriTooLarge({
           statusCode: 414,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -4814,6 +5208,7 @@ describe('lambda-returns', () => {
     test('should return 415 when empty args', () => {
       expect(unsupportedMediaType()).toEqual({
         statusCode: 415,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -4824,6 +5219,7 @@ describe('lambda-returns', () => {
         unsupportedMediaType(undefined, { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 415,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -4832,6 +5228,7 @@ describe('lambda-returns', () => {
     test('should return 415 when has obect body, no headers', () => {
       expect(unsupportedMediaType({ status: 'success' })).toEqual({
         statusCode: 415,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -4840,6 +5237,7 @@ describe('lambda-returns', () => {
     test('should return 415 when has string body, no headers', () => {
       expect(unsupportedMediaType('{"status":"success"}')).toEqual({
         statusCode: 415,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -4856,6 +5254,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 415,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -4871,6 +5270,7 @@ describe('lambda-returns', () => {
         })
       ).toEqual({
         statusCode: 415,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -4882,6 +5282,7 @@ describe('lambda-returns', () => {
       expect(
         isUnsupportedMediaType({
           statusCode: 415,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -4890,6 +5291,7 @@ describe('lambda-returns', () => {
       expect(
         isUnsupportedMediaType({
           statusCode: 415,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -4899,6 +5301,7 @@ describe('lambda-returns', () => {
       expect(
         isUnsupportedMediaType({
           statusCode: 415,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -4908,6 +5311,7 @@ describe('lambda-returns', () => {
       expect(
         isUnsupportedMediaType({
           statusCode: 415,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -4959,6 +5363,7 @@ describe('lambda-returns', () => {
     test('should return 416 when empty args', () => {
       expect(requestedRangeNotSatisfiable()).toEqual({
         statusCode: 416,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -4971,6 +5376,7 @@ describe('lambda-returns', () => {
         })
       ).toEqual({
         statusCode: 416,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -4979,6 +5385,7 @@ describe('lambda-returns', () => {
     test('should return 416 when has obect body, no headers', () => {
       expect(requestedRangeNotSatisfiable({ status: 'success' })).toEqual({
         statusCode: 416,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -4987,6 +5394,7 @@ describe('lambda-returns', () => {
     test('should return 416 when has string body, no headers', () => {
       expect(requestedRangeNotSatisfiable('{"status":"success"}')).toEqual({
         statusCode: 416,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -5003,6 +5411,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 416,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -5018,6 +5427,7 @@ describe('lambda-returns', () => {
         })
       ).toEqual({
         statusCode: 416,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -5029,6 +5439,7 @@ describe('lambda-returns', () => {
       expect(
         isRequestedRangeNotSatisfiable({
           statusCode: 416,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -5037,6 +5448,7 @@ describe('lambda-returns', () => {
       expect(
         isRequestedRangeNotSatisfiable({
           statusCode: 416,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -5046,6 +5458,7 @@ describe('lambda-returns', () => {
       expect(
         isRequestedRangeNotSatisfiable({
           statusCode: 416,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -5055,6 +5468,7 @@ describe('lambda-returns', () => {
       expect(
         isRequestedRangeNotSatisfiable({
           statusCode: 416,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -5106,6 +5520,7 @@ describe('lambda-returns', () => {
     test('should return 417 when empty args', () => {
       expect(expectationFailed()).toEqual({
         statusCode: 417,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -5116,6 +5531,7 @@ describe('lambda-returns', () => {
         expectationFailed(undefined, { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 417,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -5124,6 +5540,7 @@ describe('lambda-returns', () => {
     test('should return 417 when has obect body, no headers', () => {
       expect(expectationFailed({ status: 'success' })).toEqual({
         statusCode: 417,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -5132,6 +5549,7 @@ describe('lambda-returns', () => {
     test('should return 417 when has string body, no headers', () => {
       expect(expectationFailed('{"status":"success"}')).toEqual({
         statusCode: 417,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -5148,6 +5566,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 417,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -5163,6 +5582,7 @@ describe('lambda-returns', () => {
         })
       ).toEqual({
         statusCode: 417,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -5174,6 +5594,7 @@ describe('lambda-returns', () => {
       expect(
         isExpectationFailed({
           statusCode: 417,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -5182,6 +5603,7 @@ describe('lambda-returns', () => {
       expect(
         isExpectationFailed({
           statusCode: 417,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -5191,6 +5613,7 @@ describe('lambda-returns', () => {
       expect(
         isExpectationFailed({
           statusCode: 417,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -5200,6 +5623,7 @@ describe('lambda-returns', () => {
       expect(
         isExpectationFailed({
           statusCode: 417,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -5251,6 +5675,7 @@ describe('lambda-returns', () => {
     test('should return 418 when empty args', () => {
       expect(imATeapot()).toEqual({
         statusCode: 418,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -5260,6 +5685,7 @@ describe('lambda-returns', () => {
       expect(imATeapot(undefined, { ContentType: 'application/json' })).toEqual(
         {
           statusCode: 418,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
           body: null,
         }
@@ -5269,6 +5695,7 @@ describe('lambda-returns', () => {
     test('should return 418 when has obect body, no headers', () => {
       expect(imATeapot({ status: 'success' })).toEqual({
         statusCode: 418,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -5277,6 +5704,7 @@ describe('lambda-returns', () => {
     test('should return 418 when has string body, no headers', () => {
       expect(imATeapot('{"status":"success"}')).toEqual({
         statusCode: 418,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -5293,6 +5721,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 418,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -5306,6 +5735,7 @@ describe('lambda-returns', () => {
         imATeapot('{"status":"success"}', { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 418,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -5317,6 +5747,7 @@ describe('lambda-returns', () => {
       expect(
         isImATeapot({
           statusCode: 418,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -5325,6 +5756,7 @@ describe('lambda-returns', () => {
       expect(
         isImATeapot({
           statusCode: 418,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -5334,6 +5766,7 @@ describe('lambda-returns', () => {
       expect(
         isImATeapot({
           statusCode: 418,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -5343,6 +5776,7 @@ describe('lambda-returns', () => {
       expect(
         isImATeapot({
           statusCode: 418,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -5394,6 +5828,7 @@ describe('lambda-returns', () => {
     test('should return 422 when empty args', () => {
       expect(unprocessableEntity()).toEqual({
         statusCode: 422,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -5404,6 +5839,7 @@ describe('lambda-returns', () => {
         unprocessableEntity(undefined, { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 422,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -5412,6 +5848,7 @@ describe('lambda-returns', () => {
     test('should return 422 when has obect body, no headers', () => {
       expect(unprocessableEntity({ status: 'success' })).toEqual({
         statusCode: 422,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -5420,6 +5857,7 @@ describe('lambda-returns', () => {
     test('should return 422 when has string body, no headers', () => {
       expect(unprocessableEntity('{"status":"success"}')).toEqual({
         statusCode: 422,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -5436,6 +5874,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 422,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -5451,6 +5890,7 @@ describe('lambda-returns', () => {
         })
       ).toEqual({
         statusCode: 422,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -5462,6 +5902,7 @@ describe('lambda-returns', () => {
       expect(
         isUnprocessableEntity({
           statusCode: 422,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -5470,6 +5911,7 @@ describe('lambda-returns', () => {
       expect(
         isUnprocessableEntity({
           statusCode: 422,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -5479,6 +5921,7 @@ describe('lambda-returns', () => {
       expect(
         isUnprocessableEntity({
           statusCode: 422,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -5488,6 +5931,7 @@ describe('lambda-returns', () => {
       expect(
         isUnprocessableEntity({
           statusCode: 422,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -5539,6 +5983,7 @@ describe('lambda-returns', () => {
     test('should return 423 when empty args', () => {
       expect(locked()).toEqual({
         statusCode: 423,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -5547,6 +5992,7 @@ describe('lambda-returns', () => {
     test('should return 423 when empty body but headers filled', () => {
       expect(locked(undefined, { ContentType: 'application/json' })).toEqual({
         statusCode: 423,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -5555,6 +6001,7 @@ describe('lambda-returns', () => {
     test('should return 423 when has obect body, no headers', () => {
       expect(locked({ status: 'success' })).toEqual({
         statusCode: 423,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -5563,6 +6010,7 @@ describe('lambda-returns', () => {
     test('should return 423 when has string body, no headers', () => {
       expect(locked('{"status":"success"}')).toEqual({
         statusCode: 423,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -5579,6 +6027,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 423,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -5592,6 +6041,7 @@ describe('lambda-returns', () => {
         locked('{"status":"success"}', { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 423,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -5603,6 +6053,7 @@ describe('lambda-returns', () => {
       expect(
         isLocked({
           statusCode: 423,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -5611,6 +6062,7 @@ describe('lambda-returns', () => {
       expect(
         isLocked({
           statusCode: 423,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -5620,6 +6072,7 @@ describe('lambda-returns', () => {
       expect(
         isLocked({
           statusCode: 423,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -5629,6 +6082,7 @@ describe('lambda-returns', () => {
       expect(
         isLocked({
           statusCode: 423,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -5680,6 +6134,7 @@ describe('lambda-returns', () => {
     test('should return 424 when empty args', () => {
       expect(failedDependency()).toEqual({
         statusCode: 424,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -5690,6 +6145,7 @@ describe('lambda-returns', () => {
         failedDependency(undefined, { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 424,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -5698,6 +6154,7 @@ describe('lambda-returns', () => {
     test('should return 424 when has obect body, no headers', () => {
       expect(failedDependency({ status: 'success' })).toEqual({
         statusCode: 424,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -5706,6 +6163,7 @@ describe('lambda-returns', () => {
     test('should return 424 when has string body, no headers', () => {
       expect(failedDependency('{"status":"success"}')).toEqual({
         statusCode: 424,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -5722,6 +6180,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 424,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -5737,6 +6196,7 @@ describe('lambda-returns', () => {
         })
       ).toEqual({
         statusCode: 424,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -5748,6 +6208,7 @@ describe('lambda-returns', () => {
       expect(
         isFailedDependency({
           statusCode: 424,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -5756,6 +6217,7 @@ describe('lambda-returns', () => {
       expect(
         isFailedDependency({
           statusCode: 424,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -5765,6 +6227,7 @@ describe('lambda-returns', () => {
       expect(
         isFailedDependency({
           statusCode: 424,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -5774,6 +6237,7 @@ describe('lambda-returns', () => {
       expect(
         isFailedDependency({
           statusCode: 424,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -5825,6 +6289,7 @@ describe('lambda-returns', () => {
     test('should return 425 when empty args', () => {
       expect(unorderedCollection()).toEqual({
         statusCode: 425,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -5835,6 +6300,7 @@ describe('lambda-returns', () => {
         unorderedCollection(undefined, { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 425,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -5843,6 +6309,7 @@ describe('lambda-returns', () => {
     test('should return 425 when has obect body, no headers', () => {
       expect(unorderedCollection({ status: 'success' })).toEqual({
         statusCode: 425,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -5851,6 +6318,7 @@ describe('lambda-returns', () => {
     test('should return 425 when has string body, no headers', () => {
       expect(unorderedCollection('{"status":"success"}')).toEqual({
         statusCode: 425,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -5867,6 +6335,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 425,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -5882,6 +6351,7 @@ describe('lambda-returns', () => {
         })
       ).toEqual({
         statusCode: 425,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -5893,6 +6363,7 @@ describe('lambda-returns', () => {
       expect(
         isUnorderedCollection({
           statusCode: 425,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -5901,6 +6372,7 @@ describe('lambda-returns', () => {
       expect(
         isUnorderedCollection({
           statusCode: 425,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -5910,6 +6382,7 @@ describe('lambda-returns', () => {
       expect(
         isUnorderedCollection({
           statusCode: 425,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -5919,6 +6392,7 @@ describe('lambda-returns', () => {
       expect(
         isUnorderedCollection({
           statusCode: 425,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -5970,6 +6444,7 @@ describe('lambda-returns', () => {
     test('should return 426 when empty args', () => {
       expect(upgradeRequired()).toEqual({
         statusCode: 426,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -5980,6 +6455,7 @@ describe('lambda-returns', () => {
         upgradeRequired(undefined, { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 426,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -5988,6 +6464,7 @@ describe('lambda-returns', () => {
     test('should return 426 when has obect body, no headers', () => {
       expect(upgradeRequired({ status: 'success' })).toEqual({
         statusCode: 426,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -5996,6 +6473,7 @@ describe('lambda-returns', () => {
     test('should return 426 when has string body, no headers', () => {
       expect(upgradeRequired('{"status":"success"}')).toEqual({
         statusCode: 426,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -6012,6 +6490,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 426,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -6027,6 +6506,7 @@ describe('lambda-returns', () => {
         })
       ).toEqual({
         statusCode: 426,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -6038,6 +6518,7 @@ describe('lambda-returns', () => {
       expect(
         isUpgradeRequired({
           statusCode: 426,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -6046,6 +6527,7 @@ describe('lambda-returns', () => {
       expect(
         isUpgradeRequired({
           statusCode: 426,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -6055,6 +6537,7 @@ describe('lambda-returns', () => {
       expect(
         isUpgradeRequired({
           statusCode: 426,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -6064,6 +6547,7 @@ describe('lambda-returns', () => {
       expect(
         isUpgradeRequired({
           statusCode: 426,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -6115,6 +6599,7 @@ describe('lambda-returns', () => {
     test('should return 428 when empty args', () => {
       expect(preconditionRequired()).toEqual({
         statusCode: 428,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -6125,6 +6610,7 @@ describe('lambda-returns', () => {
         preconditionRequired(undefined, { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 428,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -6133,6 +6619,7 @@ describe('lambda-returns', () => {
     test('should return 428 when has obect body, no headers', () => {
       expect(preconditionRequired({ status: 'success' })).toEqual({
         statusCode: 428,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -6141,6 +6628,7 @@ describe('lambda-returns', () => {
     test('should return 428 when has string body, no headers', () => {
       expect(preconditionRequired('{"status":"success"}')).toEqual({
         statusCode: 428,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -6157,6 +6645,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 428,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -6172,6 +6661,7 @@ describe('lambda-returns', () => {
         })
       ).toEqual({
         statusCode: 428,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -6183,6 +6673,7 @@ describe('lambda-returns', () => {
       expect(
         isPreconditionRequired({
           statusCode: 428,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -6191,6 +6682,7 @@ describe('lambda-returns', () => {
       expect(
         isPreconditionRequired({
           statusCode: 428,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -6200,6 +6692,7 @@ describe('lambda-returns', () => {
       expect(
         isPreconditionRequired({
           statusCode: 428,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -6209,6 +6702,7 @@ describe('lambda-returns', () => {
       expect(
         isPreconditionRequired({
           statusCode: 428,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -6260,6 +6754,7 @@ describe('lambda-returns', () => {
     test('should return 429 when empty args', () => {
       expect(tooManyRequests()).toEqual({
         statusCode: 429,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -6270,6 +6765,7 @@ describe('lambda-returns', () => {
         tooManyRequests(undefined, { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 429,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -6278,6 +6774,7 @@ describe('lambda-returns', () => {
     test('should return 429 when has obect body, no headers', () => {
       expect(tooManyRequests({ status: 'success' })).toEqual({
         statusCode: 429,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -6286,6 +6783,7 @@ describe('lambda-returns', () => {
     test('should return 429 when has string body, no headers', () => {
       expect(tooManyRequests('{"status":"success"}')).toEqual({
         statusCode: 429,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -6302,6 +6800,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 429,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -6317,6 +6816,7 @@ describe('lambda-returns', () => {
         })
       ).toEqual({
         statusCode: 429,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -6328,6 +6828,7 @@ describe('lambda-returns', () => {
       expect(
         isTooManyRequests({
           statusCode: 429,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -6336,6 +6837,7 @@ describe('lambda-returns', () => {
       expect(
         isTooManyRequests({
           statusCode: 429,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -6345,6 +6847,7 @@ describe('lambda-returns', () => {
       expect(
         isTooManyRequests({
           statusCode: 429,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -6354,6 +6857,7 @@ describe('lambda-returns', () => {
       expect(
         isTooManyRequests({
           statusCode: 429,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -6405,6 +6909,7 @@ describe('lambda-returns', () => {
     test('should return 431 when empty args', () => {
       expect(requestHeaderFieldsTooLarge()).toEqual({
         statusCode: 431,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -6417,6 +6922,7 @@ describe('lambda-returns', () => {
         })
       ).toEqual({
         statusCode: 431,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -6425,6 +6931,7 @@ describe('lambda-returns', () => {
     test('should return 431 when has obect body, no headers', () => {
       expect(requestHeaderFieldsTooLarge({ status: 'success' })).toEqual({
         statusCode: 431,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -6433,6 +6940,7 @@ describe('lambda-returns', () => {
     test('should return 431 when has string body, no headers', () => {
       expect(requestHeaderFieldsTooLarge('{"status":"success"}')).toEqual({
         statusCode: 431,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -6449,6 +6957,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 431,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -6464,6 +6973,7 @@ describe('lambda-returns', () => {
         })
       ).toEqual({
         statusCode: 431,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -6475,6 +6985,7 @@ describe('lambda-returns', () => {
       expect(
         isRequestHeaderFieldsTooLarge({
           statusCode: 431,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -6483,6 +6994,7 @@ describe('lambda-returns', () => {
       expect(
         isRequestHeaderFieldsTooLarge({
           statusCode: 431,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -6492,6 +7004,7 @@ describe('lambda-returns', () => {
       expect(
         isRequestHeaderFieldsTooLarge({
           statusCode: 431,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -6501,6 +7014,7 @@ describe('lambda-returns', () => {
       expect(
         isRequestHeaderFieldsTooLarge({
           statusCode: 431,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -6552,6 +7066,7 @@ describe('lambda-returns', () => {
     test('should return 500 when empty args', () => {
       expect(internalServerError()).toEqual({
         statusCode: 500,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -6562,6 +7077,7 @@ describe('lambda-returns', () => {
         internalServerError(undefined, { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 500,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -6570,6 +7086,7 @@ describe('lambda-returns', () => {
     test('should return 500 when has obect body, no headers', () => {
       expect(internalServerError({ status: 'success' })).toEqual({
         statusCode: 500,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -6578,6 +7095,7 @@ describe('lambda-returns', () => {
     test('should return 500 when has string body, no headers', () => {
       expect(internalServerError('{"status":"success"}')).toEqual({
         statusCode: 500,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -6594,6 +7112,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 500,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -6609,6 +7128,7 @@ describe('lambda-returns', () => {
         })
       ).toEqual({
         statusCode: 500,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -6620,6 +7140,7 @@ describe('lambda-returns', () => {
       expect(
         isInternalServerError({
           statusCode: 500,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -6628,6 +7149,7 @@ describe('lambda-returns', () => {
       expect(
         isInternalServerError({
           statusCode: 500,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -6637,6 +7159,7 @@ describe('lambda-returns', () => {
       expect(
         isInternalServerError({
           statusCode: 500,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -6646,6 +7169,7 @@ describe('lambda-returns', () => {
       expect(
         isInternalServerError({
           statusCode: 500,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -6697,6 +7221,7 @@ describe('lambda-returns', () => {
     test('should return 501 when empty args', () => {
       expect(notImplemented()).toEqual({
         statusCode: 501,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -6707,6 +7232,7 @@ describe('lambda-returns', () => {
         notImplemented(undefined, { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 501,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -6715,6 +7241,7 @@ describe('lambda-returns', () => {
     test('should return 501 when has obect body, no headers', () => {
       expect(notImplemented({ status: 'success' })).toEqual({
         statusCode: 501,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -6723,6 +7250,7 @@ describe('lambda-returns', () => {
     test('should return 501 when has string body, no headers', () => {
       expect(notImplemented('{"status":"success"}')).toEqual({
         statusCode: 501,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -6739,6 +7267,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 501,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -6754,6 +7283,7 @@ describe('lambda-returns', () => {
         })
       ).toEqual({
         statusCode: 501,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -6765,6 +7295,7 @@ describe('lambda-returns', () => {
       expect(
         isNotImplemented({
           statusCode: 501,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -6773,6 +7304,7 @@ describe('lambda-returns', () => {
       expect(
         isNotImplemented({
           statusCode: 501,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -6782,6 +7314,7 @@ describe('lambda-returns', () => {
       expect(
         isNotImplemented({
           statusCode: 501,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -6791,6 +7324,7 @@ describe('lambda-returns', () => {
       expect(
         isNotImplemented({
           statusCode: 501,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -6842,6 +7376,7 @@ describe('lambda-returns', () => {
     test('should return 502 when empty args', () => {
       expect(badGateway()).toEqual({
         statusCode: 502,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -6852,6 +7387,7 @@ describe('lambda-returns', () => {
         badGateway(undefined, { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 502,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -6860,6 +7396,7 @@ describe('lambda-returns', () => {
     test('should return 502 when has obect body, no headers', () => {
       expect(badGateway({ status: 'success' })).toEqual({
         statusCode: 502,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -6868,6 +7405,7 @@ describe('lambda-returns', () => {
     test('should return 502 when has string body, no headers', () => {
       expect(badGateway('{"status":"success"}')).toEqual({
         statusCode: 502,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -6884,6 +7422,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 502,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -6897,6 +7436,7 @@ describe('lambda-returns', () => {
         badGateway('{"status":"success"}', { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 502,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -6908,6 +7448,7 @@ describe('lambda-returns', () => {
       expect(
         isBadGateway({
           statusCode: 502,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -6916,6 +7457,7 @@ describe('lambda-returns', () => {
       expect(
         isBadGateway({
           statusCode: 502,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -6925,6 +7467,7 @@ describe('lambda-returns', () => {
       expect(
         isBadGateway({
           statusCode: 502,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -6934,6 +7477,7 @@ describe('lambda-returns', () => {
       expect(
         isBadGateway({
           statusCode: 502,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -6985,6 +7529,7 @@ describe('lambda-returns', () => {
     test('should return 503 when empty args', () => {
       expect(serviceUnavailable()).toEqual({
         statusCode: 503,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -6995,6 +7540,7 @@ describe('lambda-returns', () => {
         serviceUnavailable(undefined, { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 503,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -7006,6 +7552,7 @@ describe('lambda-returns', () => {
         serviceUnavailable(undefined, { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 503,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -7014,6 +7561,7 @@ describe('lambda-returns', () => {
     test('should return 503 when has obect body, no headers', () => {
       expect(serviceUnavailable({ status: 'success' })).toEqual({
         statusCode: 503,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -7022,6 +7570,7 @@ describe('lambda-returns', () => {
     test('should return 503 when has string body, no headers', () => {
       expect(serviceUnavailable('{"status":"success"}')).toEqual({
         statusCode: 503,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -7038,6 +7587,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 503,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -7053,6 +7603,7 @@ describe('lambda-returns', () => {
         })
       ).toEqual({
         statusCode: 503,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -7064,6 +7615,7 @@ describe('lambda-returns', () => {
       expect(
         isServiceUnavailable({
           statusCode: 503,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -7072,6 +7624,7 @@ describe('lambda-returns', () => {
       expect(
         isServiceUnavailable({
           statusCode: 503,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -7081,6 +7634,7 @@ describe('lambda-returns', () => {
       expect(
         isServiceUnavailable({
           statusCode: 503,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -7090,6 +7644,7 @@ describe('lambda-returns', () => {
       expect(
         isServiceUnavailable({
           statusCode: 503,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -7141,6 +7696,7 @@ describe('lambda-returns', () => {
     test('should return 504 when empty args', () => {
       expect(gatewayTimeOut()).toEqual({
         statusCode: 504,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -7151,6 +7707,7 @@ describe('lambda-returns', () => {
         gatewayTimeOut(undefined, { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 504,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -7159,6 +7716,7 @@ describe('lambda-returns', () => {
     test('should return 504 when has obect body, no headers', () => {
       expect(gatewayTimeOut({ status: 'success' })).toEqual({
         statusCode: 504,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -7167,6 +7725,7 @@ describe('lambda-returns', () => {
     test('should return 504 when has string body, no headers', () => {
       expect(gatewayTimeOut('{"status":"success"}')).toEqual({
         statusCode: 504,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -7183,6 +7742,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 504,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -7203,6 +7763,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 504,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -7218,6 +7779,7 @@ describe('lambda-returns', () => {
         })
       ).toEqual({
         statusCode: 504,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -7229,6 +7791,7 @@ describe('lambda-returns', () => {
       expect(
         isGatewayTimeOut({
           statusCode: 504,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -7237,6 +7800,7 @@ describe('lambda-returns', () => {
       expect(
         isGatewayTimeOut({
           statusCode: 504,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -7246,6 +7810,7 @@ describe('lambda-returns', () => {
       expect(
         isGatewayTimeOut({
           statusCode: 504,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -7255,6 +7820,7 @@ describe('lambda-returns', () => {
       expect(
         isGatewayTimeOut({
           statusCode: 504,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -7306,6 +7872,7 @@ describe('lambda-returns', () => {
     test('should return 505 when empty args', () => {
       expect(httpVersionNotSupported()).toEqual({
         statusCode: 505,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -7316,6 +7883,7 @@ describe('lambda-returns', () => {
         httpVersionNotSupported(undefined, { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 505,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -7324,6 +7892,7 @@ describe('lambda-returns', () => {
     test('should return 505 when has obect body, no headers', () => {
       expect(httpVersionNotSupported({ status: 'success' })).toEqual({
         statusCode: 505,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -7332,6 +7901,7 @@ describe('lambda-returns', () => {
     test('should return 505 when has string body, no headers', () => {
       expect(httpVersionNotSupported('{"status":"success"}')).toEqual({
         statusCode: 505,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -7348,6 +7918,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 505,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -7363,6 +7934,7 @@ describe('lambda-returns', () => {
         })
       ).toEqual({
         statusCode: 505,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -7374,6 +7946,7 @@ describe('lambda-returns', () => {
       expect(
         isHttpVersionNotSupported({
           statusCode: 505,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -7382,6 +7955,7 @@ describe('lambda-returns', () => {
       expect(
         isHttpVersionNotSupported({
           statusCode: 505,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -7391,6 +7965,7 @@ describe('lambda-returns', () => {
       expect(
         isHttpVersionNotSupported({
           statusCode: 505,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -7400,6 +7975,7 @@ describe('lambda-returns', () => {
       expect(
         isHttpVersionNotSupported({
           statusCode: 505,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -7451,6 +8027,7 @@ describe('lambda-returns', () => {
     test('should return 506 when empty args', () => {
       expect(variantAlsoNegotiates()).toEqual({
         statusCode: 506,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -7461,6 +8038,7 @@ describe('lambda-returns', () => {
         variantAlsoNegotiates(undefined, { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 506,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -7469,6 +8047,7 @@ describe('lambda-returns', () => {
     test('should return 506 when has obect body, no headers', () => {
       expect(variantAlsoNegotiates({ status: 'success' })).toEqual({
         statusCode: 506,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -7477,6 +8056,7 @@ describe('lambda-returns', () => {
     test('should return 506 when has string body, no headers', () => {
       expect(variantAlsoNegotiates('{"status":"success"}')).toEqual({
         statusCode: 506,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -7493,6 +8073,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 506,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -7508,6 +8089,7 @@ describe('lambda-returns', () => {
         })
       ).toEqual({
         statusCode: 506,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -7519,6 +8101,7 @@ describe('lambda-returns', () => {
       expect(
         isVariantAlsoNegotiates({
           statusCode: 506,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -7527,6 +8110,7 @@ describe('lambda-returns', () => {
       expect(
         isVariantAlsoNegotiates({
           statusCode: 506,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -7536,6 +8120,7 @@ describe('lambda-returns', () => {
       expect(
         isVariantAlsoNegotiates({
           statusCode: 506,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -7545,6 +8130,7 @@ describe('lambda-returns', () => {
       expect(
         isVariantAlsoNegotiates({
           statusCode: 506,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -7596,6 +8182,7 @@ describe('lambda-returns', () => {
     test('should return 507 when empty args', () => {
       expect(insufficientStorage()).toEqual({
         statusCode: 507,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -7606,6 +8193,7 @@ describe('lambda-returns', () => {
         insufficientStorage(undefined, { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 507,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -7614,6 +8202,7 @@ describe('lambda-returns', () => {
     test('should return 507 when has obect body, no headers', () => {
       expect(insufficientStorage({ status: 'success' })).toEqual({
         statusCode: 507,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -7622,6 +8211,7 @@ describe('lambda-returns', () => {
     test('should return 507 when has string body, no headers', () => {
       expect(insufficientStorage('{"status":"success"}')).toEqual({
         statusCode: 507,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -7638,6 +8228,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 507,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -7653,6 +8244,7 @@ describe('lambda-returns', () => {
         })
       ).toEqual({
         statusCode: 507,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -7664,6 +8256,7 @@ describe('lambda-returns', () => {
       expect(
         isInsufficientStorage({
           statusCode: 507,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -7672,6 +8265,7 @@ describe('lambda-returns', () => {
       expect(
         isInsufficientStorage({
           statusCode: 507,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -7681,6 +8275,7 @@ describe('lambda-returns', () => {
       expect(
         isInsufficientStorage({
           statusCode: 507,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -7690,6 +8285,7 @@ describe('lambda-returns', () => {
       expect(
         isInsufficientStorage({
           statusCode: 507,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -7741,6 +8337,7 @@ describe('lambda-returns', () => {
     test('should return 509 when empty args', () => {
       expect(bandwidthLimitExceeded()).toEqual({
         statusCode: 509,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -7751,6 +8348,7 @@ describe('lambda-returns', () => {
         bandwidthLimitExceeded(undefined, { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 509,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -7759,6 +8357,7 @@ describe('lambda-returns', () => {
     test('should return 509 when has obect body, no headers', () => {
       expect(bandwidthLimitExceeded({ status: 'success' })).toEqual({
         statusCode: 509,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -7767,6 +8366,7 @@ describe('lambda-returns', () => {
     test('should return 509 when has string body, no headers', () => {
       expect(bandwidthLimitExceeded('{"status":"success"}')).toEqual({
         statusCode: 509,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -7783,6 +8383,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 509,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -7798,6 +8399,7 @@ describe('lambda-returns', () => {
         })
       ).toEqual({
         statusCode: 509,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -7809,6 +8411,7 @@ describe('lambda-returns', () => {
       expect(
         isBandwidthLimitExceeded({
           statusCode: 509,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -7817,6 +8420,7 @@ describe('lambda-returns', () => {
       expect(
         isBandwidthLimitExceeded({
           statusCode: 509,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -7826,6 +8430,7 @@ describe('lambda-returns', () => {
       expect(
         isBandwidthLimitExceeded({
           statusCode: 509,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -7835,6 +8440,7 @@ describe('lambda-returns', () => {
       expect(
         isBandwidthLimitExceeded({
           statusCode: 509,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -7886,6 +8492,7 @@ describe('lambda-returns', () => {
     test('should return 510 when empty args', () => {
       expect(notExtended()).toEqual({
         statusCode: 510,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -7896,6 +8503,7 @@ describe('lambda-returns', () => {
         notExtended(undefined, { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 510,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -7904,6 +8512,7 @@ describe('lambda-returns', () => {
     test('should return 510 when has obect body, no headers', () => {
       expect(notExtended({ status: 'success' })).toEqual({
         statusCode: 510,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -7912,6 +8521,7 @@ describe('lambda-returns', () => {
     test('should return 510 when has string body, no headers', () => {
       expect(notExtended('{"status":"success"}')).toEqual({
         statusCode: 510,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -7928,6 +8538,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 510,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -7941,6 +8552,7 @@ describe('lambda-returns', () => {
         notExtended('{"status":"success"}', { ContentType: 'application/json' })
       ).toEqual({
         statusCode: 510,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -7952,6 +8564,7 @@ describe('lambda-returns', () => {
       expect(
         isNotExtended({
           statusCode: 510,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -7960,6 +8573,7 @@ describe('lambda-returns', () => {
       expect(
         isNotExtended({
           statusCode: 510,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -7969,6 +8583,7 @@ describe('lambda-returns', () => {
       expect(
         isNotExtended({
           statusCode: 510,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -7978,6 +8593,7 @@ describe('lambda-returns', () => {
       expect(
         isNotExtended({
           statusCode: 510,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })
@@ -8029,6 +8645,7 @@ describe('lambda-returns', () => {
     test('should return 511 when empty args', () => {
       expect(networkAuthenticationRequired()).toEqual({
         statusCode: 511,
+        isBase64Encoded: false,
         headers: {},
         body: null,
       });
@@ -8041,6 +8658,7 @@ describe('lambda-returns', () => {
         })
       ).toEqual({
         statusCode: 511,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: null,
       });
@@ -8049,6 +8667,7 @@ describe('lambda-returns', () => {
     test('should return 511 when has obect body, no headers', () => {
       expect(networkAuthenticationRequired({ status: 'success' })).toEqual({
         statusCode: 511,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -8057,6 +8676,7 @@ describe('lambda-returns', () => {
     test('should return 511 when has string body, no headers', () => {
       expect(networkAuthenticationRequired('{"status":"success"}')).toEqual({
         statusCode: 511,
+        isBase64Encoded: false,
         headers: {},
         body: '{"status":"success"}',
       });
@@ -8073,6 +8693,7 @@ describe('lambda-returns', () => {
         )
       ).toEqual({
         statusCode: 511,
+        isBase64Encoded: false,
         headers: {
           ContentType: 'application/json',
           'Accept-Encoding': 'gzip, deflate, br',
@@ -8088,6 +8709,7 @@ describe('lambda-returns', () => {
         })
       ).toEqual({
         statusCode: 511,
+        isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
         body: '{"status":"success"}',
       });
@@ -8099,6 +8721,7 @@ describe('lambda-returns', () => {
       expect(
         isNetworkAuthenticationRequired({
           statusCode: 511,
+          isBase64Encoded: false,
         })
       ).toEqual(true);
     });
@@ -8107,6 +8730,7 @@ describe('lambda-returns', () => {
       expect(
         isNetworkAuthenticationRequired({
           statusCode: 511,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
         })
       ).toEqual(true);
@@ -8116,6 +8740,7 @@ describe('lambda-returns', () => {
       expect(
         isNetworkAuthenticationRequired({
           statusCode: 511,
+          isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
         })
       ).toEqual(true);
@@ -8125,6 +8750,7 @@ describe('lambda-returns', () => {
       expect(
         isNetworkAuthenticationRequired({
           statusCode: 511,
+          isBase64Encoded: false,
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
         })

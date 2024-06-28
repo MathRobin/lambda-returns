@@ -1,6 +1,6 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![Static Badge](https://img.shields.io/badge/coverage-99.4-brightgreen)
-![Static Badge](https://img.shields.io/badge/release-4.1.0-blue)
+![Static Badge](https://img.shields.io/badge/release-4.2.0-blue)
 [![test](https://github.com/mathrobin/lambda-returns/actions/workflows/test.yml/badge.svg)](https://github.com/mathrobin/lambda-returns/actions/workflows/test.yml)
 
 # lambda-returns
@@ -8,6 +8,8 @@
 Provides shorthand to manage AWS lambda result. And provides test helper methods too!
 
 Native TS. Typings included. 0 prod dependencies.
+
+Tested with Node.js **18**, **20** and **22**.
 
 ## Usage
 
@@ -58,6 +60,7 @@ Or this incorrect but possible code:
 ```typescript
 export default async () => {
   return {
+    isBase64Encoded: false,
     statusCode: 201, // no content code
     body: JSON.stringify({
       hello: "i'm anomaly",
@@ -73,6 +76,27 @@ import { noContent, NoContentLambdaResponse } from 'lambda-returns';
 
 export default async (): NoContentLambdaResponse => {
   return noContent();
+};
+```
+
+### Handling binary response
+
+Want to return a pdf file or any other file ? Easy :)
+
+```typescript
+import { ok, OkLambdaResponse } from 'lambda-returns';
+import { lookup } from 'mime-types'; // we strongly recommend usage
+
+const yourFile = '...';
+
+export default async (): OkLambdaResponse => {
+  return ok(
+    Buffer.from(yourFile.body).toString('base64'), // only base64 content is supported. Like on native AWS way.
+    {
+      'Content-Type': lookup('filename.pdf'), // can be any other kind of file: xlsx, doc, png, svg, zip, ...
+    },
+    true // just add flag at end of call
+  );
 };
 ```
 
@@ -92,7 +116,7 @@ expect(isBadRequest(result)).toBeTruthy();
 
 - No prod dependency
 - Typings provided
-- nearly 15kB unpacked, less than 2kB gzipped
+- nearly 20kB unpacked, less than 2kB gzipped
 
 ### Stop remember codes
 
