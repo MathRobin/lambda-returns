@@ -1,6 +1,6 @@
 {
   "name": "lambda-returns",
-  "version": "4.0.2",
+  "version": "4.1.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -19,7 +19,7 @@
   "author": "MathRobin <mthrobin@gmail.com>",
   "license": "MIT",
   "sideEffects": false,
-  "packageManager": "yarn@4.2.2",
+  "packageManager": "yarn@4.3.1",
   "type": "module",
   "engines": {
     "node": "18.18.2"
@@ -52,7 +52,7 @@
     "@eslint/js": "9.5.0",
     "@types/babel__core": "7.20.5",
     "@types/lodash-es": "4.17.12",
-    "@types/node": "20.14.8",
+    "@types/node": "20.14.9",
     "@vitest/coverage-v8": "1.6.0",
     "commitizen": "4.3.0",
     "cz-conventional-changelog": "3.3.0",
@@ -66,7 +66,7 @@
     "prettier": "3.3.2",
     "tsx": "4.15.7",
     "typescript": "5.5.2",
-    "typescript-eslint": "7.13.1",
+    "typescript-eslint": "7.14.1",
     "vitest": "1.6.0"
   }
 }

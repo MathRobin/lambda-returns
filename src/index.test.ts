@@ -1,115 +1,117 @@
 import { describe, expect, test } from 'vitest';
 import {
-  httpContinue,
-  isContinue,
-  switchingProtocols,
-  isSwitchingProtocols,
-  processing,
-  isProcessing,
-  ok,
-  isOk,
-  created,
-  isCreated,
   accepted,
-  isAccepted,
-  nonAuthoritativeInformation,
-  isNonAuthoritativeInformation,
-  resetContent,
-  isResetContent,
-  partialContent,
-  isPartialContent,
-  multiStatus,
-  isMultiStatus,
-  multipleChoices,
-  isMultipleChoices,
-  movedPermanently,
-  isMovedPermanently,
-  movedTemporarily,
-  isMovedTemporarily,
-  seeOther,
-  isSeeOther,
-  notModified,
-  isNotModified,
-  useProxy,
-  isUseProxy,
-  temporaryRedirect,
-  isTemporaryRedirect,
-  badRequest,
-  isBadRequest,
-  unauthorized,
-  isUnauthorized,
-  paymentRequired,
-  isPaymentRequired,
-  forbidden,
-  isForbidden,
-  notFound,
-  isNotFound,
-  methodNotAllowed,
-  isMethodNotAllowed,
-  notAcceptable,
-  isNotAcceptable,
-  proxyAuthenticationRequired,
-  isProxyAuthenticationRequired,
-  requestTimeOut,
-  isRequestTimeOut,
-  conflict,
-  isConflict,
-  gone,
-  isGone,
-  lengthRequired,
-  isLengthRequired,
-  preconditionFailed,
-  isPreconditionFailed,
-  requestEntityTooLarge,
-  isRequestEntityTooLarge,
-  requestUriTooLarge,
-  isRequestUriTooLarge,
-  unsupportedMediaType,
-  isUnsupportedMediaType,
-  requestedRangeNotSatisfiable,
-  isRequestedRangeNotSatisfiable,
-  expectationFailed,
-  isExpectationFailed,
-  imATeapot,
-  isImATeapot,
-  unprocessableEntity,
-  isUnprocessableEntity,
-  locked,
-  isLocked,
-  failedDependency,
-  isFailedDependency,
-  unorderedCollection,
-  isUnorderedCollection,
-  upgradeRequired,
-  isUpgradeRequired,
-  preconditionRequired,
-  isPreconditionRequired,
-  tooManyRequests,
-  isTooManyRequests,
-  requestHeaderFieldsTooLarge,
-  isRequestHeaderFieldsTooLarge,
-  internalServerError,
-  isInternalServerError,
-  notImplemented,
-  isNotImplemented,
   badGateway,
-  isBadGateway,
-  serviceUnavailable,
-  isServiceUnavailable,
-  gatewayTimeOut,
-  isGatewayTimeOut,
-  httpVersionNotSupported,
-  isHttpVersionNotSupported,
-  variantAlsoNegotiates,
-  isVariantAlsoNegotiates,
-  insufficientStorage,
-  isInsufficientStorage,
+  badRequest,
   bandwidthLimitExceeded,
+  conflict,
+  created,
+  expectationFailed,
+  failedDependency,
+  forbidden,
+  gatewayTimeOut,
+  gone,
+  httpContinue,
+  httpVersionNotSupported,
+  imATeapot,
+  insufficientStorage,
+  internalServerError,
+  isAccepted,
+  isBadGateway,
+  isBadRequest,
   isBandwidthLimitExceeded,
-  notExtended,
-  isNotExtended,
-  networkAuthenticationRequired,
+  isConflict,
+  isContinue,
+  isCreated,
+  isExpectationFailed,
+  isFailedDependency,
+  isForbidden,
+  isGatewayTimeOut,
+  isGone,
+  isHttpVersionNotSupported,
+  isImATeapot,
+  isInsufficientStorage,
+  isInternalServerError,
+  isLengthRequired,
+  isLocked,
+  isMethodNotAllowed,
+  isMovedPermanently,
+  isMovedTemporarily,
+  isMultipleChoices,
+  isMultiStatus,
   isNetworkAuthenticationRequired,
+  isNoContent,
+  isNonAuthoritativeInformation,
+  isNotAcceptable,
+  isNotExtended,
+  isNotFound,
+  isNotImplemented,
+  isNotModified,
+  isOk,
+  isPartialContent,
+  isPaymentRequired,
+  isPreconditionFailed,
+  isPreconditionRequired,
+  isProcessing,
+  isProxyAuthenticationRequired,
+  isRequestedRangeNotSatisfiable,
+  isRequestEntityTooLarge,
+  isRequestHeaderFieldsTooLarge,
+  isRequestTimeOut,
+  isRequestUriTooLarge,
+  isResetContent,
+  isSeeOther,
+  isServiceUnavailable,
+  isSwitchingProtocols,
+  isTemporaryRedirect,
+  isTooManyRequests,
+  isUnauthorized,
+  isUnorderedCollection,
+  isUnprocessableEntity,
+  isUnsupportedMediaType,
+  isUpgradeRequired,
+  isUseProxy,
+  isVariantAlsoNegotiates,
+  lengthRequired,
+  locked,
+  methodNotAllowed,
+  movedPermanently,
+  movedTemporarily,
+  multipleChoices,
+  multiStatus,
+  networkAuthenticationRequired,
+  noContent,
+  nonAuthoritativeInformation,
+  notAcceptable,
+  notExtended,
+  notFound,
+  notImplemented,
+  notModified,
+  ok,
+  partialContent,
+  paymentRequired,
+  preconditionFailed,
+  preconditionRequired,
+  processing,
+  proxyAuthenticationRequired,
+  requestedRangeNotSatisfiable,
+  requestEntityTooLarge,
+  requestHeaderFieldsTooLarge,
+  requestTimeOut,
+  requestUriTooLarge,
+  resetContent,
+  seeOther,
+  serviceUnavailable,
+  switchingProtocols,
+  temporaryRedirect,
+  tooManyRequests,
+  unauthorized,
+  unorderedCollection,
+  unprocessableEntity,
+  unsupportedMediaType,
+  upgradeRequired,
+  useProxy,
+  variantAlsoNegotiates,
 } from '@/src';
 import randomInteger from '@/src/random_integer';
 
@@ -2114,6 +2116,64 @@ describe('isSeeOther', () => {
         statusCode: randomInteger(303),
         body: '{"status":"success"}',
         headers: { 'Accept-Encoding': 'gzip, deflate, br' },
+      })
+    ).toEqual(false);
+  });
+});
+
+describe('noContent', () => {
+  test('should return 204 when empty args', () => {
+    expect(noContent()).toEqual({
+      statusCode: 204,
+      headers: {},
+    });
+  });
+
+  test('should return 204 when headers filled', () => {
+    expect(
+      noContent({ ContentType: 'application/json', 'accept-charset': 'utf8' })
+    ).toEqual({
+      statusCode: 204,
+      headers: { ContentType: 'application/json', 'accept-charset': 'utf8' },
+    });
+  });
+});
+
+describe('isNoContent', () => {
+  test('should be truthy when empty except code', () => {
+    expect(
+      isNoContent({
+        statusCode: 204,
+      })
+    ).toEqual(true);
+  });
+
+  test('should be truthy when body empty, filled headers', () => {
+    expect(
+      isNoContent({
+        statusCode: 204,
+        headers: { ContentType: 'application/json' },
+      })
+    ).toEqual(true);
+  });
+
+  test('should be falsy when code empty', () => {
+    expect(isNoContent({})).toEqual(false);
+  });
+
+  test('should be falsy when wrong code', () => {
+    expect(
+      isNoContent({
+        statusCode: randomInteger(204),
+      })
+    ).toEqual(false);
+  });
+
+  test('should be falsy when wrong code + filled headers', () => {
+    expect(
+      isNoContent({
+        statusCode: randomInteger(204),
+        headers: { ContentType: 'application/json' },
       })
     ).toEqual(false);
   });
