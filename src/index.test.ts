@@ -21,7 +21,7 @@ import {
   isBadRequest,
   isBandwidthLimitExceeded,
   isConflict,
-  isContinue,
+  isHttpContinue,
   isCreated,
   isExpectationFailed,
   isFailedDependency,
@@ -102,7 +102,6 @@ import {
   resetContent,
   seeOther,
   serviceUnavailable,
-  setAutoSerialize,
   switchingProtocols,
   temporaryRedirect,
   tooManyRequests,
@@ -113,7 +112,8 @@ import {
   upgradeRequired,
   useProxy,
   variantAlsoNegotiates,
-} from '@/src';
+} from '@/src/gen/res';
+import { setAutoSerialize } from './serialization';
 import randomInteger from '@/src/random_integer';
 
 describe('lambda-returns', () => {
@@ -204,10 +204,10 @@ describe('lambda-returns', () => {
     });
   });
 
-  describe('isContinue', () => {
+  describe('isHttpContinue', () => {
     test('should be truthy when empty except code', () => {
       expect(
-        isContinue({
+        isHttpContinue({
           statusCode: 100,
           isBase64Encoded: false,
         })
@@ -216,7 +216,7 @@ describe('lambda-returns', () => {
 
     test('should be truthy when body filled, empty headers', () => {
       expect(
-        isContinue({
+        isHttpContinue({
           statusCode: 100,
           isBase64Encoded: false,
           body: '{"status":"success"}',
@@ -226,7 +226,7 @@ describe('lambda-returns', () => {
 
     test('should be truthy when body empty, filled headers', () => {
       expect(
-        isContinue({
+        isHttpContinue({
           statusCode: 100,
           isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
@@ -236,7 +236,7 @@ describe('lambda-returns', () => {
 
     test('should be truthy when fully filled', () => {
       expect(
-        isContinue({
+        isHttpContinue({
           statusCode: 100,
           isBase64Encoded: false,
           body: '{"status":"success"}',
@@ -246,12 +246,12 @@ describe('lambda-returns', () => {
     });
 
     test('should be falsy when code empty', () => {
-      expect(isContinue({})).toEqual(false);
+      expect(isHttpContinue({})).toEqual(false);
     });
 
     test('should be falsy when wrong code', () => {
       expect(
-        isContinue({
+        isHttpContinue({
           statusCode: randomInteger(100),
         })
       ).toEqual(false);
@@ -259,7 +259,7 @@ describe('lambda-returns', () => {
 
     test('should be falsy when wrong code + body filled, empty headers', () => {
       expect(
-        isContinue({
+        isHttpContinue({
           statusCode: randomInteger(100),
           body: '{"status":"success"}',
         })
@@ -268,7 +268,7 @@ describe('lambda-returns', () => {
 
     test('should be falsy when wrong code + body empty, filled headers', () => {
       expect(
-        isContinue({
+        isHttpContinue({
           statusCode: randomInteger(100),
           headers: { ContentType: 'application/json' },
         })
@@ -277,7 +277,7 @@ describe('lambda-returns', () => {
 
     test('should be falsy when wrong code + fully filled', () => {
       expect(
-        isContinue({
+        isHttpContinue({
           statusCode: randomInteger(100),
           body: '{"status":"success"}',
           headers: { 'Accept-Encoding': 'gzip, deflate, br' },
