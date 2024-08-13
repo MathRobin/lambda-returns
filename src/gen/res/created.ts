@@ -22,7 +22,7 @@ export function created(
       ? typeof result === 'string'
         ? result
         : serializeBody(result)
-      : null,
+      : ''
   };
 }
 

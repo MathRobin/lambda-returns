@@ -22,7 +22,7 @@ export function gone(
       ? typeof result === 'string'
         ? result
         : serializeBody(result)
-      : null,
+      : ''
   };
 }
 

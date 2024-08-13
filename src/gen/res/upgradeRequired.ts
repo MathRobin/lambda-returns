@@ -22,7 +22,7 @@ export function upgradeRequired(
       ? typeof result === 'string'
         ? result
         : serializeBody(result)
-      : null,
+      : ''
   };
 }
 

@@ -22,7 +22,7 @@ export function lengthRequired(
       ? typeof result === 'string'
         ? result
         : serializeBody(result)
-      : null,
+      : ''
   };
 }
 

@@ -22,7 +22,7 @@ export function locked(
       ? typeof result === 'string'
         ? result
         : serializeBody(result)
-      : null,
+      : ''
   };
 }
 

@@ -22,7 +22,7 @@ export function imATeapot(
       ? typeof result === 'string'
         ? result
         : serializeBody(result)
-      : null,
+      : ''
   };
 }
 

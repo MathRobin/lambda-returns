@@ -22,7 +22,7 @@ export function notFound(
       ? typeof result === 'string'
         ? result
         : serializeBody(result)
-      : null,
+      : ''
   };
 }
 

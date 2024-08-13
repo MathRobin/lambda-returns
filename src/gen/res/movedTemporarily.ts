@@ -22,7 +22,7 @@ export function movedTemporarily(
       ? typeof result === 'string'
         ? result
         : serializeBody(result)
-      : null,
+      : ''
   };
 }
 

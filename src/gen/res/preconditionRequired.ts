@@ -22,7 +22,7 @@ export function preconditionRequired(
       ? typeof result === 'string'
         ? result
         : serializeBody(result)
-      : null,
+      : ''
   };
 }
 

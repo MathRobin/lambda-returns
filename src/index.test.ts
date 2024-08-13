@@ -127,7 +127,7 @@ describe('lambda-returns', () => {
         statusCode: 100,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -138,7 +138,7 @@ describe('lambda-returns', () => {
         statusCode: 100,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -292,7 +292,7 @@ describe('lambda-returns', () => {
         statusCode: 101,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -303,7 +303,7 @@ describe('lambda-returns', () => {
         statusCode: 101,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -468,7 +468,7 @@ describe('lambda-returns', () => {
         statusCode: 102,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -479,7 +479,7 @@ describe('lambda-returns', () => {
         statusCode: 102,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -621,7 +621,7 @@ describe('lambda-returns', () => {
         statusCode: 200,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -630,7 +630,7 @@ describe('lambda-returns', () => {
         statusCode: 200,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -688,7 +688,7 @@ describe('lambda-returns', () => {
         statusCode: 200,
         isBase64Encoded: true,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -697,7 +697,7 @@ describe('lambda-returns', () => {
         statusCode: 200,
         isBase64Encoded: true,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -840,7 +840,7 @@ describe('lambda-returns', () => {
         statusCode: 201,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -849,7 +849,7 @@ describe('lambda-returns', () => {
         statusCode: 201,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -991,7 +991,7 @@ describe('lambda-returns', () => {
         statusCode: 202,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -1000,7 +1000,7 @@ describe('lambda-returns', () => {
         statusCode: 202,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -1142,7 +1142,7 @@ describe('lambda-returns', () => {
         statusCode: 203,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -1155,7 +1155,7 @@ describe('lambda-returns', () => {
         statusCode: 203,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -1299,7 +1299,7 @@ describe('lambda-returns', () => {
         statusCode: 205,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -1310,7 +1310,7 @@ describe('lambda-returns', () => {
         statusCode: 205,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -1454,7 +1454,7 @@ describe('lambda-returns', () => {
         statusCode: 206,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -1465,7 +1465,7 @@ describe('lambda-returns', () => {
         statusCode: 206,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -1609,7 +1609,7 @@ describe('lambda-returns', () => {
         statusCode: 207,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -1620,7 +1620,7 @@ describe('lambda-returns', () => {
         statusCode: 207,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -1762,7 +1762,7 @@ describe('lambda-returns', () => {
         statusCode: 300,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -1773,7 +1773,7 @@ describe('lambda-returns', () => {
         statusCode: 300,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -1917,7 +1917,7 @@ describe('lambda-returns', () => {
         statusCode: 301,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -1928,7 +1928,7 @@ describe('lambda-returns', () => {
         statusCode: 301,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -2072,7 +2072,7 @@ describe('lambda-returns', () => {
         statusCode: 302,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -2083,7 +2083,7 @@ describe('lambda-returns', () => {
         statusCode: 302,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -2227,7 +2227,7 @@ describe('lambda-returns', () => {
         statusCode: 303,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -2236,7 +2236,7 @@ describe('lambda-returns', () => {
         statusCode: 303,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -2378,6 +2378,7 @@ describe('lambda-returns', () => {
         statusCode: 204,
         isBase64Encoded: false,
         headers: {},
+        body: '',
       });
     });
 
@@ -2388,6 +2389,7 @@ describe('lambda-returns', () => {
         statusCode: 204,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json', 'accept-charset': 'utf8' },
+        body: '',
       });
     });
   });
@@ -2440,7 +2442,7 @@ describe('lambda-returns', () => {
         statusCode: 304,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -2451,7 +2453,7 @@ describe('lambda-returns', () => {
         statusCode: 304,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -2593,7 +2595,7 @@ describe('lambda-returns', () => {
         statusCode: 305,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -2602,7 +2604,7 @@ describe('lambda-returns', () => {
         statusCode: 305,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -2744,7 +2746,7 @@ describe('lambda-returns', () => {
         statusCode: 307,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -2755,7 +2757,7 @@ describe('lambda-returns', () => {
         statusCode: 307,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -2899,7 +2901,7 @@ describe('lambda-returns', () => {
         statusCode: 400,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -2910,7 +2912,7 @@ describe('lambda-returns', () => {
         statusCode: 400,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -3052,7 +3054,7 @@ describe('lambda-returns', () => {
         statusCode: 401,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -3063,7 +3065,7 @@ describe('lambda-returns', () => {
         statusCode: 401,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -3207,7 +3209,7 @@ describe('lambda-returns', () => {
         statusCode: 402,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -3218,7 +3220,7 @@ describe('lambda-returns', () => {
         statusCode: 402,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -3362,7 +3364,7 @@ describe('lambda-returns', () => {
         statusCode: 403,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -3372,7 +3374,7 @@ describe('lambda-returns', () => {
           statusCode: 403,
           isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
-          body: null,
+          body: '',
         }
       );
     });
@@ -3515,7 +3517,7 @@ describe('lambda-returns', () => {
         statusCode: 404,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -3524,7 +3526,7 @@ describe('lambda-returns', () => {
         statusCode: 404,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -3666,7 +3668,7 @@ describe('lambda-returns', () => {
         statusCode: 405,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -3677,7 +3679,7 @@ describe('lambda-returns', () => {
         statusCode: 405,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -3821,7 +3823,7 @@ describe('lambda-returns', () => {
         statusCode: 406,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -3832,7 +3834,7 @@ describe('lambda-returns', () => {
         statusCode: 406,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -3976,7 +3978,7 @@ describe('lambda-returns', () => {
         statusCode: 407,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -3989,7 +3991,7 @@ describe('lambda-returns', () => {
         statusCode: 407,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -4133,7 +4135,7 @@ describe('lambda-returns', () => {
         statusCode: 408,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -4144,7 +4146,7 @@ describe('lambda-returns', () => {
         statusCode: 408,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -4288,7 +4290,7 @@ describe('lambda-returns', () => {
         statusCode: 409,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -4297,7 +4299,7 @@ describe('lambda-returns', () => {
         statusCode: 409,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -4439,7 +4441,7 @@ describe('lambda-returns', () => {
         statusCode: 410,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -4448,7 +4450,7 @@ describe('lambda-returns', () => {
         statusCode: 410,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -4590,7 +4592,7 @@ describe('lambda-returns', () => {
         statusCode: 411,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -4601,7 +4603,7 @@ describe('lambda-returns', () => {
         statusCode: 411,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -4745,7 +4747,7 @@ describe('lambda-returns', () => {
         statusCode: 412,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -4756,7 +4758,7 @@ describe('lambda-returns', () => {
         statusCode: 412,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -4900,7 +4902,7 @@ describe('lambda-returns', () => {
         statusCode: 413,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -4911,7 +4913,7 @@ describe('lambda-returns', () => {
         statusCode: 413,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -5055,7 +5057,7 @@ describe('lambda-returns', () => {
         statusCode: 414,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -5066,7 +5068,7 @@ describe('lambda-returns', () => {
         statusCode: 414,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -5210,7 +5212,7 @@ describe('lambda-returns', () => {
         statusCode: 415,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -5221,7 +5223,7 @@ describe('lambda-returns', () => {
         statusCode: 415,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -5365,7 +5367,7 @@ describe('lambda-returns', () => {
         statusCode: 416,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -5378,7 +5380,7 @@ describe('lambda-returns', () => {
         statusCode: 416,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -5522,7 +5524,7 @@ describe('lambda-returns', () => {
         statusCode: 417,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -5533,7 +5535,7 @@ describe('lambda-returns', () => {
         statusCode: 417,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -5677,7 +5679,7 @@ describe('lambda-returns', () => {
         statusCode: 418,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -5687,7 +5689,7 @@ describe('lambda-returns', () => {
           statusCode: 418,
           isBase64Encoded: false,
           headers: { ContentType: 'application/json' },
-          body: null,
+          body: '',
         }
       );
     });
@@ -5830,7 +5832,7 @@ describe('lambda-returns', () => {
         statusCode: 422,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -5841,7 +5843,7 @@ describe('lambda-returns', () => {
         statusCode: 422,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -5985,7 +5987,7 @@ describe('lambda-returns', () => {
         statusCode: 423,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -5994,7 +5996,7 @@ describe('lambda-returns', () => {
         statusCode: 423,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -6136,7 +6138,7 @@ describe('lambda-returns', () => {
         statusCode: 424,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -6147,7 +6149,7 @@ describe('lambda-returns', () => {
         statusCode: 424,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -6291,7 +6293,7 @@ describe('lambda-returns', () => {
         statusCode: 425,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -6302,7 +6304,7 @@ describe('lambda-returns', () => {
         statusCode: 425,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -6446,7 +6448,7 @@ describe('lambda-returns', () => {
         statusCode: 426,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -6457,7 +6459,7 @@ describe('lambda-returns', () => {
         statusCode: 426,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -6601,7 +6603,7 @@ describe('lambda-returns', () => {
         statusCode: 428,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -6612,7 +6614,7 @@ describe('lambda-returns', () => {
         statusCode: 428,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -6756,7 +6758,7 @@ describe('lambda-returns', () => {
         statusCode: 429,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -6767,7 +6769,7 @@ describe('lambda-returns', () => {
         statusCode: 429,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -6911,7 +6913,7 @@ describe('lambda-returns', () => {
         statusCode: 431,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -6924,7 +6926,7 @@ describe('lambda-returns', () => {
         statusCode: 431,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -7068,7 +7070,7 @@ describe('lambda-returns', () => {
         statusCode: 500,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -7079,7 +7081,7 @@ describe('lambda-returns', () => {
         statusCode: 500,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -7223,7 +7225,7 @@ describe('lambda-returns', () => {
         statusCode: 501,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -7234,7 +7236,7 @@ describe('lambda-returns', () => {
         statusCode: 501,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -7378,7 +7380,7 @@ describe('lambda-returns', () => {
         statusCode: 502,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -7389,7 +7391,7 @@ describe('lambda-returns', () => {
         statusCode: 502,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -7531,7 +7533,7 @@ describe('lambda-returns', () => {
         statusCode: 503,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -7542,7 +7544,7 @@ describe('lambda-returns', () => {
         statusCode: 503,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -7554,7 +7556,7 @@ describe('lambda-returns', () => {
         statusCode: 503,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -7698,7 +7700,7 @@ describe('lambda-returns', () => {
         statusCode: 504,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -7709,7 +7711,7 @@ describe('lambda-returns', () => {
         statusCode: 504,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -7874,7 +7876,7 @@ describe('lambda-returns', () => {
         statusCode: 505,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -7885,7 +7887,7 @@ describe('lambda-returns', () => {
         statusCode: 505,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -8029,7 +8031,7 @@ describe('lambda-returns', () => {
         statusCode: 506,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -8040,7 +8042,7 @@ describe('lambda-returns', () => {
         statusCode: 506,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -8184,7 +8186,7 @@ describe('lambda-returns', () => {
         statusCode: 507,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -8195,7 +8197,7 @@ describe('lambda-returns', () => {
         statusCode: 507,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -8339,7 +8341,7 @@ describe('lambda-returns', () => {
         statusCode: 509,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -8350,7 +8352,7 @@ describe('lambda-returns', () => {
         statusCode: 509,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -8494,7 +8496,7 @@ describe('lambda-returns', () => {
         statusCode: 510,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -8505,7 +8507,7 @@ describe('lambda-returns', () => {
         statusCode: 510,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 
@@ -8647,7 +8649,7 @@ describe('lambda-returns', () => {
         statusCode: 511,
         isBase64Encoded: false,
         headers: {},
-        body: null,
+        body: '',
       });
     });
 
@@ -8660,7 +8662,7 @@ describe('lambda-returns', () => {
         statusCode: 511,
         isBase64Encoded: false,
         headers: { ContentType: 'application/json' },
-        body: null,
+        body: '',
       });
     });
 

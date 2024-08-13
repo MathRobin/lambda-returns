@@ -22,7 +22,7 @@ export function notModified(
       ? typeof result === 'string'
         ? result
         : serializeBody(result)
-      : null,
+      : ''
   };
 }
 

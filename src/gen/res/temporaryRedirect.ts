@@ -22,7 +22,7 @@ export function temporaryRedirect(
       ? typeof result === 'string'
         ? result
         : serializeBody(result)
-      : null,
+      : ''
   };
 }
 

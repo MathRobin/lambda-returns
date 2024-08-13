@@ -8,32 +8,48 @@ for (const [name, code] of codes) {
   const safename = keywords.includes(name) ? `http${upperFirst(name)}` : name;
   const restype = `${upperFirst(safename)}LambdaResponse`;
   const checkname = `is${upperFirst(safename)}`;
+
+  const hasBody = name !== 'noContent';
+
+  const imports = [
+    "import { LambdaResponse } from '@/src/LambdaResponse';",
+    "import { HttpHeaders } from '@/src/HttpHeaders';",
+    hasBody && "import { serializeBody } from '@/src/serialization';",
+  ].filter(Boolean);
+  const args = [
+    hasBody && 'result?: string | object',
+    'headers: HttpHeaders = {}',
+    'isAlreadyBase64: boolean = false',
+  ].filter(Boolean);
+
+  const res = [
+    'isBase64Encoded: isAlreadyBase64',
+    `statusCode: ${code}`,
+    'headers',
+    hasBody
+      ? `body: result
+      ? typeof result === 'string'
+        ? result
+        : serializeBody(result)
+      : ''`
+      : 'body: ""',
+  ];
+
   const content = `
 /**
  * THIS IS A GENERATED FILE, DO NOT MODIFY DIRECTLY
  * GENERATED USING 'src/scripts/res/gen.ts'
  */
 
-import { LambdaResponse } from '@/src/LambdaResponse';
-import { HttpHeaders } from '@/src/HttpHeaders';
-import { serializeBody } from '@/src/serialization';
+${imports.join('\n')}
 
 export type ${restype} = LambdaResponse<${code}>;
 
 export function ${safename}(
-  result?: string | object,
-  headers: HttpHeaders = {},
-  isAlreadyBase64: boolean = false
+  ${args.join(',\n  ')}
 ): ${restype} {
   return {
-    isBase64Encoded: isAlreadyBase64,
-    statusCode: ${code},
-    headers,
-    body: result
-      ? typeof result === 'string'
-        ? result
-        : serializeBody(result)
-      : null,
+    ${res.join(',\n    ')}
   };
 }
 
@@ -55,4 +71,6 @@ export function ${checkname}(
   if (!indexcontent.includes(`export * from './${safename}';`)) {
     writeFileSync(indexpath, `${indexcontent}export * from './${safename}';\n`);
   }
+
+  console.log('✔️', 'generated', safename, 'at', path);
 }

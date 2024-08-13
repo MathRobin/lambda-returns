@@ -5,12 +5,10 @@
 
 import { LambdaResponse } from '@/src/LambdaResponse';
 import { HttpHeaders } from '@/src/HttpHeaders';
-import { serializeBody } from '@/src/serialization';
 
 export type NoContentLambdaResponse = LambdaResponse<204>;
 
 export function noContent(
-  result?: string | object,
   headers: HttpHeaders = {},
   isAlreadyBase64: boolean = false
 ): NoContentLambdaResponse {
@@ -18,11 +16,7 @@ export function noContent(
     isBase64Encoded: isAlreadyBase64,
     statusCode: 204,
     headers,
-    body: result
-      ? typeof result === 'string'
-        ? result
-        : serializeBody(result)
-      : null,
+    body: ""
   };
 }
 
