@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { codes } from '@/codes';
+import { codes } from '@/src/codes';
 
 import randomInteger, { maxHttpCode, minHttpCode } from './index.js';
 
