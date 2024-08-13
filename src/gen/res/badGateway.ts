@@ -22,7 +22,7 @@ export function badGateway(
       ? typeof result === 'string'
         ? result
         : serializeBody(result)
-      : ''
+      : '',
   };
 }
 

@@ -22,7 +22,7 @@ export function multiStatus(
       ? typeof result === 'string'
         ? result
         : serializeBody(result)
-      : ''
+      : '',
   };
 }
 

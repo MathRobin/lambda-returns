@@ -22,7 +22,7 @@ export function conflict(
       ? typeof result === 'string'
         ? result
         : serializeBody(result)
-      : ''
+      : '',
   };
 }
 

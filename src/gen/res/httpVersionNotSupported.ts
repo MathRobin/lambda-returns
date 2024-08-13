@@ -22,7 +22,7 @@ export function httpVersionNotSupported(
       ? typeof result === 'string'
         ? result
         : serializeBody(result)
-      : ''
+      : '',
   };
 }
 

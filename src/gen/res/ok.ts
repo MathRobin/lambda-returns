@@ -22,12 +22,10 @@ export function ok(
       ? typeof result === 'string'
         ? result
         : serializeBody(result)
-      : ''
+      : '',
   };
 }
 
-export function isOk(
-  response?: Partial<LambdaResponse<number>>
-): boolean {
+export function isOk(response?: Partial<LambdaResponse<number>>): boolean {
   return response?.statusCode === 200;
 }

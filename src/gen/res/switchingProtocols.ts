@@ -22,7 +22,7 @@ export function switchingProtocols(
       ? typeof result === 'string'
         ? result
         : serializeBody(result)
-      : ''
+      : '',
   };
 }
 

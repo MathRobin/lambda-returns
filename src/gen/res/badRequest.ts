@@ -22,7 +22,7 @@ export function badRequest(
       ? typeof result === 'string'
         ? result
         : serializeBody(result)
-      : ''
+      : '',
   };
 }
 

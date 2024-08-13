@@ -22,7 +22,7 @@ export function nonAuthoritativeInformation(
       ? typeof result === 'string'
         ? result
         : serializeBody(result)
-      : ''
+      : '',
   };
 }
 

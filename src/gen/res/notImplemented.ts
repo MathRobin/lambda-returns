@@ -22,7 +22,7 @@ export function notImplemented(
       ? typeof result === 'string'
         ? result
         : serializeBody(result)
-      : ''
+      : '',
   };
 }
 

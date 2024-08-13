@@ -22,7 +22,7 @@ export function movedPermanently(
       ? typeof result === 'string'
         ? result
         : serializeBody(result)
-      : ''
+      : '',
   };
 }
 

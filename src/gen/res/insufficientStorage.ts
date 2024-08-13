@@ -22,7 +22,7 @@ export function insufficientStorage(
       ? typeof result === 'string'
         ? result
         : serializeBody(result)
-      : ''
+      : '',
   };
 }
 

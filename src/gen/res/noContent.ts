@@ -16,7 +16,7 @@ export function noContent(
     isBase64Encoded: isAlreadyBase64,
     statusCode: 204,
     headers,
-    body: ""
+    body: '',
   };
 }
 

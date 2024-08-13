@@ -22,7 +22,7 @@ export function requestTimeOut(
       ? typeof result === 'string'
         ? result
         : serializeBody(result)
-      : ''
+      : '',
   };
 }
 

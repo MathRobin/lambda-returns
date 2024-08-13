@@ -22,7 +22,7 @@ export function failedDependency(
       ? typeof result === 'string'
         ? result
         : serializeBody(result)
-      : ''
+      : '',
   };
 }
 

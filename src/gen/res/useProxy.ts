@@ -22,7 +22,7 @@ export function useProxy(
       ? typeof result === 'string'
         ? result
         : serializeBody(result)
-      : ''
+      : '',
   };
 }
 

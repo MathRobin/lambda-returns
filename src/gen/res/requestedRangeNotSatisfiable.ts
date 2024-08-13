@@ -22,7 +22,7 @@ export function requestedRangeNotSatisfiable(
       ? typeof result === 'string'
         ? result
         : serializeBody(result)
-      : ''
+      : '',
   };
 }
 

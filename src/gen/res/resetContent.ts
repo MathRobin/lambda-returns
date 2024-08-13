@@ -22,7 +22,7 @@ export function resetContent(
       ? typeof result === 'string'
         ? result
         : serializeBody(result)
-      : ''
+      : '',
   };
 }
 

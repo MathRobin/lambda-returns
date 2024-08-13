@@ -22,7 +22,7 @@ export function forbidden(
       ? typeof result === 'string'
         ? result
         : serializeBody(result)
-      : ''
+      : '',
   };
 }
 

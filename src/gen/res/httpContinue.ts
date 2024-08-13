@@ -22,7 +22,7 @@ export function httpContinue(
       ? typeof result === 'string'
         ? result
         : serializeBody(result)
-      : ''
+      : '',
   };
 }
 

@@ -22,7 +22,7 @@ export function variantAlsoNegotiates(
       ? typeof result === 'string'
         ? result
         : serializeBody(result)
-      : ''
+      : '',
   };
 }
 

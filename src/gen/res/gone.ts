@@ -22,12 +22,10 @@ export function gone(
       ? typeof result === 'string'
         ? result
         : serializeBody(result)
-      : ''
+      : '',
   };
 }
 
-export function isGone(
-  response?: Partial<LambdaResponse<number>>
-): boolean {
+export function isGone(response?: Partial<LambdaResponse<number>>): boolean {
   return response?.statusCode === 410;
 }

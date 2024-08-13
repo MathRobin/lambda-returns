@@ -22,7 +22,7 @@ export function requestHeaderFieldsTooLarge(
       ? typeof result === 'string'
         ? result
         : serializeBody(result)
-      : ''
+      : '',
   };
 }
 

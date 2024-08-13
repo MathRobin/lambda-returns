@@ -22,7 +22,7 @@ export function accepted(
       ? typeof result === 'string'
         ? result
         : serializeBody(result)
-      : ''
+      : '',
   };
 }
 

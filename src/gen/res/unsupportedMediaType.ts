@@ -22,7 +22,7 @@ export function unsupportedMediaType(
       ? typeof result === 'string'
         ? result
         : serializeBody(result)
-      : ''
+      : '',
   };
 }
 

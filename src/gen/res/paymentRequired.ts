@@ -22,7 +22,7 @@ export function paymentRequired(
       ? typeof result === 'string'
         ? result
         : serializeBody(result)
-      : ''
+      : '',
   };
 }
 

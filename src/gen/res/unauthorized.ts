@@ -22,7 +22,7 @@ export function unauthorized(
       ? typeof result === 'string'
         ? result
         : serializeBody(result)
-      : ''
+      : '',
   };
 }
 

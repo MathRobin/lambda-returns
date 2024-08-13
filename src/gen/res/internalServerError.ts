@@ -22,7 +22,7 @@ export function internalServerError(
       ? typeof result === 'string'
         ? result
         : serializeBody(result)
-      : ''
+      : '',
   };
 }
 

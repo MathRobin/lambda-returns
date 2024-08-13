@@ -22,7 +22,7 @@ export function partialContent(
       ? typeof result === 'string'
         ? result
         : serializeBody(result)
-      : ''
+      : '',
   };
 }
 

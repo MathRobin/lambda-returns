@@ -22,7 +22,7 @@ export function serviceUnavailable(
       ? typeof result === 'string'
         ? result
         : serializeBody(result)
-      : ''
+      : '',
   };
 }
 

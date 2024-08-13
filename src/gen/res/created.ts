@@ -22,12 +22,10 @@ export function created(
       ? typeof result === 'string'
         ? result
         : serializeBody(result)
-      : ''
+      : '',
   };
 }
 
-export function isCreated(
-  response?: Partial<LambdaResponse<number>>
-): boolean {
+export function isCreated(response?: Partial<LambdaResponse<number>>): boolean {
   return response?.statusCode === 201;
 }

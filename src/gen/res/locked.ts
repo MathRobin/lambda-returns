@@ -22,12 +22,10 @@ export function locked(
       ? typeof result === 'string'
         ? result
         : serializeBody(result)
-      : ''
+      : '',
   };
 }
 
-export function isLocked(
-  response?: Partial<LambdaResponse<number>>
-): boolean {
+export function isLocked(response?: Partial<LambdaResponse<number>>): boolean {
   return response?.statusCode === 423;
 }

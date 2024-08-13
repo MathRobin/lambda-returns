@@ -22,7 +22,7 @@ export function networkAuthenticationRequired(
       ? typeof result === 'string'
         ? result
         : serializeBody(result)
-      : ''
+      : '',
   };
 }
 

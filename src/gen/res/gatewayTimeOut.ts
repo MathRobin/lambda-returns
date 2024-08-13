@@ -22,7 +22,7 @@ export function gatewayTimeOut(
       ? typeof result === 'string'
         ? result
         : serializeBody(result)
-      : ''
+      : '',
   };
 }
 

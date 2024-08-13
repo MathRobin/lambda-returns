@@ -22,7 +22,7 @@ export function bandwidthLimitExceeded(
       ? typeof result === 'string'
         ? result
         : serializeBody(result)
-      : ''
+      : '',
   };
 }
 
