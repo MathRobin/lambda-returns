@@ -1,8 +1,13 @@
 import { codes } from '@/src/codes';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs';
 import { upperFirst } from 'lodash-es';
-import { dirname } from 'path';
+import { dirname, join } from 'path';
 import { keywords } from '@/src/utils/ts/keywords';
+import * as prettier from 'prettier';
+
+const prettierconfig = prettier.resolveConfig(
+  join(process.cwd(), '.prettierc.json')
+);
 
 for (const [name, code] of codes) {
   const safename = keywords.includes(name) ? `http${upperFirst(name)}` : name;
@@ -61,8 +66,12 @@ export function ${checkname}(
   `;
 
   const path = `src/gen/res/${safename}.ts`;
+  const formatted = await prettier.format(content, {
+    filepath: path,
+    ...(await prettierconfig),
+  });
   mkdirSync(dirname(path), { recursive: true });
-  writeFileSync(path, content.trim() + '\n');
+  writeFileSync(path, formatted);
 
   const indexpath = `src/gen/res/index.ts`;
   const indexcontent = existsSync(indexpath)
