@@ -7,7 +7,7 @@
 
 Provides shorthand to manage AWS lambda result. And provides test helper methods too!
 
-Native TS. Typings included. 0 prod dependencies.
+Native TS. Typings included. 1 prod dependencies (AWS typings).
 
 Tested with Node.js **18**, **20** and **22**.
 
@@ -114,7 +114,7 @@ expect(isBadRequest(result)).toBeTruthy();
 
 ## Pros
 
-- No prod dependency
+- Only one prod dependency (typings)
 - Typings provided
 - nearly 20kB unpacked, less than 2kB gzipped
 
