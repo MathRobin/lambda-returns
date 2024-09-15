@@ -19,7 +19,7 @@
   "author": "MathRobin <mthrobin@gmail.com>",
   "license": "MIT",
   "sideEffects": false,
-  "packageManager": "yarn@4.4.1",
+  "packageManager": "yarn@4.5.0",
   "type": "module",
   "engines": {
     "node": "22.5.1"
