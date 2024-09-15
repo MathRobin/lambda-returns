@@ -51,13 +51,13 @@
     "@babel/core": "7.25.2",
     "@babel/eslint-parser": "7.25.1",
     "@babel/plugin-syntax-import-assertions": "7.25.6",
-    "@commitlint/cli": "19.4.1",
-    "@commitlint/config-conventional": "19.4.1",
+    "@commitlint/cli": "19.5.0",
+    "@commitlint/config-conventional": "19.5.0",
     "@eslint/js": "9.10.0",
     "@types/babel__core": "7.20.5",
     "@types/lodash-es": "4.17.12",
     "@types/node": "22.5.5",
-    "@vitest/coverage-v8": "2.0.5",
+    "@vitest/coverage-v8": "2.1.1",
     "commitizen": "4.3.0",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "9.10.0",
@@ -66,12 +66,12 @@
     "husky": "9.1.6",
     "lint-staged": "15.2.10",
     "lodash-es": "4.17.21",
-    "pkgroll": "2.4.2",
+    "pkgroll": "2.5.0",
     "prettier": "3.3.3",
     "tsx": "4.19.1",
-    "typescript": "5.5.4",
+    "typescript": "5.6.2",
     "typescript-eslint": "7.18.0",
     "vite-tsconfig-paths": "4.3.2",
-    "vitest": "2.0.5"
+    "vitest": "2.1.1"
   }
 }
