@@ -55,9 +55,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/eslint-parser@npm:7.25.8":
-  version: 7.25.8
-  resolution: "@babel/eslint-parser@npm:7.25.8"
+"@babel/eslint-parser@npm:7.25.9":
+  version: 7.25.9
+  resolution: "@babel/eslint-parser@npm:7.25.9"
   dependencies:
     "@nicolo-ribaudo/eslint-scope-5-internals": "npm:5.1.1-v1"
     eslint-visitor-keys: "npm:^2.1.0"
@@ -65,7 +65,7 @@ __metadata:
   peerDependencies:
     "@babel/core": ^7.11.0
     eslint: ^7.5.0 || ^8.0.0 || ^9.0.0
-  checksum: 10/4e9e5881f57a4680ccdec1ee28586dda35480a4b16ca8953b94ea31152aa8a2a2c9311849001424b54d243467dab13b961ec8a0af0ac2c4cc3bba5887946f3ea
+  checksum: 10/ebb68d80b1fa2b964ad1147cc610e0c69b224e620419a885ba5abc996740523bee636a0d447fc29a0d495dbce5fa0246737b25e9e679cca6c5797fdac5176378
   languageName: node
   linkType: hard
 
@@ -3646,7 +3646,7 @@ __metadata:
   resolution: "lambda-returns@workspace:."
   dependencies:
     "@babel/core": "npm:7.25.8"
-    "@babel/eslint-parser": "npm:7.25.8"
+    "@babel/eslint-parser": "npm:7.25.9"
     "@babel/plugin-syntax-import-assertions": "npm:7.25.7"
     "@commitlint/cli": "npm:19.5.0"
     "@commitlint/config-conventional": "npm:19.5.0"
@@ -3664,9 +3664,9 @@ __metadata:
     husky: "npm:9.1.6"
     lint-staged: "npm:15.2.10"
     lodash-es: "npm:4.17.21"
-    pkgroll: "npm:2.5.0"
+    pkgroll: "npm:2.5.1"
     prettier: "npm:3.3.3"
-    tsx: "npm:4.19.1"
+    tsx: "npm:4.19.2"
     typescript: "npm:5.6.3"
     typescript-eslint: "npm:8.10.0"
     vite-tsconfig-paths: "npm:5.0.1"
@@ -4447,9 +4447,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pkgroll@npm:2.5.0":
-  version: 2.5.0
-  resolution: "pkgroll@npm:2.5.0"
+"pkgroll@npm:2.5.1":
+  version: 2.5.1
+  resolution: "pkgroll@npm:2.5.1"
   dependencies:
     "@rollup/plugin-alias": "npm:^5.1.0"
     "@rollup/plugin-commonjs": "npm:^26.0.1"
@@ -4468,7 +4468,7 @@ __metadata:
       optional: true
   bin:
     pkgroll: dist/cli.js
-  checksum: 10/240d255abf495d35c3f4d7355673f6b858c940c013a1785096ae3137c0ff432e6eac4402fa81c7c93a507816b335b92b58193f877a4ee8c2b22f07755c0fe9af
+  checksum: 10/bd6232d09cd51d2bdfdb7410e6881b448666c4e253b3732036cfafa6344d1b18ec0eb65c98283611bf36e6b4258bb5649661938c438253fb24fbdc3653f1fcdc
   languageName: node
   linkType: hard
 
@@ -5151,9 +5151,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsx@npm:4.19.1":
-  version: 4.19.1
-  resolution: "tsx@npm:4.19.1"
+"tsx@npm:4.19.2":
+  version: 4.19.2
+  resolution: "tsx@npm:4.19.2"
   dependencies:
     esbuild: "npm:~0.23.0"
     fsevents: "npm:~2.3.3"
@@ -5163,7 +5163,7 @@ __metadata:
       optional: true
   bin:
     tsx: dist/cli.mjs
-  checksum: 10/1f5f0b7c4107fc18f523e94c79204b043641aa328f721324795cc961826879035652a1f19fe29ba420465d9f4bacb0f47e08f0bd4b934684ab45727eca110311
+  checksum: 10/4c5610ed1fb2f80d766681f8ac7827e1e8118dfe354c18f74800691f3ef1e9ed676a29842ab818806bcf8613cdc97c6af84b5645e768ddb7f4b0527b9100deda
   languageName: node
   linkType: hard
 
