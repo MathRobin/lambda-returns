@@ -1512,12 +1512,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:22.13.5":
+"@types/node@npm:*":
   version: 22.13.5
   resolution: "@types/node@npm:22.13.5"
   dependencies:
     undici-types: "npm:~6.20.0"
   checksum: 10/a69ec8dba36a58a93e3ec3709a6a362ca0cdd8443310bb5e43b0c1f560c57bcc120c96fabb301ef42c2901f46103adad5158b6923ea14e8e14a432af20a2bb24
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:22.13.8":
+  version: 22.13.8
+  resolution: "@types/node@npm:22.13.8"
+  dependencies:
+    undici-types: "npm:~6.20.0"
+  checksum: 10/b69de3caab80336747bf41b5063478d23b196b9594c6f2eb819791380cc571676087dceb0fde9531ef7a1293f3eae12a9aaf79d8de349378c29a17c5e657bc78
   languageName: node
   linkType: hard
 
@@ -2790,14 +2799,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-prettier@npm:10.0.1":
-  version: 10.0.1
-  resolution: "eslint-config-prettier@npm:10.0.1"
+"eslint-config-prettier@npm:10.0.2":
+  version: 10.0.2
+  resolution: "eslint-config-prettier@npm:10.0.2"
   peerDependencies:
     eslint: ">=7.0.0"
   bin:
     eslint-config-prettier: build/bin/cli.js
-  checksum: 10/ba6875df0fc4fd3c7c6e2ec9c2e6a224462f7afc662f4cf849775c598a3571c1be136a9b683b12971653b3dcf3f31472aaede3076524b46ec9a77582630158e5
+  checksum: 10/6d4bbdd5d1810457c63035eef1a085e00bfce34873a5cf461fc696eb635c6aa408184aab6ff6c7e979bb0992485f6dc75e0c993f7193b0d4ceec25f32505c531
   languageName: node
   linkType: hard
 
@@ -3941,17 +3950,17 @@ __metadata:
     "@types/aws-lambda": "npm:8.10.147"
     "@types/babel__core": "npm:7.20.5"
     "@types/lodash-es": "npm:4.17.12"
-    "@types/node": "npm:22.13.5"
+    "@types/node": "npm:22.13.8"
     "@vitest/coverage-v8": "npm:2.1.9"
     commitizen: "npm:4.3.1"
     cz-conventional-changelog: "npm:3.3.0"
     eslint: "npm:9.21.0"
-    eslint-config-prettier: "npm:10.0.1"
+    eslint-config-prettier: "npm:10.0.2"
     globals: "npm:15.15.0"
     husky: "npm:9.1.7"
     lint-staged: "npm:15.4.3"
     lodash-es: "npm:4.17.21"
-    pkgroll: "npm:2.11.0"
+    pkgroll: "npm:2.11.2"
     prettier: "npm:3.5.2"
     tsx: "npm:4.19.3"
     typescript: "npm:5.7.3"
@@ -4731,9 +4740,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pkgroll@npm:2.11.0":
-  version: 2.11.0
-  resolution: "pkgroll@npm:2.11.0"
+"pkgroll@npm:2.11.2":
+  version: 2.11.2
+  resolution: "pkgroll@npm:2.11.2"
   dependencies:
     "@rollup/plugin-alias": "npm:^5.1.1"
     "@rollup/plugin-commonjs": "npm:^28.0.2"
@@ -4753,7 +4762,7 @@ __metadata:
       optional: true
   bin:
     pkgroll: dist/cli.mjs
-  checksum: 10/b84bd3ea1df5d7e86fb104fb1b40e0fd182409e3ccd883cf60b198a7de5c4d62efb4b72576628afd57bd4ed6afe5ea842f27e0fee1b8ee2f7fdeb3cb25f75a9c
+  checksum: 10/6cfa6ab948b69427215f26768b68410bb7b2dd4ce3705e78c4dc5907e366515a37b40fb3a51ce6eb39cc8532cbd14068dfb689e1aac9b25023cfe79cf8ec0d6c
   languageName: node
   linkType: hard
 
