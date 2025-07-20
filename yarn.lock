@@ -1270,10 +1270,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/aws-lambda@npm:8.10.150":
-  version: 8.10.150
-  resolution: "@types/aws-lambda@npm:8.10.150"
-  checksum: 10/d837ae0b94fb16c7cfec3711126f0e7fb109fc3e6d14d994d083d2039c4f2bc52a75f256ee31a8010f023ce78ddcf3746ad43d552592a0f56720167f6d3111be
+"@types/aws-lambda@npm:8.10.152":
+  version: 8.10.152
+  resolution: "@types/aws-lambda@npm:8.10.152"
+  checksum: 10/e47b8bf49b476c8723ed75fe04ea3bb3db8ba0809dca36012a66345cade1999a422fb6f24aaabd0bf035831cdfa8430c698732ef385172902b8d2d2a4db9ac29
   languageName: node
   linkType: hard
 
@@ -1366,12 +1366,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:22.16.3":
-  version: 22.16.3
-  resolution: "@types/node@npm:22.16.3"
+"@types/node@npm:22.16.5":
+  version: 22.16.5
+  resolution: "@types/node@npm:22.16.5"
   dependencies:
     undici-types: "npm:~6.21.0"
-  checksum: 10/b71fe7abf242091e2f303b400b27f677c311b03a3125bf5532e06aff8a4cd41944bcc6f70a0666834e4352228607e676bc8082fa38d3739d3e1460a20d5c51d2
+  checksum: 10/ba45b5c9113cbc5edb12960fcfe7e80db2c998af5c1931264240695b27d756570d92462150b95781bd67a03aa82111cc970ab0f4504eb99213edff8bf425354e
   languageName: node
   linkType: hard
 
@@ -2585,14 +2585,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-prettier@npm:10.1.5":
-  version: 10.1.5
-  resolution: "eslint-config-prettier@npm:10.1.5"
+"eslint-config-prettier@npm:10.1.8":
+  version: 10.1.8
+  resolution: "eslint-config-prettier@npm:10.1.8"
   peerDependencies:
     eslint: ">=7.0.0"
   bin:
     eslint-config-prettier: bin/cli.js
-  checksum: 10/bc192e703e595c886c33703ebb9a8381a18179ce2ec14a24f671cb675a96b8ba1b4a862c5763680e1c918131007759afb3c874788c7d61706740147ae77f249a
+  checksum: 10/03f8e6ea1a6a9b8f9eeaf7c8c52a96499ec4b275b9ded33331a6cc738ed1d56de734097dbd0091f136f0e84bc197388bd8ec22a52a4658105883f8c8b7d8921a
   languageName: node
   linkType: hard
 
@@ -3696,20 +3696,20 @@ __metadata:
     "@commitlint/cli": "npm:19.8.1"
     "@commitlint/config-conventional": "npm:19.8.1"
     "@eslint/js": "npm:9.31.0"
-    "@types/aws-lambda": "npm:8.10.150"
+    "@types/aws-lambda": "npm:8.10.152"
     "@types/babel__core": "npm:7.20.5"
     "@types/lodash-es": "npm:4.17.12"
-    "@types/node": "npm:22.16.3"
+    "@types/node": "npm:22.16.5"
     "@vitest/coverage-v8": "npm:2.1.9"
     commitizen: "npm:4.3.1"
     cz-conventional-changelog: "npm:3.3.0"
     eslint: "npm:9.31.0"
-    eslint-config-prettier: "npm:10.1.5"
+    eslint-config-prettier: "npm:10.1.8"
     globals: "npm:15.15.0"
     husky: "npm:9.1.7"
     lint-staged: "npm:16.1.2"
     lodash-es: "npm:4.17.21"
-    pkgroll: "npm:2.14.2"
+    pkgroll: "npm:2.14.3"
     prettier: "npm:3.6.2"
     tsx: "npm:4.20.3"
     typescript: "npm:5.8.3"
@@ -4456,9 +4456,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pkgroll@npm:2.14.2":
-  version: 2.14.2
-  resolution: "pkgroll@npm:2.14.2"
+"pkgroll@npm:2.14.3":
+  version: 2.14.3
+  resolution: "pkgroll@npm:2.14.3"
   dependencies:
     "@rollup/plugin-alias": "npm:^5.1.1"
     "@rollup/plugin-commonjs": "npm:^28.0.5"
@@ -4478,7 +4478,7 @@ __metadata:
       optional: true
   bin:
     pkgroll: dist/cli.mjs
-  checksum: 10/c63016b95efc121bab7ad0e2faf71c755dbc6ee23002e3f43f496c12c4d92ffe2abca7a7c4d86dbb5f1cf9330198a35d4f2499bff2fefd227548b8a4981061b5
+  checksum: 10/3733aa5ddab618115cd9386b288c39e65a20a53ab3319c3addfa34c91fe694114a5b334889b7106137f52335d5ffc71d08bf177deb2a044b452292fa4fb4a31b
   languageName: node
   linkType: hard
 
