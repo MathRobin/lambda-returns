@@ -50,7 +50,7 @@
   "devDependencies": {
     "@babel/core": "7.28.6",
     "@babel/eslint-parser": "7.28.6",
-    "@babel/plugin-syntax-import-assertions": "7.27.1",
+    "@babel/plugin-syntax-import-assertions": "7.28.6",
     "@commitlint/cli": "20.3.1",
     "@commitlint/config-conventional": "20.3.1",
     "@eslint/js": "9.39.2",
@@ -67,10 +67,10 @@
     "lint-staged": "16.2.7",
     "lodash-es": "4.17.22",
     "pkgroll": "2.21.5",
-    "prettier": "3.7.4",
+    "prettier": "3.8.0",
     "tsx": "4.21.0",
     "typescript": "5.9.3",
-    "typescript-eslint": "8.52.0",
+    "typescript-eslint": "8.53.0",
     "vite-tsconfig-paths": "5.1.4",
     "vitest": "2.1.9"
   }
