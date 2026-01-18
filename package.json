@@ -48,15 +48,15 @@
     "@types/aws-lambda": "8.10.159"
   },
   "devDependencies": {
-    "@babel/core": "7.28.5",
-    "@babel/eslint-parser": "7.28.5",
+    "@babel/core": "7.28.6",
+    "@babel/eslint-parser": "7.28.6",
     "@babel/plugin-syntax-import-assertions": "7.27.1",
     "@commitlint/cli": "20.3.1",
     "@commitlint/config-conventional": "20.3.1",
     "@eslint/js": "9.39.2",
     "@types/babel__core": "7.20.5",
     "@types/lodash-es": "4.17.12",
-    "@types/node": "24.10.7",
+    "@types/node": "24.10.9",
     "@vitest/coverage-v8": "2.1.9",
     "commitizen": "4.3.1",
     "cz-conventional-changelog": "3.3.0",
