@@ -45,7 +45,7 @@
     ]
   },
   "dependencies": {
-    "@types/aws-lambda": "8.10.159"
+    "@types/aws-lambda": "8.10.160"
   },
   "devDependencies": {
     "@babel/core": "7.28.6",
@@ -65,12 +65,12 @@
     "globals": "15.15.0",
     "husky": "9.1.7",
     "lint-staged": "16.2.7",
-    "lodash-es": "4.17.22",
+    "lodash-es": "4.17.23",
     "pkgroll": "2.21.5",
-    "prettier": "3.8.0",
+    "prettier": "3.8.1",
     "tsx": "4.21.0",
     "typescript": "5.9.3",
-    "typescript-eslint": "8.53.0",
+    "typescript-eslint": "8.53.1",
     "vite-tsconfig-paths": "5.1.4",
     "vitest": "2.1.9"
   }
