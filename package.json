@@ -48,11 +48,11 @@
     "@types/aws-lambda": "8.10.160"
   },
   "devDependencies": {
-    "@babel/core": "7.28.6",
+    "@babel/core": "7.29.0",
     "@babel/eslint-parser": "7.28.6",
     "@babel/plugin-syntax-import-assertions": "7.28.6",
-    "@commitlint/cli": "20.3.1",
-    "@commitlint/config-conventional": "20.3.1",
+    "@commitlint/cli": "20.4.0",
+    "@commitlint/config-conventional": "20.4.0",
     "@eslint/js": "9.39.2",
     "@types/babel__core": "7.20.5",
     "@types/lodash-es": "4.17.12",
@@ -66,11 +66,11 @@
     "husky": "9.1.7",
     "lint-staged": "16.2.7",
     "lodash-es": "4.17.23",
-    "pkgroll": "2.21.5",
+    "pkgroll": "2.23.0",
     "prettier": "3.8.1",
     "tsx": "4.21.0",
     "typescript": "5.9.3",
-    "typescript-eslint": "8.53.1",
+    "typescript-eslint": "8.54.0",
     "vite-tsconfig-paths": "5.1.4",
     "vitest": "2.1.9"
   }
