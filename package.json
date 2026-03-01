@@ -45,7 +45,7 @@
     ]
   },
   "dependencies": {
-    "@types/aws-lambda": "8.10.160"
+    "@types/aws-lambda": "8.10.161"
   },
   "devDependencies": {
     "@babel/core": "7.29.0",
@@ -70,7 +70,7 @@
     "prettier": "3.8.1",
     "tsx": "4.21.0",
     "typescript": "5.9.3",
-    "typescript-eslint": "8.56.0",
+    "typescript-eslint": "8.56.1",
     "vite-tsconfig-paths": "5.1.4",
     "vitest": "2.1.9"
   }
