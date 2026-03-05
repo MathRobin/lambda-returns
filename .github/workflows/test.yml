@@ -12,7 +12,7 @@ jobs:
         version: [18, 20, 22]
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Set Timezone
         uses: MathRobin/timezone-action@v1.1
         with:
