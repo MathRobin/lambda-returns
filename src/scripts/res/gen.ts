@@ -6,7 +6,7 @@ import { keywords } from '@/src/utils/ts/keywords';
 import * as prettier from 'prettier';
 
 const prettierconfig = prettier.resolveConfig(
-  join(process.cwd(), '.prettierc.json')
+  join(process.cwd(), '.prettierrc.json')
 );
 
 for (const [name, code] of codes) {
