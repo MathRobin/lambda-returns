@@ -1,6 +1,6 @@
 {
   "name": "lambda-returns",
-  "version": "4.7.6",
+  "version": "4.7.7",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -71,7 +71,7 @@
     "tsx": "4.22.4",
     "typescript": "5.9.3",
     "typescript-eslint": "8.61.1",
-    "vite-tsconfig-paths": "5.1.4",
+    "vite-tsconfig-paths": "6.1.1",
     "vitest": "4.1.11"
   }
 }
