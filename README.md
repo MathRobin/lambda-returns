@@ -24,8 +24,7 @@ import {
 } from 'lambda-returns';
 
 export default async ():
-  | OkLambdaResponse
-  | InternalServerErrorLambdaResponse => {
+  OkLambdaResponse | InternalServerErrorLambdaResponse => {
   try {
     return ok({
       // your business result
