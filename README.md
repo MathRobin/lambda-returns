@@ -1,6 +1,5 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![Static Badge](https://img.shields.io/badge/coverage-99.4-brightgreen)
-![Static Badge](https://img.shields.io/badge/release-4.7.10-blue)
 [![test](https://github.com/mathrobin/lambda-returns/actions/workflows/test.yml/badge.svg)](https://github.com/mathrobin/lambda-returns/actions/workflows/test.yml)
 
 # lambda-returns
@@ -9,7 +8,7 @@ Provides shorthand to manage AWS lambda result. And provides test helper methods
 
 Native TS. Typings included. 1 prod dependencies (AWS typings).
 
-Tested with Node.js **20**, **22** and **24**.
+Tested with Node.js **24** and **26**.
 
 ## Usage
 
