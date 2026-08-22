@@ -1,6 +1,6 @@
 {
   "name": "lambda-returns",
-  "version": "4.7.8",
+  "version": "4.7.9",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
